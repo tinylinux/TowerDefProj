@@ -11,7 +11,7 @@ Projet Programmation 2 : Tower Defense
 ### Partie I
 
 Consignes
-* [partie1.pdf](https://raw.githubusercontent.com/tinylinux/TowerDefProj/master/partie1.pdf)
+* [partie1.pdf](https://github.com/tinylinux/TowerDefProj/blob/master/partie1.pdf)
 
 Dates de rendu
 * Code : mardi 25 février (23h59)
