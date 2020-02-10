@@ -2,16 +2,16 @@
 
 Projet Programmation 2 : Tower Defense
 
-LALI Rida, LE BIHAN Raphaël
-
-Le projet est programmé avec Scala, l'objectif est de réaliser un jeu de Tower Defense.
+* Développement : Rida LALI, Raphaël LE BIHAN
+* Le projet est programmé avec Scala, l'objectif est de réaliser un jeu de Tower Defense.
+* Consignes : [page du projet prog 2 19/20](http://www.lsv.fr/~schwoon/enseignement/projet-prog2/2020/index.html)
 
 ## Consignes et rendu
 
 ### Partie I
 
 Consignes
-* METTRE LE PDF
+* [partie1.pdf](https://raw.githubusercontent.com/tinylinux/TowerDefProj/master/partie1.pdf)
 
 Dates de rendu
 * Code : mardi 25 février (23h59)
