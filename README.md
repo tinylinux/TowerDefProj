@@ -39,10 +39,10 @@ Un chemin commence à une extrémité de cette carte et mène à une tour à dé
 située à l'autre extrémité de la carte.
 L'objectif du joueur est de défendre la tour principale d'une invasion ennemie.
 
-Une partie se déroule en une succession de rounds, durant lesquels le joueur place des tours sur le quadrillage
+Une partie se déroule en une **succession de rounds**, durant lesquels le joueur place des tours sur le quadrillage
 formé par la carte, afin d'empêcher la progression des ennemis sur le chemin vers la tour.
 
-Chaque round se déroule en deux phases :
+Chaque round se déroule en **deux phases** :
 * Une phase de placement, où le joueur dispose un nombre limité de tours sur la carte.
 * Une phase d'attaque, où des ennemis tentent d'envahir la tour principale par le chemin.
 
@@ -51,10 +51,8 @@ La tour peut alors avoir différents effets, comme infliger des dégâts ou rale
 
 ### Idées pour le jeu (on verra ce qu'on fait dans tout ça)
 
-* Le joueur dispose d'un budget, avec lequel il peut acheter des tours lors des phases de placement afin de les placer
-sur la carte.
-Il gagne de l'argent lors des phases d'attaque, lorsque les tours tuent des ennemis. On pourra imaginer qu'il gagne
-de l'argent supplémentaire lorsqu'il réussit des objectifs particuliers.
+* Le joueur dispose d'un budget, avec lequel il peut acheter des tours lors des phases de placement afin de les placer sur la carte.
+Il gagne de l'argent lors des phases d'attaque, lorsque les tours tuent des ennemis. On pourra imaginer qu'il gagne de l'argent supplémentaire lorsqu'il réussit des objectifs particuliers.
 * Mettre deux (ou plus) types de tours + ennemis (par exemple bleu et rouge).
 Une tour ne peut tirer que sur un ennemi de sa couleur, tirer sur un ennemi de la couleur opposée n'a aucun effet.
 * Le jeu se déroule en N rounds de préparation, puis 1 round de mission.
@@ -104,8 +102,8 @@ Le temps a un impact sur les déplacements des ennemis, les attaques des tours, 
 
 ## Bestiaire
 
-(osef)
+À voir
 
 ## Interface graphique
 
-jsp
+À voir
