@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>121</x>
-      <y>308</y>
+      <x>473</x>
+      <y>396</y>
       <w>209</w>
       <h>209</h>
     </coordinates>
@@ -22,8 +22,8 @@ sprite : ?
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>968</x>
-      <y>297</y>
+      <x>1320</x>
+      <y>385</y>
       <w>209</w>
       <h>330</h>
     </coordinates>
@@ -41,24 +41,28 @@ tick()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>561</x>
-      <y>319</y>
-      <w>220</w>
-      <h>330</h>
+      <x>913</x>
+      <y>429</y>
+      <w>363</w>
+      <h>297</h>
     </coordinates>
     <panel_attributes>Carte
 --
 ennemis : Ennemi list
 tours : Tour list
 
+max_x : int (largeur)
+max_y : int (hauteur)
+
+cases : Case 
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>924</x>
-      <y>143</y>
+      <x>1276</x>
+      <y>231</y>
       <w>154</w>
       <h>77</h>
     </coordinates>
@@ -70,19 +74,19 @@ tick() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>638</x>
-      <y>209</y>
-      <w>374</w>
-      <h>132</h>
+      <x>1177</x>
+      <y>297</y>
+      <w>187</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>320.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>150.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>319</x>
-      <y>209</y>
+      <x>671</x>
+      <y>297</y>
       <w>627</w>
       <h>132</h>
     </coordinates>
@@ -92,8 +96,8 @@ tick() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1023</x>
-      <y>209</y>
+      <x>1375</x>
+      <y>297</y>
       <w>66</w>
       <h>110</h>
     </coordinates>
@@ -103,34 +107,37 @@ tick() : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>572</y>
-      <w>165</w>
-      <h>110</h>
+      <x>605</x>
+      <y>660</y>
+      <w>198</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>TourPrincipale
 --
 
 --
-</panel_attributes>
+
+tick()
+(ne fait rien :/,
+ou attaque (à définir))</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>286</x>
-      <y>506</y>
-      <w>110</w>
+      <x>660</x>
+      <y>594</y>
+      <w>77</w>
       <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>572</x>
-      <y>33</y>
+      <x>924</x>
+      <y>121</y>
       <w>253</w>
       <h>187</h>
     </coordinates>
@@ -150,8 +157,8 @@ recus)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>814</x>
-      <y>187</y>
+      <x>1166</x>
+      <y>275</y>
       <w>176</w>
       <h>143</h>
     </coordinates>
@@ -161,8 +168,8 @@ recus)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>308</x>
-      <y>187</y>
+      <x>660</x>
+      <y>275</y>
       <w>286</w>
       <h>143</h>
     </coordinates>
@@ -172,8 +179,8 @@ recus)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>143</x>
-      <y>44</y>
+      <x>495</x>
+      <y>132</y>
       <w>220</w>
       <h>198</h>
     </coordinates>
@@ -192,8 +199,8 @@ false sinon)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>231</x>
-      <y>231</y>
+      <x>583</x>
+      <y>319</y>
       <w>33</w>
       <h>99</h>
     </coordinates>
@@ -203,12 +210,92 @@ false sinon)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>352</x>
-      <y>198</y>
+      <x>704</x>
+      <y>286</y>
       <w>638</w>
       <h>143</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;560.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>132</x>
+      <y>418</y>
+      <w>275</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>/_Case_/
+--
+
+_accesEnnemi() : boolean_
+(true si la position est accessible
+à un ennemi, false sinon)
+
+_accesTour() : boolean_
+(idem pour une tour)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>297</x>
+      <y>715</y>
+      <w>198</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Mur
+--
+accesEnnemi() = false
+accesTour() = true</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>55</x>
+      <y>715</y>
+      <w>198</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Sol
+--
+accesEnnemi() = true
+accesTour() = false</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>165</x>
+      <y>594</y>
+      <w>66</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>341</x>
+      <y>594</y>
+      <w>77</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>363</x>
+      <y>286</y>
+      <w>154</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;120.0</additional_attributes>
   </element>
 </diagram>
