@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>473</x>
-      <y>396</y>
+      <x>451</x>
+      <y>418</y>
       <w>209</w>
       <h>209</h>
     </coordinates>
@@ -14,6 +14,8 @@
 pos : (int*int) option
 
 sprite : ?
+
+portee : int
 --
 
 </panel_attributes>
@@ -22,8 +24,8 @@ sprite : ?
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1320</x>
-      <y>385</y>
+      <x>1298</x>
+      <y>396</y>
       <w>209</w>
       <h>330</h>
     </coordinates>
@@ -41,8 +43,8 @@ tick()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>913</x>
-      <y>429</y>
+      <x>891</x>
+      <y>451</y>
       <w>363</w>
       <h>297</h>
     </coordinates>
@@ -55,60 +57,63 @@ max_x : int (largeur)
 max_y : int (hauteur)
 
 cases : Case 
---</panel_attributes>
+--
+
+tick()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1276</x>
-      <y>231</y>
+      <x>1375</x>
+      <y>187</y>
       <w>154</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>/_Tickable_/
 --
+periode : int
 tick() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1177</x>
-      <y>297</y>
-      <w>187</w>
-      <h>154</h>
+      <x>1155</x>
+      <y>253</y>
+      <w>308</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>150.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>260.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>671</x>
-      <y>297</y>
-      <w>627</w>
-      <h>132</h>
+      <x>649</x>
+      <y>253</y>
+      <w>748</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>550.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>660.0;10.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1375</x>
-      <y>297</y>
-      <w>66</w>
-      <h>110</h>
+      <x>1386</x>
+      <y>253</y>
+      <w>121</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;80.0</additional_attributes>
+    <additional_attributes>90.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>660</y>
+      <x>583</x>
+      <y>682</y>
       <w>198</w>
       <h>143</h>
     </coordinates>
@@ -125,8 +130,8 @@ ou attaque (à définir))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>594</y>
+      <x>638</x>
+      <y>616</y>
       <w>77</w>
       <h>88</h>
     </coordinates>
@@ -136,8 +141,8 @@ ou attaque (à définir))</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>924</x>
-      <y>121</y>
+      <x>1056</x>
+      <y>66</y>
       <w>253</w>
       <h>187</h>
     </coordinates>
@@ -157,30 +162,30 @@ recus)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1166</x>
-      <y>275</y>
-      <w>176</w>
-      <h>143</h>
+      <x>1265</x>
+      <y>242</y>
+      <w>110</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>275</y>
-      <w>286</w>
-      <h>143</h>
+      <x>638</x>
+      <y>220</y>
+      <w>440</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>240.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>380.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>495</x>
-      <y>132</y>
+      <x>473</x>
+      <y>154</y>
       <w>220</w>
       <h>198</h>
     </coordinates>
@@ -199,8 +204,8 @@ false sinon)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>583</x>
-      <y>319</y>
+      <x>561</x>
+      <y>341</y>
       <w>33</w>
       <h>99</h>
     </coordinates>
@@ -210,19 +215,19 @@ false sinon)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>286</y>
+      <x>682</x>
+      <y>308</y>
       <w>638</w>
-      <h>143</h>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;560.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;560.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>132</x>
-      <y>418</y>
+      <x>110</x>
+      <y>440</y>
       <w>275</w>
       <h>187</h>
     </coordinates>
@@ -240,8 +245,8 @@ _accesTour() : boolean_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>297</x>
-      <y>715</y>
+      <x>275</x>
+      <y>737</y>
       <w>198</w>
       <h>77</h>
     </coordinates>
@@ -254,8 +259,8 @@ accesTour() = true</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>55</x>
-      <y>715</y>
+      <x>33</x>
+      <y>737</y>
       <w>198</w>
       <h>77</h>
     </coordinates>
@@ -268,8 +273,8 @@ accesTour() = false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>165</x>
-      <y>594</y>
+      <x>143</x>
+      <y>616</y>
       <w>66</w>
       <h>143</h>
     </coordinates>
@@ -279,8 +284,8 @@ accesTour() = false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>341</x>
-      <y>594</y>
+      <x>319</x>
+      <y>616</y>
       <w>77</w>
       <h>143</h>
     </coordinates>
@@ -290,12 +295,47 @@ accesTour() = false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>363</x>
-      <y>286</y>
+      <x>341</x>
+      <y>308</y>
       <w>154</w>
       <h>154</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>120.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>154</y>
+      <w>154</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>/_HasPrice_/
+--
+price : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>220</y>
+      <w>429</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;370.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>220</y>
+      <w>253</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;180.0</additional_attributes>
   </element>
 </diagram>
