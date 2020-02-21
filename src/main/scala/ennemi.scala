@@ -1,15 +1,18 @@
 
-
 /** PROJET PROG 2
   * ennemi.scala
   */
 
 
-class Ennemi extends HasSprite with Tickable (val carte : Carte) {
+class Ennemi extends Endommageable with HasSprite with Tickable (val carte : Carte) {
   // None ou Some(x,y)
   var pos : Option[(Float,Float)]
 
-  var vitesse : Float = 0.1 // vitesse en distance/tick
+  // vitesse en distance/tick
+  var vitesse : Float = 0.1
+
+  // la carte dans laquelle est situé l'ennemi
+  var carte : Carte
 
 
   // extends Tickable
@@ -23,19 +26,21 @@ class Ennemi extends HasSprite with Tickable (val carte : Carte) {
       val cib = self.carte.guideEnnemi(pos)
 
       // déplacement vers cette position
-      val dist = ((cib._1 - deb._1)^2 + (cib._2 - deb._2)^2)
+      val dist = Carte.distance((deb._1, deb._2), (cib._1, cib._2))
       val dx = vitesse * (cib._1 - deb._1) / dist
       val dy = vitesse * (cib._2 - deb._2) / dist
       pos = Some((deb._1 + dx, deb._2 + dy))
 
       // *************** ATTAQUE ******************
 
-      // A FAIRE !!
+      // A FAIRE !! (osef pour l'instant)
     }
   }
 
 
   // extends HasSprite
   def sprite : Unit = ()
-  def reloadSprite : Boolean = false
+
+  // extends Endommageable
+  // rien à rajouter
 }

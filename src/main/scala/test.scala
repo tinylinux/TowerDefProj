@@ -6,12 +6,48 @@
   */
 
 
-/*
-
-en fait osef on fera ça plus tard
 
 
 class CarteTest extends Carte {
-}
 
- */
+  // définition de la carte
+  /*
+   *   0 1 2 3 4 5 6 7 8 9
+   * 0 X X X X X X X X X X
+   * 1 X S O O O O O O P X
+   * 2 X X X X X X X X X X
+
+   * X : mur
+   * S : spawn
+   * O : ouvert
+   * T : tour principale
+
+   */
+
+  max_x = 9
+  max_y = 2
+
+  cases = Array(
+    Array(Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur),
+    Array(Mur, Sol, Sol, Sol, Sol, Sol, Sol, Sol, Sol, Mur),
+    Array(Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur)
+  )
+
+  // apparition des ennemis
+  spawnEnnemi(new Ennemi())
+  spawnEnnemi(new Ennemi())
+
+  // mise en place d'une tour
+  spawnTour(new Tour())
+
+  override def guideEnnemi(deb : (Float,Float)) : (Float,Float) = {
+    if (distance(deb,(5.5,5.5)) < 1.0)
+      (7.5,7.5)
+    else
+      (5.5,5.5)
+  }
+
+  override def spawnEnnemiPos() : (Float, Float) = (1.5, 1.5)
+
+
+}
