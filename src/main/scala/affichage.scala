@@ -10,3 +10,10 @@ trait HasSprite {
   // à modifier, une fois que le type d'une image sera défini
 
 }
+
+
+
+
+
+
+
