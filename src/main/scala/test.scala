@@ -27,27 +27,29 @@ class CarteTest extends Carte {
   max_x = 9
   max_y = 2
 
+
   cases = Array(
-    Array(Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur),
-    Array(Mur, Sol, Sol, Sol, Sol, Sol, Sol, Sol, Sol, Mur),
-    Array(Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur, Mur)
+    Array(Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur()),
+    Array(Mur(), Sol(), Sol(), Sol(), Sol(), Sol(), Sol(), Sol(), Sol(), Mur()),
+    Array(Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur())
   )
 
+
   // apparition des ennemis
-  spawnEnnemi(new Ennemi())
-  spawnEnnemi(new Ennemi())
+  spawnEnnemi(new Ennemi(this, 5))
+  spawnEnnemi(new Ennemi(this, 7))
 
   // mise en place d'une tour
-  spawnTour(new Tour())
+  spawnTour(new TourPrincipale(this, 10), (0,5))
 
-  override def guideEnnemi(deb : (Float,Float)) : (Float,Float) = {
+  override def guideEnnemi(deb : (Double,Double)) : (Double,Double) = {
     if (distance(deb,(5.5,5.5)) < 1.0)
       (7.5,7.5)
     else
       (5.5,5.5)
   }
 
-  override def spawnEnnemiPos() : (Float, Float) = (1.5, 1.5)
+  override def spawnEnnemiPos() : (Double, Double) = (1.5, 1.5)
 
 
 }

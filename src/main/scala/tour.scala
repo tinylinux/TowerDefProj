@@ -5,9 +5,12 @@
 
 
 
-class Tour extends Endommageable with Tickable with HasSprite {
+class Tour(var carte : Carte, override val pvMax : Int)
+    extends Endommageable(pvMax)
+    with Tickable
+    with HasSprite {
 
-  var pos : Option[(Int,Int)]
+  var pos : Option[(Int,Int)] = None
 
 
   // extends Endommageable
@@ -23,4 +26,5 @@ class Tour extends Endommageable with Tickable with HasSprite {
 
 
 
-class TourPrincipale extends Tour
+class TourPrincipale(var map : Carte, override val pvMax : Int)
+    extends Tour(map, pvMax)

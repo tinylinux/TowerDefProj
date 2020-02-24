@@ -9,10 +9,10 @@ import scala.math.sqrt
 class Carte extends Tickable {
 
   /* Liste des ennemis présents sur la carte */
-  var ennemis : List[Ennemi] = Nil
+  var ennemis : List[Ennemi] = List()
 
   /* Liste des tours présentes sur la carte */
-  var tours : List[Tours] = Nil
+  var tours : List[Tour] = List()
 
   /* Dimensions de la carte */
   /* La carte est un rectangle,
@@ -20,23 +20,23 @@ class Carte extends Tickable {
    * y désigne les ordonnées et croit vers le haut de l'écran
    * x et y vont de 0 (inclu) à max_x et max_y (inclus)
    */
-  var max_x : Int
-  var max_y : Int
+  var max_x : Int = 0
+  var max_y : Int = 0
 
   /* Liste des cases qui composent la carte */
   /* Chaque Array[Case] désigne une ligne de la carte (c'est-à-dire pour
    * une valeur de y constante), cases est donc un tableau contenant chaque
    * ligne.
    */
-  var cases : Array[Array[Case]]
+  var cases : Array[Array[Case]] = Array()
 
 
 
   // extends Tickable
   def tick() : Unit = {
     // SUPPRESSION DES ENNEMIS ET TOURS MORTES
-    ennemis = Endommageable.supprimerMorts(ennemis)
-    tours = Endommageable.supprimerMorts(tours)
+    ennemis = (new Endommageable(1)).supprimerMorts(ennemis)
+    tours = (new Endommageable(1)).supprimerMorts(tours)
 
     // action des tours et ennemis
     for (e <- ennemis)
@@ -48,36 +48,39 @@ class Carte extends Tickable {
   /** Renvoie la position vers laquelle devrait se diriger un ennemi situé à
     * la position deb pour atteindre la tour principale
     */
-  def guideEnnemi(deb : (Float,Float)) : (Float,Float)
+  def guideEnnemi(deb : (Double,Double)) : (Double,Double) = (0.0, 0.0)
 
   /** Renvoie la distance entre a et b */
-  def distance(a : (Float * Float), b : (Float, Float)) : Float =
-    sqrt((a._1 - b._1)^2 + (a._2 - b._2)^2)
+  def distance(a : (Double, Double), b : (Double, Double)) : Double = {
+    val dx = a._1 - b._1
+    val dy = a._2 - b._2
+    sqrt(dx*dx + dy*dy)
+  }
 
   /** Fait apparaître un ennemi sur la carte */
   def spawnEnnemi(e : Ennemi) : Unit = {
     // la carte connaît l'ennemi
-    ennemis.appended(e)
+    ennemis = e :: ennemis
 
     // l'ennemi connaît la carte
-    e.carte = self
+    e.carte = this
 
     // positionnement de l'ennemi sur la carte
-    e.pos = spawnEnnemiPos()
+    e.pos = Some(spawnEnnemiPos())
   }
 
   /** Renvoie une position d'apparition pour un nouvel ennemi */
-  def spawnEnnemiPos() : (Float, Float)
+  def spawnEnnemiPos() : (Double, Double) = (0.0, 0.0)
 
-  def spawnTour(t : Tour, p : (Float, Float)) : Unit = {
+  def spawnTour(t : Tour, p : (Int, Int)) : Unit = {
     // la carte connaît la tour
-    ennemis.appended(e)
+    tours = t :: tours
 
     // la tour connaît la carte
-    e.carte = self
+    t.carte = this
 
     // positionnement de la tour sur la carte
-    e.pos = p
+    t.pos = Some(p)
   }
 }
 
@@ -91,12 +94,12 @@ class Case {
 }
 
 
-case class Sol extends Case {
+case class Sol() extends Case {
   override def accesEnnemi() : Boolean = true
   override def accesTour() : Boolean = false
 }
 
-case class Mur extends Case {
+case class Mur() extends Case {
   override def accesEnnemi() : Boolean = false
   override def accesTour() : Boolean = true
 }
