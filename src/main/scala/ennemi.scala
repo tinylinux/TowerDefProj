@@ -4,9 +4,8 @@
   * ennemi.scala
   */
 
-
+/*
 class Ennemi {
   var pos : Option[(Float,Float)]
-
-  
 }
+*/

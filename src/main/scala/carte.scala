@@ -1,7 +1,18 @@
 
 /** PROJET PROG 2
   * carte.scala
-  */
+
+
+  class Ennemi {
+    var pos : Option[(Float,Float)]
+  }
+
+
+  class Tour {
+
+    var pos : Option[(Int,Int)]
+
+  }
 
 
 class Carte {
@@ -13,6 +24,6 @@ class Carte {
   var max_x : Int
   var max_y : Int
 
-  var cases : Array[Array[Case]]
+  // var cases : Array[Array[Case]]
 
-}
+}*/
