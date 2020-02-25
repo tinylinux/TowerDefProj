@@ -4,6 +4,7 @@
   */
 
 import scala.math.sqrt
+import java.awt.image.BufferedImage
 
 
 class Carte extends Tickable {
@@ -16,12 +17,12 @@ class Carte extends Tickable {
 
   /* Dimensions de la carte */
   /* La carte est un rectangle,
-   * x désigne les abscisses et croit vers la gauche de l'écran
-   * y désigne les ordonnées et croit vers le haut de l'écran
+   * x désigne les abscisses et croit vers la droite de l'écran
+   * y désigne les ordonnées et croit vers le bas de l'écran
    * x et y vont de 0 (inclu) à max_x et max_y (inclus)
    */
-  var max_x : Int = 0
-  var max_y : Int = 0
+  var maxX : Int = 0
+  var maxY : Int = 0
 
   /* Liste des cases qui composent la carte */
   /* Chaque Array[Case] désigne une ligne de la carte (c'est-à-dire pour
@@ -85,23 +86,27 @@ class Carte extends Tickable {
 }
 
 
-class Case {
+abstract class Case {
   def accesEnnemi() : Boolean = true
   def accesTour() : Boolean = true
 
   // extends HasSprite
-  def sprite : Unit = ()
+  def sprite : BufferedImage
 }
 
 
 case class Sol() extends Case {
   override def accesEnnemi() : Boolean = true
   override def accesTour() : Boolean = false
+
+  override def sprite: BufferedImage = (new GrilleDeJeu(null))chargerImage("monstre.png")
 }
 
 case class Mur() extends Case {
   override def accesEnnemi() : Boolean = false
   override def accesTour() : Boolean = true
+
+  override def sprite: BufferedImage = (new GrilleDeJeu(null)).chargerImage("tour.jpg")
 }
 
 
