@@ -24,8 +24,8 @@ class CarteTest extends Carte {
 
    */
 
-  max_x = 9
-  max_y = 2
+  maxX = 9
+  maxY = 2
 
 
   cases = Array(
@@ -40,7 +40,7 @@ class CarteTest extends Carte {
   spawnEnnemi(new Ennemi(this, 7))
 
   // mise en place d'une tour
-  spawnTour(new TourPrincipale(this, 10), (0,5))
+  spawnTour(new TourPrincipale(this, 10), (5,2))
 
   override def guideEnnemi(deb : (Double,Double)) : (Double,Double) = {
     if (distance(deb,(5.5,5.5)) < 1.0)

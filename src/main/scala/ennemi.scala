@@ -4,6 +4,9 @@
   */
 
 
+import java.awt.image.BufferedImage
+
+
 class Ennemi(var carte : Carte, override val pvMax : Int)
     extends Endommageable(pvMax)
     with HasSprite
@@ -40,7 +43,8 @@ class Ennemi(var carte : Carte, override val pvMax : Int)
 
 
   // extends HasSprite
-  def sprite : Unit = ()
+  def sprite : BufferedImage =
+    MethodesAffichage.chargerImage("monstre.png")
 
   // extends Endommageable
   // rien à rajouter

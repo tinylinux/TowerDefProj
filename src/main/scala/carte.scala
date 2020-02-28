@@ -99,14 +99,14 @@ case class Sol() extends Case {
   override def accesEnnemi() : Boolean = true
   override def accesTour() : Boolean = false
 
-  override def sprite: BufferedImage = (new GrilleDeJeu(null))chargerImage("monstre.png")
+  override def sprite: BufferedImage = MethodesAffichage.chargerImage("herbe.jpg")
 }
 
 case class Mur() extends Case {
   override def accesEnnemi() : Boolean = false
   override def accesTour() : Boolean = true
 
-  override def sprite: BufferedImage = (new GrilleDeJeu(null)).chargerImage("tour.jpg")
+  override def sprite: BufferedImage = MethodesAffichage.chargerImage("mur.jpg")
 }
 
 

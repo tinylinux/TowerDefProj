@@ -4,6 +4,8 @@
   */
 
 
+import java.awt.image.BufferedImage
+
 
 class Tour(var carte : Carte, override val pvMax : Int)
     extends Endommageable(pvMax)
@@ -20,7 +22,8 @@ class Tour(var carte : Carte, override val pvMax : Int)
   def tick : Unit = () // par défaut une tour ne fait rien..
 
   // extends HasSprite
-  def sprite : Unit = ()
+  def sprite: BufferedImage =
+    MethodesAffichage.chargerImage("tour.jpg")
 
 }
 
