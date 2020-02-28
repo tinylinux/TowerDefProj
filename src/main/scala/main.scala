@@ -28,9 +28,10 @@ abstract class Game extends Reactor
   def reset : Unit
 
   val menu = new Menu("Paramètres")
+  val carte = new CarteTest
 
   def addParams (a:Action) = {
-    menu.contents += new MenuItem(Action(a.title)) {a.apply(); main.newGame()}
+    menu.contents += new MenuItem(Action(a.title) {a.apply(); GameInterface.newGame()})
   }
 
   def defaultParams (a:Action) = {
@@ -49,31 +50,70 @@ abstract class Game extends Reactor
   def winGame = {messages.update("Gagné"); stopGame(true)}
 
   def newGame () : BorderPanel = {
-    // à compléter
+    val terrain = new GrilleDeJeu(carte)
+    val panel = new BorderPanel;
+    panel.layout(terrain) = Center
+    panel.layout(messages) = North
+    generate
+    restart
+    return panel
+  }
+
+  def restart () : Unit =
+    {
+      reset
+    }
+
+  def stopGame (b : Boolean) = {
+    if (b)
+    {
+      Dialog.showMessage(null, "Vous avez gagné!")
+    }
+    else
+    {
+      Dialog.showMessage(null, "Vous avez perdu!")
+    }
   }
 
 }
 
+object TowerDef extends Game {
+  var name = "TowerDef"
+
+  def generate : Unit = {}
+  def reset : Unit = {}
+}
+
 object Welcome extends Game {
   var name = "Bienvenue"
-
   val welcomeMsg = new Label
+  {
+    text = "Vous commencez ?";
+    font = new Font("default", 0, 20);
+    preferredSize = new Dimension(400, 300)
+  }
+
+  def generate : Unit = {}
+  def reset : Unit = {}
+  override def newGame = new BorderPanel {
+    layout(welcomeMsg) = Center
+  }
 }
 
 object GameInterface extends SimpleSwingApplication {
   val games = Array(TowerDef)
-  val pseudo = ""
   var currentGame : Game = Welcome
+  var pseudo = ""
 
   def newGame () : Unit = {top.contents = currentGame.newGame}
   def restartGame () = currentGame.restart
 
-  def pseudoGame () = Unit =
+  def pseudoGame () : Unit =
     {
       val s = Dialog.showInput(null, "Pseudo :", "Pseudonyme du joueur",
               Dialog.Message.Plain, initial = pseudo)
       try {
-        pseudo = s.get.toInt;
+        pseudo = s.get;
         newGame
       } catch {
         case ex: Exception => {}
@@ -96,7 +136,7 @@ object GameInterface extends SimpleSwingApplication {
     contents += new Menu("Jeu")
     {
       contents += new menuItem("Nouveau", newGame)
-      contents += new menuItem("Rejouer", restart)
+      contents += new menuItem("Rejouer", restartGame)
       contents += new menuItem("Quitter", leave)
     }
     contents += new Menu("Paramètres")
