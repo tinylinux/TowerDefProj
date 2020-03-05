@@ -7,7 +7,7 @@
 import java.awt.image.BufferedImage
 
 
-class Tour(var carte : Carte, override val pvMax : Int)
+abstract class Tour(var carte : Carte, override val pvMax : Int)
     extends Endommageable(pvMax)
     with Tickable
     with HasSprite {
@@ -19,7 +19,7 @@ class Tour(var carte : Carte, override val pvMax : Int)
   // rien à ajouter
 
   // extends Tickable
-  def tick : Unit = () // par défaut une tour ne fait rien..
+  def tick: Unit
 
   // extends HasSprite
   def sprite: BufferedImage =
@@ -28,6 +28,23 @@ class Tour(var carte : Carte, override val pvMax : Int)
 }
 
 
+class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
+    extends Tour(map, pvMax) {
+  override def tick: Unit = {
+    // recherche des ennemis à portée
+
+    val aPortee = carte.ennemis.filter(e =>
+      e.pos.isDefined &&
+        Carte.distance(e.pos.get, (this.pos.get._1:Double, this.pos.get._2:Double)) < portee
+    )
+
+    aPortee.foreach(e => e.infligerDegats(1))
+  }
+}
+
+
 
 class TourPrincipale(var map : Carte, override val pvMax : Int)
-    extends Tour(map, pvMax)
+    extends Tour(map, pvMax) {
+  override def tick: Unit = () // la tour principale ne fait rien
+}

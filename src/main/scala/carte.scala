@@ -6,6 +6,16 @@
 import scala.math.sqrt
 import java.awt.image.BufferedImage
 
+object Carte {
+
+  /** Renvoie la distance entre a et b */
+  def distance(a : (Double, Double), b : (Double, Double)) : Double = {
+    val dx = a._1 - b._1
+    val dy = a._2 - b._2
+    sqrt(dx*dx + dy*dy)
+  }
+
+}
 
 class Carte extends Tickable {
 
@@ -51,12 +61,6 @@ class Carte extends Tickable {
     */
   def guideEnnemi(deb : (Double,Double)) : (Double,Double) = (0.0, 0.0)
 
-  /** Renvoie la distance entre a et b */
-  def distance(a : (Double, Double), b : (Double, Double)) : Double = {
-    val dx = a._1 - b._1
-    val dy = a._2 - b._2
-    sqrt(dx*dx + dy*dy)
-  }
 
   /** Fait apparaître un ennemi sur la carte */
   def spawnEnnemi(e : Ennemi) : Unit = {

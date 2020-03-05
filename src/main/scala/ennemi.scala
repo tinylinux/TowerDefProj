@@ -30,7 +30,7 @@ class Ennemi(var carte : Carte, override val pvMax : Int)
       val cib = this.carte.guideEnnemi(deb)
 
       // déplacement vers cette position
-      val dist = carte.distance((deb._1, deb._2), (cib._1, cib._2))
+      val dist = Carte.distance((deb._1, deb._2), (cib._1, cib._2))
       val dx = vitesse * (cib._1 - deb._1) / dist
       val dy = vitesse * (cib._2 - deb._2) / dist
       pos = Some((deb._1 + dx, deb._2 + dy))

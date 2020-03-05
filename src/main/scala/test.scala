@@ -40,16 +40,16 @@ class CarteTest extends Carte {
   spawnEnnemi(new Ennemi(this, 7))
 
   // mise en place d'une tour
-  spawnTour(new TourPrincipale(this, 10), (5,2))
+  spawnTour(new TourAttaque(this, 1, 10), (5,2))
+  spawnTour(new TourPrincipale(this, 10), (8,1))
 
   override def guideEnnemi(deb : (Double,Double)) : (Double,Double) = {
-    if (distance(deb,(5.5,5.5)) < 1.0)
-      (7.5,7.5)
+    if (Carte.distance(deb,(5.5,1.5)) < 1.0)
+      (7.5,1.5)
     else
-      (5.5,5.5)
+      (5.5,1.5)
   }
 
   override def spawnEnnemiPos() : (Double, Double) = (1.5, 1.5)
-
 
 }
