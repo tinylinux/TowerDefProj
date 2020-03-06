@@ -25,7 +25,6 @@ trait HasSprite {
 }
 
 
-
 object MethodesAffichage {
 
   /** Charge l'image à l'emplacement src/main/resources/<name>*/
@@ -37,10 +36,19 @@ object MethodesAffichage {
 }
 
 
-
 object ApplicationJeu extends SimpleSwingApplication {
 
   val carte = new CarteTest
 
   def top = new FenetreDeJeu(carte)
+}
+
+
+class ImageRedimensionnee (str: String, w: Int, h: Int)
+    extends BufferedImage(w, h, BufferedImage.TYPE_INT_RGB) {
+  val graphics = createGraphics()
+
+  graphics.drawImage(
+    MethodesAffichage.chargerImage(str).getScaledInstance(w,h,Image.SCALE_DEFAULT),
+    0,0,null)
 }

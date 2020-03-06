@@ -25,6 +25,27 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
 
   title = "TowerDefProj"
 
+  /* DEFINITION TAILLE DE L'INTERFACE */
+
+  // w : width, h : height
+
+  val wFenetre = 800
+  val hFenetre = 480
+  // au dessus : seulement le canvas !
+  val wMenuGauche = 100
+  val hMenuBas = 100
+  val wZoneVie = 200
+  val hBouton = 30
+
+  def hMenuGauche = hFenetre
+  def wMenuBas = wFenetre-wMenuGauche
+  def hZoneVie = hMenuBas
+  def hZoneMessage = hMenuBas
+  def wZoneMessage = wFenetre-wMenuGauche-wZoneVie
+  def wBouton = wMenuGauche
+  def wGrille = wFenetre-wMenuGauche
+  def hGrille = hFenetre-hMenuBas
+
   /* MISE EN PLACE DE L'INTERFACE */
 
   val grille = new GrilleDeJeu(carte)
@@ -42,10 +63,9 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
     peer.add(boutonTick.peer)
     peer.add(inventaire.peer)
 
-    val hBouton = 30
     var yMax = 0
     def placerBouton(b:Button) = {
-      b.peer.setBounds(0,yMax,100,hBouton)
+      b.peer.setBounds(0,yMax,wBouton,hBouton)
       yMax += hBouton
     }
 
@@ -53,11 +73,11 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
     placerBouton(boutonVendre)
     placerBouton(boutonTick)
 
-    inventaire.peer.setBounds(0,yMax,100,480)
+    inventaire.peer.setBounds(0,yMax,wMenuGauche,hFenetre-yMax)
   }
 
   val zoneMessage = new Label { text = "zone message" }
-  val zoneVie = new Label { text = "zone vie" }
+  val zoneVie = new ZoneVie(carte)
 
   val menuBas = new Panel {
     peer.setLayout(null)
@@ -65,8 +85,8 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
     peer.add(zoneVie.peer)
     peer.add(zoneMessage.peer)
 
-    zoneVie.peer.setBounds(0,0,100,100)
-    zoneMessage.peer.setBounds(100,0,600,100)
+    zoneVie.peer.setBounds(0,0,wZoneVie,hZoneVie)
+    zoneMessage.peer.setBounds(wZoneVie,0,wZoneMessage,hZoneMessage)
   }
 
   val contenuFenetre = new Panel {
@@ -76,15 +96,15 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
     peer.add(grille.peer)
     peer.add(menuBas.peer)
 
-    menuGauche.peer.setBounds(0,0,100,480)
-    grille.peer.setBounds(100,0,700,380)
-    menuBas.peer.setBounds(100,380,700,100)
+    menuGauche.peer.setBounds(0,0,wMenuGauche,hMenuGauche)
+    grille.peer.setBounds(wMenuGauche,0,wGrille,hGrille)
+    menuBas.peer.setBounds(wMenuGauche,hGrille,wMenuBas,hMenuBas)
   }
 
   contents = contenuFenetre
 
   resizable = false
-  size = new Dimension(800,480)
+  size = new Dimension(wFenetre,hFenetre+25)
 
 
 
@@ -103,7 +123,7 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
   reactions += {
     case ButtonClicked(b) if b == boutonTick =>
       carte.tick
-      grille.repaint()
+      repaint()
   }
 
 
@@ -113,8 +133,8 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
   val fps = 60
   val timerAffichage = new Timer(1000/fps, new ActionListener {
     override def actionPerformed(e:java.awt.event.ActionEvent):Unit = {
-      grille.repaint()
-      print(".")
+      repaint()
+print(".")
     }
   } )
 
@@ -125,7 +145,7 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
   val timerTick = new Timer(1000/freqTick, new ActionListener {
     override def actionPerformed(e:java.awt.event.ActionEvent):Unit = {
       carte.tick
-      println("TICK")
+println("TICK")
     }
   } )
 
