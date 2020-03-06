@@ -3,6 +3,11 @@
   * jeu.scala
   */
 
+package jeu
+
+import affichage._
+
+
 
 /* GESTION DU TEMPS */
 

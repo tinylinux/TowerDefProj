@@ -3,6 +3,10 @@
   * ennemi.scala
   */
 
+package jeu
+
+import affichage._
+
 
 import java.awt.image.BufferedImage
 

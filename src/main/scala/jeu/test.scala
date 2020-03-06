@@ -5,6 +5,9 @@
   * de ce que le jeu pourrait être
   */
 
+package jeu
+
+import affichage._
 
 
 

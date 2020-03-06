@@ -1,9 +1,11 @@
 
 /** PROJET PROG 2
-  * affichage.scala
+  * grille.scala
   */
 
+package affichage
 
+import jeu._
 
 import scala.swing.event._
 import scala.swing._
@@ -15,21 +17,6 @@ import java.io._
 import javax.imageio.ImageIO
 import javax.swing.Timer
 import java.awt.event._
-
-
-trait HasSprite {
-  def sprite : BufferedImage
-}
-
-object MethodesAffichage {
-
-  /** Charge l'image à l'emplacement src/main/resources/<name>*/
-  def chargerImage(name: String): BufferedImage = {
-    val fichier = new File("src/main/resources/" + name)
-    ImageIO.read(fichier)
-  }
-
-}
 
 
 /** Panel permettant l'affichage de la grille de jeu */
@@ -134,46 +121,3 @@ class GrilleDeJeu(val carte: Carte)
   }
 
 }
-
-
-
-object FenetreDeJeu extends SimpleSwingApplication {
-
-  val carte = new CarteTest
-
-/*
-  val timer = new Timer {
-    interval = 16
-    run = true
-  }
- */
-
-  def top = new MainFrame {
-    title = "TowerDefProj"
-
-    val grille = new GrilleDeJeu(carte)
-    val bouton = new Button {
-      text = "Tick !"
-    }
-
-    contents = new BoxPanel(Orientation.Vertical) {
-      contents += grille
-      contents += bouton
-    }
-
-    listenTo(bouton)
-
-    reactions += {
-      case ButtonClicked(b) if b == bouton =>
-        carte.tick
-        repaint()
-    }
-
-
-    size = new Dimension(800, 480)
-  }
-}
-
-
-
-

@@ -2,6 +2,9 @@
 /** PROJET PROG 2
   * tour.scala
   */
+package jeu
+
+import affichage._
 
 
 import java.awt.image.BufferedImage

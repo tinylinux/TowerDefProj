@@ -3,6 +3,11 @@
   * carte.scala
   */
 
+package jeu
+
+import affichage._
+
+
 import scala.math.sqrt
 import java.awt.image.BufferedImage
 
