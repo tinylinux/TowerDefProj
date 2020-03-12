@@ -51,8 +51,8 @@ class Carte extends Tickable {
   // extends Tickable
   def tick() : Unit = {
     // SUPPRESSION DES ENNEMIS ET TOURS MORTES
-    ennemis = (new Endommageable(1)).supprimerMorts(ennemis)
-    tours = (new Endommageable(1)).supprimerMorts(tours)
+    ennemis = Endommageable.supprimerMorts(ennemis)
+    tours = Endommageable.supprimerMorts(tours)
 
     // action des tours et ennemis
     for (e <- ennemis)
