@@ -120,10 +120,15 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
 
   // boutons
   listenTo(boutonTick)
+  listenTo(boutonPlacer)
   reactions += {
     case ButtonClicked(b) if b == boutonTick =>
       carte.tick
       repaint()
+
+    case ButtonClicked(b) if b == boutonPlacer =>
+      print("PLACER")
+
   }
 
 

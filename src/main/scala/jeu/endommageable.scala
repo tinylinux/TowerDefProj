@@ -8,17 +8,15 @@ package jeu
 import affichage._
 
 
+object Endommageable {
 
-/* GESTION DU TEMPS */
+  def supprimerMorts[A <: Endommageable](l : List[A]) = l.filter(e => !e.mort)
 
-trait Tickable {
-  def tick() : Unit
 }
 
-
-
-/*
-class Endommageable(val pvMax : Int) {
+class Endommageable(
+  val pvMax: Int,
+) {
   var pv : Int = pvMax
 
   def infligerDegats(d : Int) : Int = {
@@ -30,8 +28,6 @@ class Endommageable(val pvMax : Int) {
     return pv-pvInit
   }
 
-  def supprimerMorts[A <: Endommageable](l : List[A]) = {
-    l.filter(e => e.pv > 0)
-  }
+  def mort: Boolean = (pv == 0)
+
 }
-*/
