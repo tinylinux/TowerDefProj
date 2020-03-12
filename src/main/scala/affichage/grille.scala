@@ -143,7 +143,6 @@ class GrilleDeJeu(val carte: Carte)
   reactions += {
     case MouseClicked(_, p, _, _, _) =>
       val pClic: (Int, Int) = (p.getX().toInt/tailleCase, p.getY().toInt/tailleCase)
-print("CLICK(" + pClic._1.toString() + "," + pClic._2.toString() + ")")
 
       if (caseSelect.isDefined && caseSelect.get._1 == pClic._1 && caseSelect.get._2 == pClic._2) {
         caseSelect = None

@@ -28,6 +28,16 @@ abstract class Tour(var carte : Carte, override val pvMax : Int)
   def sprite: BufferedImage =
     MethodesAffichage.chargerImage("tour.jpg")
 
+  def atPosition(p: (Int,Int)): Boolean =
+    pos.isDefined && pos.get == p
+
+}
+
+
+object TourAttaque extends TourInvent {
+  val resizedSprite = MethodesAffichage.chargerImage("tour_attaque.jpg")
+
+  def creerInstance = new TourAttaque(null, 5, 2.0)
 }
 
 

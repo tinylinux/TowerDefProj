@@ -5,19 +5,23 @@ où je peux développer et essayer ce que j'ai envie !
 
 ## En train d'être fait
 
-* Ajout placement tour
+* Ajout argent des tours
 
 ## À faire
 
 * finir le jeu (partie 1)
 * corriger position : le positionnement sur la carte devient un attribut de
   la classe Endommageable
+* corriger affichage : les images ne doivent pas être rechargées à chaque fois !!
+  (utiliser des val et pas des def)
+* améliorer affichage dans l'inventaire
 
 RAPPEL : ne RIEN ajouter de superflu (exemple : l'argent mdrrr) avant que ce
 ne soit le moment de l'ajouter
 
 ## Fait
 
+* Ajout placement tour
 * Implémenter le diagramme des classes (sans l'argent, ni la fonction
 reload_sprite) -> héritage des traits/classes par les différentes classes
 filles

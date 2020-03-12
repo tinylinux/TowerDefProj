@@ -53,7 +53,7 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
   val boutonTick = new Button { text = "Tick !" }
   val boutonPlacer = new Button { text = "Placer Tour" }
   val boutonVendre = new Button { text = "Vendre Tour" }
-  val inventaire = new InventairePanel
+  val inventaire = new InventairePanel(List(TourAttaque))
 
   val menuGauche = new Panel {
     peer.setLayout(null)
@@ -121,6 +121,8 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
   // boutons
   listenTo(boutonTick)
   listenTo(boutonPlacer)
+  listenTo(boutonVendre)
+
   reactions += {
     case ButtonClicked(b) if b == boutonTick =>
       carte.tick
@@ -128,8 +130,47 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
 
     case ButtonClicked(b) if b == boutonPlacer =>
 print("PLACER")
-      zoneMessage.text = "Veuillez sélectionner une tour à placer."
+      grille.caseSelect match {
+        case None =>
+          zoneMessage.text = "Veuillez sélectionner un emplacement."
 
+        case Some(p) =>
+          if (carte.tours.exists(
+            t => t.pos.isDefined && t.pos.get._1 == p._1 && t.pos.get._2 == p._2)) {
+            zoneMessage.text = "Il y a déjà une tour à cet emplacement !"
+          }
+          else {
+            inventaire.caseSelect match {
+              case None =>
+                zoneMessage.text = "Veuillez sélectionner une tour dans l'inventaire."
+
+              case Some(pi) =>
+                if (inventaire.isEltAt(pi)) {
+                  carte.spawnTour(inventaire.getEltAt(pi).creerInstance, p)
+                  zoneMessage.text = "Nouvelle tour ajoutée !"
+                }
+                else {
+                  zoneMessage.text = "La case de l'inventaire est vide !"
+                }
+            }
+          }
+      }
+
+    case ButtonClicked(b) if b == boutonVendre =>
+print("VENDRE")
+      grille.caseSelect match {
+        case None =>
+          zoneMessage.text = "Veuillez sélectionner un emplacement."
+
+        case Some(p) =>
+          if (!carte.tours.exists(t => t.atPosition(p))) {
+            zoneMessage.text = "Il n'y a pas de une tour à cet emplacement !"
+          }
+          else {
+            carte.despawnTour(p)
+            zoneMessage.text = "Tour vendue !"
+          }
+      }
   }
 
 

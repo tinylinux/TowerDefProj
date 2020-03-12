@@ -92,6 +92,9 @@ class Carte extends Tickable {
     // positionnement de la tour sur la carte
     t.pos = Some(p)
   }
+
+  def despawnTour(p: (Int,Int)): Unit =
+    tours = tours.filter(t => !t.atPosition(p))
 }
 
 
