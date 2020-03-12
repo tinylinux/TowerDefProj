@@ -76,7 +76,7 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
     inventaire.peer.setBounds(0,yMax,wMenuGauche,hFenetre-yMax)
   }
 
-  val zoneMessage = new Label { text = "zone message" }
+  val zoneMessage = new ZoneMessage
   val zoneVie = new ZoneVie(carte)
 
   val menuBas = new Panel {
@@ -127,7 +127,8 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
       repaint()
 
     case ButtonClicked(b) if b == boutonPlacer =>
-      print("PLACER")
+print("PLACER")
+      zoneMessage.text = "Veuillez sélectionner une tour à placer."
 
   }
 

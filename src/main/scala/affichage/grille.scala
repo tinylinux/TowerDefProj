@@ -17,6 +17,7 @@ import java.io._
 import javax.imageio.ImageIO
 import javax.swing.Timer
 import java.awt.event._
+import java.awt.BasicStroke
 
 
 /** Panel permettant l'affichage de la grille de jeu */
@@ -29,6 +30,9 @@ class GrilleDeJeu(val carte: Carte)
 
   // taille d'une case (en pixels) lors de l'affichage du fond
   val tailleCase = 64
+
+  // case sélectionnée par l'utilisateur
+  var caseSelect: Option[(Int, Int)] = None
 
   class ImageFond extends BufferedImage (
     tailleCase*nbX, // width
@@ -111,6 +115,16 @@ class GrilleDeJeu(val carte: Carte)
             null)
       } )
 
+    // dessine la case sélectionnée
+    if (caseSelect.isDefined) {
+      val p = caseSelect.get
+
+      g.setColor(Color.green)
+      g.setStroke(new BasicStroke(6f))
+
+      g.draw(new Rectangle(p._1*tailleCase, p._2*tailleCase, tailleCase, tailleCase))
+    }
+
   }
 
 
@@ -119,5 +133,26 @@ class GrilleDeJeu(val carte: Carte)
     imageFond = new ImageFond
     imageFond
   }
+
+
+
+  /*********** GESTION DES EVENEMENTS ***********/
+
+  listenTo(mouse.clicks)
+
+  reactions += {
+    case MouseClicked(_, p, _, _, _) =>
+      val pClic: (Int, Int) = (p.getX().toInt/tailleCase, p.getY().toInt/tailleCase)
+print("CLICK(" + pClic._1.toString() + "," + pClic._2.toString() + ")")
+
+      if (caseSelect.isDefined && caseSelect.get._1 == pClic._1 && caseSelect.get._2 == pClic._2) {
+        caseSelect = None
+      }
+      else
+      {
+        caseSelect = Some(pClic)
+      }
+  }
+
 
 }
