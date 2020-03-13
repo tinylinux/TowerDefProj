@@ -39,8 +39,22 @@ class CarteTest extends Carte {
 
 
   // apparition des ennemis
-  spawnEnnemi(new Ennemi(this, 5))
-  spawnEnnemi(new Ennemi(this, 7))
+  override var manchesSuivantes = List(
+    new Manche(this) { apparitions = List(
+      (new Ennemi(this.carte, 5),0),
+      (new Ennemi(this.carte, 7),0),
+      (new Ennemi(this.carte, 15), 10),
+      (new Ennemi(this.carte, 12), 16),
+      (new Ennemi(this.carte, 5), 9)
+    ) },
+
+    new Manche(this) { apparitions = List(
+      (new Ennemi(this.carte, 8),0),
+      (new Ennemi(this.carte, 9),3),
+      (new Ennemi(this.carte, 15),8),
+      (new Ennemi(this.carte, 30),15)
+    ) }
+  )
 
   // mise en place de la tourPrincipale
   override val tourPrincipale = new TourPrincipale(this, 10)

@@ -15,10 +15,9 @@ abstract class Tour(var carte : Carte, override val pvMax : Int)
     with Tickable
     with HasSprite {
 
-  val prix: Int
-
   var pos : Option[(Int,Int)] = None
 
+  val typeTour: TourInvent
 
   // extends Endommageable
   // rien à ajouter
@@ -38,16 +37,16 @@ abstract class Tour(var carte : Carte, override val pvMax : Int)
 
 object TourAttaque extends TourInvent {
   val resizedSprite = MethodesAffichage.chargerImage("tour_attaque.jpg")
+  override def creerInstance = new TourAttaque(null, 5, 2.0)
 
-  def creerInstance = new TourAttaque(null, 5, 2.0)
+  override def prix = 10
 }
 
 
 class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
     extends Tour(map, pvMax) {
 
-  override val prix = 50
-
+  override val typeTour = TourAttaque
 
   override def tick: Unit = {
     // recherche des ennemis à portée
@@ -62,10 +61,17 @@ class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
 }
 
 
+object TourPrincipale extends TourInvent {
+  val resizedSprite = MethodesAffichage.chargerImage("tour_attaque.jpg")
+  override def creerInstance = new TourAttaque(null, 5, 2.0)
+
+  override def prix = 0
+}
+
 
 class TourPrincipale(var map : Carte, override val pvMax : Int)
     extends Tour(map, pvMax) {
-  override val prix = 0
+  override val typeTour = TourPrincipale
 
   override val img = MethodesAffichage.chargerImage("tour_principale.jpg")
   override def sprite = img

@@ -27,6 +27,25 @@ abstract class Carte extends Tickable {
   /* Argent possédé par le joueur */
   var argent: Int = 0
 
+  /* Manche en cours de jeu, gérant l'apparition des ennemis */
+  var manche: Manche = null
+
+  def chargerManche: Boolean = {
+    manchesSuivantes match {
+      case m :: lm2 =>
+        manche = m
+        manchesSuivantes = lm2
+        manche.init
+        true
+      case Nil =>
+        manche = null
+        false
+    }
+  }
+
+  /* Manches suivantes */
+  var manchesSuivantes: List[Manche]
+
   /* Tour à défendre par la joueur */
   val tourPrincipale: TourPrincipale
 
@@ -56,6 +75,9 @@ abstract class Carte extends Tickable {
 
   // extends Tickable
   def tick() : Unit = {
+    // apparition des nouveaux ennemis
+    manche.tick
+
     // action des tours et ennemis
     for (e <- ennemis)
       e.tick()
@@ -78,6 +100,7 @@ abstract class Carte extends Tickable {
 
   /** Fait apparaître un ennemi sur la carte */
   def spawnEnnemi(e : Ennemi) : Unit = {
+print("SPAWN")
     // la carte connaît l'ennemi
     ennemis = e :: ennemis
 

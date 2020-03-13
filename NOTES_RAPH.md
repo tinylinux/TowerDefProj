@@ -5,13 +5,11 @@ où je peux développer et essayer ce que j'ai envie !
 
 ## En train d'être fait
 
-* Ajout argent des tours
+* Attaque monstres vers tour principale
 
 ## À faire
 
 * finir le jeu (partie 1)
-* ajouter argent monstres
-* affichage vie de la tour principale
 * corriger position : le positionnement sur la carte devient un attribut de
   la classe Endommageable
 * corriger affichage : les images ne doivent pas être rechargées à chaque fois !!
@@ -23,6 +21,9 @@ ne soit le moment de l'ajouter
 
 ## Fait
 
+* Affichage vie de la tour principale
+* Définir un système de manches
+* Gestion argent
 * Ajout placement tour
 * Implémenter le diagramme des classes (sans l'argent, ni la fonction
 reload_sprite) -> héritage des traits/classes par les différentes classes

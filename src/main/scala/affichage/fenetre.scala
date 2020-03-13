@@ -25,6 +25,10 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
 
   title = "TowerDefProj"
 
+  /* COMPORTEMENT */
+
+  var mancheEnCours = false
+
   /* DEFINITION TAILLE DE L'INTERFACE */
 
   // w : width, h : height
@@ -50,17 +54,21 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
 
   val grille = new GrilleDeJeu(carte)
 
-  val boutonTick = new Button { text = "Tick !" }
-  val boutonPlacer = new Button { text = "Placer Tour" }
-  val boutonVendre = new Button { text = "Vendre Tour" }
+  val boutonPlacer = new Button { text = "Placer" } // placer une tour
+  val boutonVendre = new Button { text = "Vendre" } // vendre une tour
+  val boutonStart = new Button { text = "Démarrer" } // commencer la manche suivante
+
+  val boutons = List(
+    boutonPlacer,
+    boutonVendre,
+    boutonStart
+  )
   val inventaire = new InventairePanel(List(TourAttaque))
 
   val menuGauche = new Panel {
     peer.setLayout(null)
 
-    peer.add(boutonPlacer.peer)
-    peer.add(boutonVendre.peer)
-    peer.add(boutonTick.peer)
+    boutons.foreach(b => peer.add(b.peer))
     peer.add(inventaire.peer)
 
     var yMax = 0
@@ -69,9 +77,7 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
       yMax += hBouton
     }
 
-    placerBouton(boutonPlacer)
-    placerBouton(boutonVendre)
-    placerBouton(boutonTick)
+    boutons.foreach(b => placerBouton(b))
 
     inventaire.peer.setBounds(0,yMax,wMenuGauche,hFenetre-yMax)
   }
@@ -119,14 +125,21 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
   /************* GESTION DES ÉVÈNEMENTS *************/
 
   // boutons
-  listenTo(boutonTick)
-  listenTo(boutonPlacer)
-  listenTo(boutonVendre)
+  boutons.foreach(b => listenTo(b))
 
   reactions += {
-    case ButtonClicked(b) if b == boutonTick =>
-      carte.tick
-      repaint()
+    case ButtonClicked(b) if b == boutonStart =>
+      if (mancheEnCours) {
+        zoneMessage.text = "Une manche est en cours !"
+      }
+      else if (carte.chargerManche) {
+        mancheEnCours = true
+        zoneMessage.text = "Manche suivante démarrée !"
+        timerTick.start
+      }
+      else {
+        zoneMessage.text = "Dernière manche terminée !"
+      }
 
     case ButtonClicked(b) if b == boutonPlacer =>
 print("PLACER")
@@ -146,8 +159,15 @@ print("PLACER")
 
               case Some(pi) =>
                 if (inventaire.isEltAt(pi)) {
-                  carte.spawnTour(inventaire.getEltAt(pi).creerInstance, p)
-                  zoneMessage.text = "Nouvelle tour ajoutée !"
+                  val elt = inventaire.getEltAt(pi)
+                  if (elt.prix <= carte.argent) {
+                    carte.argent -= elt.prix
+                    carte.spawnTour(inventaire.getEltAt(pi).creerInstance, p)
+                    zoneMessage.text = "Nouvelle tour ajoutée !"
+                  }
+                  else {
+                    zoneMessage.text = "Pas assez d'argent !"
+                  }
                 }
                 else {
                   zoneMessage.text = "La case de l'inventaire est vide !"
@@ -167,6 +187,7 @@ print("VENDRE")
             zoneMessage.text = "Il n'y a pas de une tour à cet emplacement !"
           }
           else {
+            carte.argent += carte.tours.find(t => t.atPosition(p)).get.typeTour.prix
             carte.despawnTour(p)
             zoneMessage.text = "Tour vendue !"
           }
@@ -188,15 +209,21 @@ print(".")
   timerAffichage.start()
 
 
-  var freqTick = 1
-  val timerTick = new Timer(1000/freqTick, new ActionListener {
+  var freqTick = 3
+  val timerTick: Timer = new Timer(1000/freqTick, new ActionListener {
     override def actionPerformed(e:java.awt.event.ActionEvent):Unit = {
       carte.tick
+
+      if (carte.manche.finished) {
+println("FINISHED")
+        mancheEnCours = false
+        timerTick.stop()
+        zoneMessage.text = "Gagné !"
+      }
+
 println("TICK")
     }
   } )
-
-  timerTick.start()
 
 
   /* OPÉRATIONS À EFFECTUER À LA FERMETURE DE LA FENÊTRE */

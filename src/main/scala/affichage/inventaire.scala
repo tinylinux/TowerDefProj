@@ -25,6 +25,8 @@ abstract class TourInvent extends HasSprite {
   val resizedSprite: BufferedImage
   override def sprite = resizedSprite
 
+  def prix: Int
+
   def creerInstance: Tour
 }
 
