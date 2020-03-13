@@ -8,13 +8,12 @@
 package jeu
 
 import affichage._
-
-
+import scala.io.Source
 
 class CarteTest extends Carte {
 
   // définition de la carte
-  /*
+  /**
    *   0 1 2 3 4 5 6 7 8 9
    * 0 X X X X X X X X X X
    * 1 X S O O O O O O P X
@@ -27,19 +26,18 @@ class CarteTest extends Carte {
 
    */
 
-  maxX = 9
-  maxY = 2
+  // On suppose que le fichier est un fichier correct
+  // (éventuellement on pourrait implémenter une fonction qui vérifie que le fichier est correct)
 
+  // mise en place de la tourPrincipale
+  override val tourPrincipale = new TourPrincipale(this, 10)
 
-  cases = Array(
-    Array(Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur()),
-    Array(Mur(), Sol(), Sol(), Sol(), Sol(), Sol(), Sol(), Sol(), Sol(), Mur()),
-    Array(Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur(), Mur())
-  )
-
+  // lecture du fichier
+  val filename = "test.txt"
+  lectureCarteFichier(filename)
 
   // apparition des ennemis
-  override var manchesSuivantes = List(
+  manchesSuivantes = List(
     new Manche(this) { apparitions = List(
       (new Ennemi(this.carte, 5),0),
       (new Ennemi(this.carte, 7),0),
@@ -55,10 +53,6 @@ class CarteTest extends Carte {
       (new Ennemi(this.carte, 30),15)
     ) }
   )
-
-  // mise en place de la tourPrincipale
-  override val tourPrincipale = new TourPrincipale(this, 10)
-  spawnTour(tourPrincipale, (8,1))
 
   // mise en place d'une tour
   spawnTour(new TourAttaque(this, 1, 10), (5,2))

@@ -29,7 +29,7 @@ object MethodesAffichage {
 
   /** Charge l'image à l'emplacement src/main/resources/<name>*/
   def chargerImage(name: String): BufferedImage = {
-    val fichier = new File("src/main/resources/" + name)
+    val fichier = new File("src/main/resources/images/" + name)
     ImageIO.read(fichier)
   }
 

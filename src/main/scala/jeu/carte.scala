@@ -10,6 +10,7 @@ import affichage._
 
 import scala.math.sqrt
 import java.awt.image.BufferedImage
+import scala.io._
 
 object Carte {
 
@@ -20,9 +21,13 @@ object Carte {
     sqrt(dx*dx + dy*dy)
   }
 
+
+  /** Renvoie une nouvelle instance d'une carte lue depuis un fichier */
+  def lectureCarteFichier(filename: String) = new Carte { lectureCarteFichier(filename) }
+
 }
 
-abstract class Carte extends Tickable {
+class Carte extends Tickable {
 
   /* Argent possédé par le joueur */
   var argent: Int = 0
@@ -44,10 +49,10 @@ abstract class Carte extends Tickable {
   }
 
   /* Manches suivantes */
-  var manchesSuivantes: List[Manche]
+  var manchesSuivantes: List[Manche] = List()
 
   /* Tour à défendre par la joueur */
-  val tourPrincipale: TourPrincipale
+  val tourPrincipale: TourPrincipale = null
 
   /* Liste des ennemis présents sur la carte */
   var ennemis : List[Ennemi] = List()
@@ -127,6 +132,42 @@ print("SPAWN")
 
   def despawnTour(p: (Int,Int)): Unit =
     tours = tours.filter(t => !t.atPosition(p))
+
+
+
+  /** Modifie les cases de la carte, en lisant le nouveau modèle de carte dans un fichier */
+  def lectureCarteFichier(filename: String) = {
+    // lecture des lignes du fichier
+    val filelines = Source.fromFile("src/main/resources/maps/" + filename).getLines.toArray
+
+    // On suppose que le fichier est un fichier correct
+    // (éventuellement on pourrait implémenter une fonction qui vérifie que le fichier est correct)
+
+    // dimensions
+    maxX = filelines(0).length - 1
+    maxY = filelines.length - 1
+
+    // cases
+    cases = Array.ofDim[Case](maxY+1, maxX+1)
+    for (l <- filelines.indices) {
+      for (c <- filelines(l).indices) {
+        filelines(l)(c) match {
+          case 'X' =>
+            cases(l)(c) = Mur()
+          case 'O' =>
+            cases(l)(c) = Sol()
+          case 'P' =>
+            cases(l)(c) = Sol()
+            spawnTour(tourPrincipale, (c,l))
+          case 'S' =>
+            cases(l)(c) = Sol()
+            // je ne sais pas quoi en faire
+        }
+      }
+    }
+
+  }
+
 }
 
 
