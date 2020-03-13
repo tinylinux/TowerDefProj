@@ -16,6 +16,8 @@ class Ennemi(var carte : Carte, override val pvMax : Int)
     with HasSprite
     with Tickable {
 
+  // Argent obtenu par le joueur lorsque l'ennemi meurt
+  val recompense: Int = 15
 
   // None ou Some(x,y)
   var pos : Option[(Double,Double)] = None

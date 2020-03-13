@@ -42,9 +42,12 @@ class CarteTest extends Carte {
   spawnEnnemi(new Ennemi(this, 5))
   spawnEnnemi(new Ennemi(this, 7))
 
+  // mise en place de la tourPrincipale
+  override val tourPrincipale = new TourPrincipale(this, 10)
+  spawnTour(tourPrincipale, (8,1))
+
   // mise en place d'une tour
   spawnTour(new TourAttaque(this, 1, 10), (5,2))
-  spawnTour(new TourPrincipale(this, 10), (8,1))
 
   override def guideEnnemi(deb : (Double,Double)) : (Double,Double) = {
     if (Carte.distance(deb,(5.5,1.5)) < 1.0)

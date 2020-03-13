@@ -15,6 +15,8 @@ abstract class Tour(var carte : Carte, override val pvMax : Int)
     with Tickable
     with HasSprite {
 
+  val prix: Int
+
   var pos : Option[(Int,Int)] = None
 
 
@@ -25,8 +27,8 @@ abstract class Tour(var carte : Carte, override val pvMax : Int)
   def tick: Unit
 
   // extends HasSprite
-  def sprite: BufferedImage =
-    MethodesAffichage.chargerImage("tour.jpg")
+  val img = MethodesAffichage.chargerImage("tour.jpg")
+  override def sprite = img
 
   def atPosition(p: (Int,Int)): Boolean =
     pos.isDefined && pos.get == p
@@ -43,6 +45,10 @@ object TourAttaque extends TourInvent {
 
 class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
     extends Tour(map, pvMax) {
+
+  override val prix = 50
+
+
   override def tick: Unit = {
     // recherche des ennemis à portée
 
@@ -59,5 +65,10 @@ class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
 
 class TourPrincipale(var map : Carte, override val pvMax : Int)
     extends Tour(map, pvMax) {
+  override val prix = 0
+
+  override val img = MethodesAffichage.chargerImage("tour_principale.jpg")
+  override def sprite = img
+
   override def tick: Unit = () // la tour principale ne fait rien
 }

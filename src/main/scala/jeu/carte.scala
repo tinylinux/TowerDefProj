@@ -22,7 +22,13 @@ object Carte {
 
 }
 
-class Carte extends Tickable {
+abstract class Carte extends Tickable {
+
+  /* Argent possédé par le joueur */
+  var argent: Int = 0
+
+  /* Tour à défendre par la joueur */
+  val tourPrincipale: TourPrincipale
 
   /* Liste des ennemis présents sur la carte */
   var ennemis : List[Ennemi] = List()
@@ -50,15 +56,18 @@ class Carte extends Tickable {
 
   // extends Tickable
   def tick() : Unit = {
-    // SUPPRESSION DES ENNEMIS ET TOURS MORTES
-    ennemis = Endommageable.supprimerMorts(ennemis)
-    tours = Endommageable.supprimerMorts(tours)
-
     // action des tours et ennemis
     for (e <- ennemis)
       e.tick()
     for (t <- tours)
       t.tick()
+
+    // GAIN D'ARGENT POUR LES ENNEMIS VAINCUS
+    ennemis.filter(e => e.mort).foreach(e => argent += e.recompense)
+
+    // SUPPRESSION DES ENNEMIS ET TOURS MORTES
+    ennemis = Endommageable.supprimerMorts(ennemis)
+    tours = Endommageable.supprimerMorts(tours)
   }
 
   /** Renvoie la position vers laquelle devrait se diriger un ennemi situé à

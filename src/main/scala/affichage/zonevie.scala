@@ -44,9 +44,9 @@ class ZoneVie(val carte: Carte) extends Panel {
     val pv = carte.tourPrincipale.pv.toString
     val pvMax = carte.tourPrincipale.pvMax.toString
  */
-    val pv = "5"
-    val pvMax = "464"
-    val argent = "pas d'argent :/"
+    val pv = carte.tourPrincipale.pv
+    val pvMax = carte.tourPrincipale.pvMax
+    val argent = carte.argent.toString
 
     g.setFont(new Font("Impact", Font.BOLD, 24))
 

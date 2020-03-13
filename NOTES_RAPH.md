@@ -10,13 +10,15 @@ où je peux développer et essayer ce que j'ai envie !
 ## À faire
 
 * finir le jeu (partie 1)
+* ajouter argent monstres
+* affichage vie de la tour principale
 * corriger position : le positionnement sur la carte devient un attribut de
   la classe Endommageable
 * corriger affichage : les images ne doivent pas être rechargées à chaque fois !!
   (utiliser des val et pas des def)
 * améliorer affichage dans l'inventaire
 
-RAPPEL : ne RIEN ajouter de superflu (exemple : l'argent mdrrr) avant que ce
+RAPPEL : ne RIEN ajouter de superflu avant que ce
 ne soit le moment de l'ajouter
 
 ## Fait
