@@ -21,6 +21,7 @@ ne soit le moment de l'ajouter
 
 ## Fait
 
+* Lecture carte depuis fichier
 * Affichage vie de la tour principale
 * Définir un système de manches
 * Gestion argent
