@@ -24,20 +24,20 @@ object Carte {
 
 abstract class Carte extends Tickable {
 
-  /* Argent possédé par le joueur */
+  // Argent possédé par le joueur
   var argent: Int = 0
 
-  /* Tour à défendre par la joueur */
+  // Tour à défendre par la joueur
   val tourPrincipale: TourPrincipale
 
-  /* Liste des ennemis présents sur la carte */
+  // Liste des ennemis présents sur la carte
   var ennemis : List[Ennemi] = List()
 
-  /* Liste des tours présentes sur la carte */
+  // Liste des tours présentes sur la carte
   var tours : List[Tour] = List()
 
-  /* Dimensions de la carte */
-  /* La carte est un rectangle,
+  // Dimensions de la carte */
+  /** La carte est un rectangle,
    * x désigne les abscisses et croit vers la droite de l'écran
    * y désigne les ordonnées et croit vers le bas de l'écran
    * x et y vont de 0 (inclu) à max_x et max_y (inclus)
@@ -45,8 +45,8 @@ abstract class Carte extends Tickable {
   var maxX : Int = 0
   var maxY : Int = 0
 
-  /* Liste des cases qui composent la carte */
-  /* Chaque Array[Case] désigne une ligne de la carte (c'est-à-dire pour
+  // Liste des cases qui composent la carte */
+  /** Chaque Array[Case] désigne une ligne de la carte (c'est-à-dire pour
    * une valeur de y constante), cases est donc un tableau contenant chaque
    * ligne.
    */
@@ -129,5 +129,3 @@ case class Mur() extends Case {
 
   override def sprite: BufferedImage = MethodesAffichage.chargerImage("mur.jpg")
 }
-
-

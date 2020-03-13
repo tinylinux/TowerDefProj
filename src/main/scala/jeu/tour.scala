@@ -16,7 +16,7 @@ abstract class Tour(var carte : Carte, override val pvMax : Int)
     with HasSprite {
 
   val prix: Int
-
+  val vendable: Bool
   var pos : Option[(Int,Int)] = None
 
 
@@ -47,7 +47,6 @@ class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
     extends Tour(map, pvMax) {
 
   override val prix = 50
-
 
   override def tick: Unit = {
     // recherche des ennemis à portée

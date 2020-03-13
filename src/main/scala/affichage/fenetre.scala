@@ -25,7 +25,7 @@ class FenetreDeJeu(val carte: Carte) extends MainFrame {
 
   title = "TowerDefProj"
 
-  /* DEFINITION TAILLE DE L'INTERFACE */
+  /** DEFINITION TAILLE DE L'INTERFACE **/
 
   // w : width, h : height
 
@@ -163,12 +163,11 @@ print("VENDRE")
           zoneMessage.text = "Veuillez sélectionner un emplacement."
 
         case Some(p) =>
-          if (!carte.tours.exists(t => t.atPosition(p))) {
-            zoneMessage.text = "Il n'y a pas de une tour à cet emplacement !"
-          }
-          else {
-            carte.despawnTour(p)
-            zoneMessage.text = "Tour vendue !"
+          carte.tours.find(t => t.atPosition(p)) match {
+            case None => zoneMessage.text = "Il n'y a pas de une tour à cet emplacement !"
+            case Some(t) if t.typeTour == TourPrincipale => zoneMessage.text = "Vous ne pouvez pas vendre la tour principale !"
+            case Some(t) => {carte.despawnTour(p)
+                            zoneMessage.text = "Tour vendue !"}
           }
       }
   }
@@ -199,7 +198,7 @@ println("TICK")
   timerTick.start()
 
 
-  /* OPÉRATIONS À EFFECTUER À LA FERMETURE DE LA FENÊTRE */
+  /** OPÉRATIONS À EFFECTUER À LA FERMETURE DE LA FENÊTRE **/
 
   override def closeOperation() = {
     timerAffichage.stop()

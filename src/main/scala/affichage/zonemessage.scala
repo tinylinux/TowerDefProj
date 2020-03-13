@@ -22,6 +22,6 @@ import java.awt.event.ActionListener
 
 class ZoneMessage extends Label {
 
-  text = "zone message"
+  text = "Bienvenue sur le jeu !"
 
 }
