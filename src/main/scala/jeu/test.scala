@@ -8,7 +8,6 @@
 package jeu
 
 import affichage._
-import scala.io.Source
 
 class CarteTest extends Carte {
 

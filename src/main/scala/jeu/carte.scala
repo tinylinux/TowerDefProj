@@ -10,7 +10,7 @@ import affichage._
 
 import scala.math.sqrt
 import java.awt.image.BufferedImage
-import scala.io._
+import scala.io.Source
 
 object Carte {
 
