@@ -5,16 +5,25 @@ où je peux développer et essayer ce que j'ai envie !
 
 ## En train d'être fait
 
-* Attaque monstres vers tour principale
+* Pathfinding
+
+En particulier :
+
+* Finir le débuggage avant compilation
+* Vérifier qu'on n'a pas inversé x et y (voir carte.scala)
+* Faire interface avec la classe Carte
+* Faire l'affichage du pathfinding
 
 ## À faire
 
+* Attaque monstres vers tour principale
 * finir le jeu (partie 1)
 * corriger position : le positionnement sur la carte devient un attribut de
   la classe Endommageable
 * corriger affichage : les images ne doivent pas être rechargées à chaque fois !!
   (utiliser des val et pas des def)
 * améliorer affichage dans l'inventaire
+* affichage pathfinding
 
 RAPPEL : ne RIEN ajouter de superflu avant que ce
 ne soit le moment de l'ajouter
