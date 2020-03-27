@@ -16,6 +16,7 @@ En particulier :
 
 ## À faire
 
+* Modifier la représentation des cases de la carte (actuellement : cases(y)(x)...)
 * Attaque monstres vers tour principale
 * finir le jeu (partie 1)
 * corriger position : le positionnement sur la carte devient un attribut de

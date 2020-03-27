@@ -30,15 +30,12 @@ object Pathfinding {
       }
     }
 
-// TEST !!!
-println(casesLues(0)(0).toString)
-
     /* Initialisation des cases des prédécesseurs */
     val pred = new Array[Array[(Int, Int)]](maxY)
     for (l <- 0 until pred.length) {
-      pred(l) = new Array[Boolean](maxX)
+      pred(l) = new Array[(Int, Int)](maxX)
       for (e <- 0 until pred(l).length) {
-        pred(l)(e) = false
+        pred(l)(e) = null
       }
     }
 
@@ -47,8 +44,8 @@ println(casesLues(0)(0).toString)
 
     /* Ajout de la première case à explorer */
     file.enqueue(posTP)
-    casesLues(xTP)(yTP) = true
-    pred(xTP)(yTP) = posTP
+    casesLues(yTP)(xTP) = true
+    pred(yTP)(xTP) = posTP
 
     /* Parcours en largeur */
     while (!file.isEmpty) {
@@ -57,18 +54,20 @@ println(casesLues(0)(0).toString)
 
       /* Calcul des positions adjacentes à explorer */
       var posAdj: List[(Int, Int)] = List((+1, 0), (-1, 0), (0, +1), (0, -1))
-      posAdj.foreach((dx, dy) =>
-        (pos + dx, pos + dy) )
-      posAdj = posAdj.filter((x, y) =>
-        0 <= x && x <= maxX && 0 <= y && y <= maxY )
-      posAdj = posAdj.filter((x, y) =>
-        (!casesLues(x)(y)) && cases(x)(y).accesEnnemi )
+      posAdj.foreach(e => e match { case (dx, dy) => (pos._1 + dx, pos._2 + dy) } )
+
+      def filtre(e: (Int, Int)): Boolean = {
+        val (x, y) = e
+        0 <= x && x <= maxX && 0 <= y && y <= maxY && (!casesLues(y)(x)) && cases(y)(x).accesEnnemi
+      }
+      posAdj = posAdj.filter(filtre)
 
       /* Exploration des cases adjacentes */
-      posAdj.foreach((x, y) => {
+      posAdj.foreach(e => {
+        val (x, y) = e
         file.enqueue((x, y))
-        pred(x)(y) = pos
-        casesLues(x)(y) = true
+        pred(y)(x) = pos
+        casesLues(y)(x) = true
       } )
     }
 

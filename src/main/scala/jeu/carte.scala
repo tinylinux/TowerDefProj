@@ -97,10 +97,22 @@ class Carte extends Tickable {
     tours = Endommageable.supprimerMorts(tours)
   }
 
+
+  var chemins: Array[Array[(Int, Int)]] = null
   /** Renvoie la position vers laquelle devrait se diriger un ennemi situé à
     * la position deb pour atteindre la tour principale
     */
-  def guideEnnemi(deb : (Double,Double)) : (Double,Double) = (0.0, 0.0)
+  def guideEnnemi(deb : (Double,Double)) : (Double,Double) = {
+    // calcul des chemins menant à la tour principale
+    if (chemins == null) {
+      chemins = Pathfinding.parcoursEnLargeur(
+        maxX, maxY, cases, tourPrincipale.pos.get)
+    }
+
+    val (debX, debY) = deb
+    val (finX, finY) = chemins(debY.toInt)(debX.toInt)
+    (finX + 0.5, finY + 0.5)
+  }
 
 
   /** Fait apparaître un ennemi sur la carte */
