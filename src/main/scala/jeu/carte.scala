@@ -111,6 +111,7 @@ class Carte extends Tickable {
 
     val (debX, debY) = deb
     val (finX, finY) = chemins(debY.toInt)(debX.toInt)
+
     (finX + 0.5, finY + 0.5)
   }
 

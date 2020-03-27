@@ -22,18 +22,18 @@ object Pathfinding {
     val (xTP, yTP) = posTP
 
     /* Initialisation du tableau de parcours des cases */
-    val casesLues = new Array[Array[Boolean]](maxY)
+    val casesLues = new Array[Array[Boolean]](maxY+1)
     for (l <- 0 until casesLues.length) {
-      casesLues(l) = new Array[Boolean](maxX)
+      casesLues(l) = new Array[Boolean](maxX+1)
       for (e <- 0 until casesLues(l).length) {
         casesLues(l)(e) = false
       }
     }
 
     /* Initialisation des cases des prédécesseurs */
-    val pred = new Array[Array[(Int, Int)]](maxY)
+    val pred = new Array[Array[(Int, Int)]](maxY+1)
     for (l <- 0 until pred.length) {
-      pred(l) = new Array[(Int, Int)](maxX)
+      pred(l) = new Array[(Int, Int)](maxX+1)
       for (e <- 0 until pred(l).length) {
         pred(l)(e) = null
       }
@@ -54,7 +54,7 @@ object Pathfinding {
 
       /* Calcul des positions adjacentes à explorer */
       var posAdj: List[(Int, Int)] = List((+1, 0), (-1, 0), (0, +1), (0, -1))
-      posAdj.foreach(e => e match { case (dx, dy) => (pos._1 + dx, pos._2 + dy) } )
+      posAdj = posAdj.map(e => e match { case (dx, dy) => (pos._1 + dx, pos._2 + dy) } )
 
       def filtre(e: (Int, Int)): Boolean = {
         val (x, y) = e
