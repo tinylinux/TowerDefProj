@@ -21,7 +21,7 @@ trait Tickable {
 class Endommageable(val pvMax : Int) {
   var pv : Int = pvMax
 
-  def infligerDegats(d : Int) : Int = {
+  def infliger(d : Int) : Int = {
     val pvInit = pv
     if (d >= 0)
       pv -= d

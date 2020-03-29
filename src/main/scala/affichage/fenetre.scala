@@ -214,11 +214,17 @@ print(".")
     override def actionPerformed(e:java.awt.event.ActionEvent):Unit = {
       carte.tick
 
-      if (carte.manche.finished) {
-println("FINISHED")
+      if (carte.manche.gagne.isDefined) {
         mancheEnCours = false
         timerTick.stop()
-        zoneMessage.text = "Gagné !"
+        if (carte.manche.gagne.get) {
+println("GAGNE")
+          zoneMessage.text = "Gagné !"
+        }
+        else {
+println("PERDU")
+          zoneMessage.text = "Perdu !"
+        }
       }
 
 println("TICK")

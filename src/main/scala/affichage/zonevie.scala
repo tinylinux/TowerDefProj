@@ -40,10 +40,6 @@ class ZoneVie(val carte: Carte) extends Panel {
     g.drawImage(ZoneVie.imageDollar, 5, 55, null)
 
     // écrit le nb de vie et d'argent
-/*
-    val pv = carte.tourPrincipale.pv.toString
-    val pvMax = carte.tourPrincipale.pvMax.toString
- */
     val pv = carte.tourPrincipale.pv
     val pvMax = carte.tourPrincipale.pvMax
     val argent = carte.argent.toString

@@ -5,20 +5,10 @@ où je peux développer et essayer ce que j'ai envie !
 
 ## En train d'être fait
 
-* Pathfinding
-
-En particulier :
-
-* Finir le débuggage avant compilation
-* Vérifier qu'on n'a pas inversé x et y (voir carte.scala)
-* Faire interface avec la classe Carte
-* Faire l'affichage du pathfinding
 
 ## À faire
 
 * Modifier la représentation des cases de la carte (actuellement : cases(y)(x)...)
-* Attaque monstres vers tour principale
-* finir le jeu (partie 1)
 * corriger position : le positionnement sur la carte devient un attribut de
   la classe Endommageable
 * corriger affichage : les images ne doivent pas être rechargées à chaque fois !!
@@ -31,6 +21,7 @@ ne soit le moment de l'ajouter
 
 ## Fait
 
+* Pathfinding
 * Lecture carte depuis fichier
 * Affichage vie de la tour principale
 * Définir un système de manches
@@ -55,3 +46,19 @@ filles
 * Définir des méthodes non redéfinissables, valeurs et variables privées
 * Utiliser des exceptions les cas échéants, si des problèmes arrivent
 
+### Portée, position sur la carte
+
+Endommageable
+* carte: Carte
+
+* pv: Int
+pvMax: Int
+
+* pos: Option[(Double, Double)]
+portee: Double
+
+Si (x, y): (Double, Double) est un point sur la carte,
+(x.toInt, y.toInt): (Int, Int) "correspond" au même point que
+(x.toInt, y.toInt): (Double, Double)
+Il y a donc toujours un décalage de 0.5 à prendre en compte lors des calculs sur
+la carte.

@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage
 
 
 abstract class Tour(var carte : Carte, override val pvMax : Int)
-    extends Endommageable(pvMax)
+    extends Endommageable
     with Tickable
     with HasSprite {
 
@@ -56,7 +56,7 @@ class TourAttaque(var map: Carte, override val pvMax: Int, val portee: Double)
         Carte.distance(e.pos.get, (this.pos.get._1:Double, this.pos.get._2:Double)) < portee
     )
 
-    aPortee.foreach(e => e.infligerDegats(1))
+    aPortee.foreach(e => e.infliger(1))
   }
 }
 

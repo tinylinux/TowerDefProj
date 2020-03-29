@@ -46,6 +46,13 @@ class Manche(val carte: Carte) extends Tickable {
     }
   }
 
-  def finished: Boolean =
-    initted && apparitions.isEmpty && carte.ennemis.isEmpty
+  def gagne: Option[Boolean] = {
+    if (initted && carte.tourPrincipale.mort)
+    {Some(false)}
+
+    else if (initted && apparitions.isEmpty && carte.ennemis.isEmpty)
+    {Some(true)}
+
+    else {None}
+  }
 }
