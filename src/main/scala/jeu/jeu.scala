@@ -3,6 +3,11 @@
   * jeu.scala
   */
 
+package jeu
+
+import affichage._
+
+
 
 /* GESTION DU TEMPS */
 
@@ -11,12 +16,12 @@ trait Tickable {
 }
 
 
-/* ENTITÉ DESTRUCTIBLE */
 
+/*
 class Endommageable(val pvMax : Int) {
   var pv : Int = pvMax
 
-  def infligerDegats(d : Int) : Int = {
+  def infliger(d : Int) : Int = {
     val pvInit = pv
     if (d >= 0)
       pv -= d
@@ -25,13 +30,8 @@ class Endommageable(val pvMax : Int) {
     return pv-pvInit
   }
 
-  def supprimerMorts[A <: Endommageable](l : Iterable[A]) = {
-    var maj_l : List[A] = Nil
-    for (e <- l) {
-      if (e.pv != 0) {
-        maj_l = e :: maj_l
-      }
-    }
-    maj_l
+  def supprimerMorts[A <: Endommageable](l : List[A]) = {
+    l.filter(e => e.pv > 0)
   }
 }
+*/
