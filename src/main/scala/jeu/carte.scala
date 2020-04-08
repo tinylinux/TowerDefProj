@@ -32,5 +32,25 @@ abstract class Carte {
 
   /* METHODES */
 
+  def spawnE(
+    pos: (Double, Double)
+  ): Unit
 
+  def spawnT(
+    posI: (Int, Int)
+  ): Unit
+
+  def moveE(
+    pos: (Double, Double)
+  ): Unit
+
+  def despawnE(
+    e: Ennemi
+  ): Unit
+
+  def despawnT(
+    t: Tour
+  ): Unit
+
+  def tick: Unit
 }

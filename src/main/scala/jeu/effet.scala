@@ -29,5 +29,9 @@ abstract class Effet {
 
   /* METHODES */
 
-
+  def debut: Unit
+  def tick: Unit
+  def fin: Unit
+  def mort: Unit
+  
 }

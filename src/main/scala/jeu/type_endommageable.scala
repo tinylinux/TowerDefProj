@@ -15,7 +15,8 @@ import effets._
 import java.awt.image.BufferedImage
 
 
-abstract class TypeEndommageable {
+abstract class TypeEndommageable
+  [A <: Endommageable] {
 
   /* REFERENCES */
 
@@ -31,5 +32,6 @@ abstract class TypeEndommageable {
 
   /* METHODES */
 
+  def instance: A
 
 }

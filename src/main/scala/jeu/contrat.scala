@@ -29,5 +29,8 @@ abstract class Contrat {
 
   /* METHODES */
 
-
+  def action(
+    posI: (Int, Int)
+  ): Unit
+  
 }

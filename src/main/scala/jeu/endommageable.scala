@@ -37,5 +37,13 @@ abstract class Endommageable {
 
   /* METHODES */
 
+  def degats(
+    d: Int
+  ): Unit
 
+  def soin(
+    s: Int
+  ): Unit
+
+  def tick: Unit
 }

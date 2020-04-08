@@ -31,5 +31,13 @@ abstract class Partie {
 
   /* METHODES */
 
+  def actuGagne: Unit
+  def acheter(
+    idContrat: Int,
+    posI: (Int, Int)
+  ): Unit
+
+  def tick: Unit
+
 
 }

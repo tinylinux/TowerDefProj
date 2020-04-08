@@ -18,7 +18,7 @@ abstract class GestionManches {
   /* REFERENCES */
 
   var partie: Partie
-  var manches: List[Manche]
+  var m: List[Manche]
 
 
   /* ATTRIBUTS */
@@ -28,5 +28,6 @@ abstract class GestionManches {
 
   /* METHODES */
 
+  def chargerM: Unit
 
 }

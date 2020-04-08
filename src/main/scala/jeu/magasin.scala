@@ -28,5 +28,9 @@ abstract class Magasin {
 
   /* METHODES */
 
+  def commande(
+    idContrat: Int,
+    posI: (Int, Int)
+  ): Unit
 
 }
