@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * carte.scala
+  * tuile.scala
   */
 
 
@@ -12,22 +12,21 @@ import tours._
 import ennemis._
 import effets._
 
+import java.awt.image.BufferedImage
 
-abstract class Carte {
+
+abstract class Tuile {
 
   /* REFERENCES */
 
-  var partie: Partie
-  var tP: Tour
-  var tours: List[Tour]
-  var enn: List[Ennemi]
-  var tuiles: Array[Array[Tuile]]
+
 
 
   /* ATTRIBUTS */
 
-  var maxX: Int
-  var maxY: Int
+  var img: BufferedImage
+  var accesE: Boolean
+  var accesT: Boolean
 
 
   /* METHODES */

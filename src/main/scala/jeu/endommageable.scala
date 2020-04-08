@@ -1,69 +1,41 @@
-
-/** PROJET PROG 2
-  * jeu.scala
+/** TowerDefProj
+  * endommageable.scala
   */
 
+
+/* PACKAGES */
+
 package jeu
-
 import affichage._
-
-
-object Endommageable {
-
-  def supprimerMorts[A <: Endommageable](l : List[A]) =
-    l.filter(e => !e.mort)
-
-}
-
-/* MODIFICATION : AJOUT DE POS ET PORTEE À LA CLASSE ENDOMMAGEABLE
- * 
- * Ces modifications seront à prendre en compte quand
- * on aura reréfléchi à une nouvelle arborescence des classes
- * (APRÈS avoir fini tout ce qui est demandé)
-
-
-class Endommageable {
-
-  val pvMax: Int
-  var pv: Int = pvMax
-
-  def infliger(d: Int): Int = {
-    val pvInit = pv
-    if (d >= 0)
-      pv -= d
-    if (pv < 0)
-      pv = 0
-    return pv-pvInit
-  }
-
-  var pos: Option[(Double, Double)] = None
-  var portee: Double
-  def posInt: Option[(Int, Int)] = { pos match {
-      case None => None
-      case Some(x, y) => Some(x.toInt, y.toInt)
-  } }
-
-  def mort: Boolean = (pv == 0)
-  def horsCarte: Boolean = !pos.isDefined
-  def horsJeu: Boolean = mort || horsCarte
-}
-
- */
+import strategie._
+import tours._
+import ennemis._
+import effets._
 
 
 abstract class Endommageable {
 
-  val pvMax: Int
-  var pv: Int = pvMax
+  /* REFERENCES */
 
-  def infliger(d: Int): Int = {
-    val pvInit = pv
-    if (d >= 0)
-      pv -= d
-    if (pv < 0)
-      pv = 0
-    return pv-pvInit
-  }
+  var carte: Carte
+  var effets: List[Effet]
+  var typeE: TypeEndommageable
 
-  def mort: Boolean = (pv == 0)
+
+  /* ATTRIBUTS */
+
+  var pv: Int
+  var pvMax: Int
+  var pos: Option[(Double, Double)]
+  var vitesse: Double
+  var portee: Double
+  var rayon: Double
+  var deg: Int
+  var soin: Int
+  var cooldown: Int
+
+
+  /* METHODES */
+
+
 }

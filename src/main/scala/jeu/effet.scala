@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * carte.scala
+  * effet.scala
   */
 
 
@@ -13,21 +13,18 @@ import ennemis._
 import effets._
 
 
-abstract class Carte {
+abstract class Effet {
 
   /* REFERENCES */
 
-  var partie: Partie
-  var tP: Tour
-  var tours: List[Tour]
-  var enn: List[Ennemi]
-  var tuiles: Array[Array[Tuile]]
+  var cible: Endommageable
 
 
   /* ATTRIBUTS */
 
-  var maxX: Int
-  var maxY: Int
+  var cooldown: Option[Int]
+  var prio: Int
+  var benef: Boolean
 
 
   /* METHODES */

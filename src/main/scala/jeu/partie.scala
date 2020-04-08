@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * carte.scala
+  * partie.scala
   */
 
 
@@ -13,21 +13,20 @@ import ennemis._
 import effets._
 
 
-abstract class Carte {
+abstract class Partie {
 
   /* REFERENCES */
 
-  var partie: Partie
-  var tP: Tour
-  var tours: List[Tour]
-  var enn: List[Ennemi]
-  var tuiles: Array[Array[Tuile]]
+  // TODO affichage
+  var gM: GestionManches
+  var mag: Magasin
+  var carte: Carte
 
 
   /* ATTRIBUTS */
 
-  var maxX: Int
-  var maxY: Int
+  var argent: Int
+  var gagne: Some[Boolean]
 
 
   /* METHODES */

@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * tour.scala
+  * effet_obj.scala
   */
 
 
@@ -13,18 +13,7 @@ import ennemis._
 import effets._
 
 
-abstract class Tour
-    extends Endommageable {
-
-  /* REFERENCES */
-
-
-
-
-  /* ATTRIBUTS */
-
-
-
+abstract class Effet {
 
   /* METHODES */
 

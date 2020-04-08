@@ -1,20 +1,20 @@
 /** TowerDefProj
-  * tour.scala
+  * tour_principale.scala
   */
 
 
 /* PACKAGES */
 
-package jeu
+package tours
+import jeu._
 import affichage._
 import strategie._
-import tours._
 import ennemis._
 import effets._
 
 
-abstract class Tour
-    extends Endommageable {
+object TypeTourPrincipale
+    extends TypeEndommageable {
 
   /* REFERENCES */
 

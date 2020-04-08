@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * carte.scala
+  * contrat.scala
   */
 
 
@@ -13,21 +13,18 @@ import ennemis._
 import effets._
 
 
-abstract class Carte {
+abstract class Contrat {
 
   /* REFERENCES */
 
-  var partie: Partie
-  var tP: Tour
-  var tours: List[Tour]
-  var enn: List[Ennemi]
-  var tuiles: Array[Array[Tuile]]
+  var mag: Magasin
+  var type_nouv: TypeEndommageable
+  var type_anc: TypeEndommageable
 
 
   /* ATTRIBUTS */
 
-  var maxX: Int
-  var maxY: Int
+  var prix: Int
 
 
   /* METHODES */

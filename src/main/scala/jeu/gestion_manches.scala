@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * carte.scala
+  * gestion_manches.scala
   */
 
 
@@ -13,21 +13,17 @@ import ennemis._
 import effets._
 
 
-abstract class Carte {
+abstract class GestionManches {
 
   /* REFERENCES */
 
   var partie: Partie
-  var tP: Tour
-  var tours: List[Tour]
-  var enn: List[Ennemi]
-  var tuiles: Array[Array[Tuile]]
+  var manches: List[Manche]
 
 
   /* ATTRIBUTS */
 
-  var maxX: Int
-  var maxY: Int
+  var mEnCours: Option[Manche]
 
 
   /* METHODES */
