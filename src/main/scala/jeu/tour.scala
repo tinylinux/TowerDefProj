@@ -14,4 +14,11 @@ import effets._
 
 
 abstract class Tour
-    extends Endommageable
+    extends Endommageable {
+
+  /* METHODES */
+
+  def despawn: Unit =
+    carte.despawnT(this)
+
+}

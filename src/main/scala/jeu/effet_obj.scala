@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-abstract class Effet {
+object OEffet {
 
   /* METHODES */
 
@@ -22,7 +22,7 @@ abstract class Effet {
     eff: Effet
   ): Unit = {
     if (!e.effets.exists(
-      x => (x.typeE == effet.typeE && x.prio > eff.prio)
+      x => (x.typeE == eff.typeE && x.prio > eff.prio)
     ) ) { // aucun effet appliqué n'est prioritaire sur eff
       e.effets = e.effets.filter(_.typeE != eff.typeE)
       e.effets = eff :: e.effets

@@ -39,23 +39,30 @@ object OMagasin {
     idContrat: Int,
     posI: (Int, Int)
   ): Boolean = {
-    if (m.carte.posISurCarte(posI)) { // la position existe
+    if (m.partie.carte.posISurCarte(posI)) { // la position existe
       m.getContrat(idContrat) match {
-        case None => () // le contrat n'existe pas
+        case None => false // le contrat n'existe pas
         case Some(c) => { // le contrat existe
-          m.getTourAt(posI) match {
+          m.partie.carte.getTourAt(posI) match {
             case None => { // pas de tour à la position
               if (!c.typeAnc.isDefined) { // pas de tour prévue
-                m.carte.spawnT( // on ajoute la tour commandée
-                  c.typeNouv.instance
-                ) } }
-            case Some(t) => { // il y a une tour à la position
-              if (c.typeAnc.isDefined) { // tour prévue
-                if (c.typeAnc.get == t.typeE) { // types correspondants
-                  m.carte.despawnT(t)
-                  m.carte.spawnT(
-                    c.typeNouv.instance
-                  ) } } } } } } }
+                c.action(posI) // action du contrat
+                true
+              }
+              else { false } // tour prévue
+            }
+            case Some(t:Tour) => { // il y a une tour à la position
+              if (c.typeAnc.isDefined
+                && c.typeAnc.get == t.typeE) {
+                // tour prévue et types correspondants
+                m.partie.carte.despawnT(t) // despawn de la tour
+                c.action(posI) // action du contrat
+                true
+              }
+              else { false }
+              // pas de tour prévue, ou mauvais type
+            } } } } }
+    else { false } // la position n'existe pas
   }
 
 

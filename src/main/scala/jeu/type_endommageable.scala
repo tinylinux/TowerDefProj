@@ -15,17 +15,11 @@ import effets._
 import java.awt.image.BufferedImage
 
 
-abstract class TypeEndommageable
-  [A <: Endommageable] {
+abstract class TypeEndommageable {
 
   /* ATTRIBUTS */
 
   var imgMag: BufferedImage
   var imgGrille: BufferedImage
-
-
-  /* METHODES */
-
-  def instance: A
 
 }

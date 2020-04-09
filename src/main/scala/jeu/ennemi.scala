@@ -14,4 +14,11 @@ import effets._
 
 
 abstract class Ennemi
-    extends Endommageable
+    extends Endommageable {
+
+  /* METHODES */
+
+  def despawn: Unit =
+    carte.despawnE(this)
+
+}

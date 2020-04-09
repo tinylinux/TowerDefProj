@@ -21,7 +21,7 @@ object OPartie {
     p: Partie
   ): Unit = {
     if ((!p.gagne.isDefined) && p.gM.mEnCours.isDefined) {
-      p.gM.mEnCours.tick
+      p.gM.mEnCours.get.tick
       p.carte.tick
       p.actuFin
     }
@@ -33,8 +33,8 @@ object OPartie {
   ): Unit = {
     if (!p.gagne.isDefined) { // la partie n'est pas déjà terminée
       if (p.gM.mEnCours.isDefined) { // une manche est chargée
-        if (p.gM.mEnCours.condFin.isDefined) { // cette manche est terminée
-          if (p.gM.mEnCours.condFin.get) { // cette manche est gagnée
+        if (p.gM.mEnCours.get.condFin.isDefined) { // cette manche est terminée
+          if (p.gM.mEnCours.get.condFin.get) { // cette manche est gagnée
             p.gM.mEnCours = None // on la retire
             if (p.gM.m.isEmpty) { // c'était la dernière manche
               p.gagne = Some(true) // la partie est gagnée

@@ -20,7 +20,7 @@ abstract class Carte {
   var partie: Partie
   var tP: Tour
   var tours: List[Tour]
-  var enn: List[Ennemi]
+  var ennemis: List[Ennemi]
   var tuiles: Array[Array[Tuile]]
 
 
@@ -33,11 +33,13 @@ abstract class Carte {
   /* METHODES */
 
   def spawnE(
+    e: Ennemi,
     pos: (Double, Double)
   ): Unit =
     OCarte.spawnE(this, e, pos)
 
   def spawnT(
+    t: Tour,
     posI: (Int, Int)
   ): Unit =
     OCarte.spawnT(this, t, posI)

@@ -34,14 +34,14 @@ object OCarte {
     pos: (Double, Double)
   ): Unit = {
     e.carte = c
-    if (c.ennemis.forall(_ != e)) {
+    if (c.ennemis.forall(x => x != e)) {
       c.ennemis = e :: c.ennemis
     }
 
     if (!e.pos.isDefined) {
       e.pos = Some((0.0, 0.0))
     }
-    e.moveE(c, e, pos)
+    c.moveE(e, pos)
   }
 
 
@@ -51,12 +51,13 @@ object OCarte {
     posI: (Int, Int)
   ): Unit = {
     t.carte = c
-    if (c.tours.forall(_ != t)) {
+    if (c.tours.forall(x => x != t)) {
       c.tours = t :: c.tours
     }
 
     if (c.tuiles(posI._1)(posI._2).accesT &&
-      c.tours.forall(Pos.posToI(_.pos) != posI)) {
+      c.tours.forall(x => (!x.pos.isDefined)
+        || Pos.posToI(x.pos.get) != posI)) {
       t.pos = Some(Pos.sPos(
         Pos.iToPos(posI), (0.5, 0.5)
       ))
@@ -73,7 +74,7 @@ object OCarte {
     e.pos = None
 
     e.carte = null
-    c.ennemis = c.ennemis.filter(_ != e)
+    c.ennemis = c.ennemis.filter(x => x != e)
   }
 
   def despawnT(
@@ -83,8 +84,8 @@ object OCarte {
     t.pos = None
 
     t.carte = null
-    c.tours = c.tours.filter(_ != t)
-    if (t == tP) {
+    c.tours = c.tours.filter(x => x != t)
+    if (t == c.tP) {
       c.tP = null
     }
   }
@@ -93,15 +94,15 @@ object OCarte {
   def tick(
     c: Carte
   ): Unit = {
-    c.tours.foreach(_.tick)
-    c.ennemis.foreach(_.tick)
+    c.tours.foreach(x => x.tick)
+    c.ennemis.foreach(x => x.tick)
     c.tours.foreach(
-      _.effets.foreach(
-        _.tick
+      x => x.effets.foreach(
+        y => y.tick
       ) )
     c.ennemis.foreach(
-      _.effets.foreach(
-        _.tick
+      x => x.effets.foreach(
+        y => y.tick
       ) )
   }
 
@@ -124,5 +125,6 @@ object OCarte {
     c: Carte,
     posI: (Int, Int)
   ): Option[Tour] =
-    c.tours.findOption(Pos.posToI(_.pos) == posI)
+    c.tours.find(x => x.pos.isDefined
+      && Pos.posToI(x.pos.get) == posI)
 }

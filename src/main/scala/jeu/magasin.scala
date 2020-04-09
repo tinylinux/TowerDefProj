@@ -27,7 +27,7 @@ abstract class Magasin {
     idContrat: Int,
     posI: (Int, Int)
   ): Boolean =
-    OMagasin.commange(this, idContrat, posI)
+    OMagasin.commande(this, idContrat, posI)
 
   def getContrat(
     idContrat: Int

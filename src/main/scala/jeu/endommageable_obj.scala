@@ -46,7 +46,7 @@ object OEndommageable {
   ): Unit = {
     e.effets.foreach(_.mort)
     e.actMort
-    e.carte.despawnE(e)
+    e.despawn
   }
 
   def tick(

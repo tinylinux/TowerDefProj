@@ -45,7 +45,7 @@ abstract class Endommageable {
   def soin(
     s: Int
   ): Unit =
-    OEndommageable.soin(this, d)
+    OEndommageable.soin(this, s)
 
   def ajoutEffet(
     eff: Effet
@@ -62,5 +62,5 @@ abstract class Endommageable {
 
   def actTick: Unit
   def actMort: Unit
-
+  def despawn: Unit
 }

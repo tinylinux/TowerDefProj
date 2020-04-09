@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-abstract class OEffet {
+abstract class Effet {
 
   /* REFERENCES */
 
