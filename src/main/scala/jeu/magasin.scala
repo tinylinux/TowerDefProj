@@ -20,17 +20,18 @@ abstract class Magasin {
   var partie: Partie
   var contrats: List[Contrat]
 
-
-  /* ATTRIBUTS */
-
-
-
-
+  
   /* METHODES */
 
   def commande(
     idContrat: Int,
     posI: (Int, Int)
-  ): Unit
+  ): Boolean =
+    Magasin.commange(this, idContrat, posI)
+
+  def getContrat(
+    idContrat: Int
+  ): Option[Contrat] =
+    Magasin.getContrat(this, idContrat)
 
 }

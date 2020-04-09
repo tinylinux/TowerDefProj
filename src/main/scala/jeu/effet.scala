@@ -18,11 +18,12 @@ abstract class Effet {
   /* REFERENCES */
 
   var cible: Endommageable
+  var typeE: TypeEffet
 
 
   /* ATTRIBUTS */
 
-  var cooldown: Option[Int]
+  var cooldown: Int
   var prio: Int
   var benef: Boolean
 

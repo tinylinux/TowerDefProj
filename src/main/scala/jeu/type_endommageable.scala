@@ -18,16 +18,10 @@ import java.awt.image.BufferedImage
 abstract class TypeEndommageable
   [A <: Endommageable] {
 
-  /* REFERENCES */
-
-
-
-
   /* ATTRIBUTS */
 
   var imgMag: BufferedImage
   var imgGrille: BufferedImage
-
 
 
   /* METHODES */

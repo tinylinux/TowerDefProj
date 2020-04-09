@@ -31,13 +31,16 @@ abstract class Partie {
 
   /* METHODES */
 
-  def actuGagne: Unit
+  def actuFin: Unit =
+    Partie.actuFin(this)
+
   def acheter(
     idContrat: Int,
     posI: (Int, Int)
-  ): Unit
+  ): Unit =
+    Partie.acheter(this, idContrat, posI)
 
-  def tick: Unit
-
+  def tick: Unit =
+    Partie.tick(this)
 
 }

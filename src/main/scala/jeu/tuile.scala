@@ -17,19 +17,10 @@ import java.awt.image.BufferedImage
 
 abstract class Tuile {
 
-  /* REFERENCES */
-
-
-
-
   /* ATTRIBUTS */
 
   var img: BufferedImage
   var accesE: Boolean
   var accesT: Boolean
-
-
-  /* METHODES */
-
 
 }

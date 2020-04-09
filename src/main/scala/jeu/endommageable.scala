@@ -39,11 +39,28 @@ abstract class Endommageable {
 
   def degats(
     d: Int
-  ): Unit
+  ): Unit =
+    Endommageable.degats(this, d)
 
   def soin(
     s: Int
-  ): Unit
+  ): Unit =
+    Endommageable.soin(this, d)
 
-  def tick: Unit
+  def ajoutEffet(
+    eff: Effet
+  ): Unit =
+    Effet.ajoutEffet(this, eff)
+
+  def retirerEffet(
+    eff: Effet
+  ): Unit =
+    Effet.ajoutEffet(this, eff)
+
+  def tick: Unit =
+    Endommageable.tick(this)
+
+  def actTick: Unit
+  def actMort: Unit
+
 }

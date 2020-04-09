@@ -18,8 +18,8 @@ abstract class Contrat {
   /* REFERENCES */
 
   var mag: Magasin
-  var type_nouv: TypeEndommageable
-  var type_anc: TypeEndommageable
+  var typeNouv: TypeEndommageable
+  var typeAnc: Option[TypeEndommageable]
 
 
   /* ATTRIBUTS */

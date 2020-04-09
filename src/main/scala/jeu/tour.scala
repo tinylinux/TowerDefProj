@@ -14,19 +14,4 @@ import effets._
 
 
 abstract class Tour
-    extends Endommageable {
-
-  /* REFERENCES */
-
-
-
-
-  /* ATTRIBUTS */
-
-
-
-
-  /* METHODES */
-
-
-}
+    extends Endommageable

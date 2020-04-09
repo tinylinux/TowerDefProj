@@ -17,15 +17,9 @@ import java.awt.image.BufferedImage
 
 abstract class TypeEffet {
 
-  /* REFERENCES */
-
-
-
-
   /* ATTRIBUTS */
 
   var img: BufferedImage
-
 
 
   /* METHODES */
