@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object GestionManches {
+object OGestionManches {
 
   /* METHODES */
 
@@ -21,7 +21,7 @@ object GestionManches {
     gM: GestionManches
   ): Unit = {
     if (!gM.mEnCours.isDefined) { gM.m match {
-      case [] => ()
+      case Nil => ()
       case e :: m2 => {
         gM.mEnCours = Some(e)
         gM.m = m2

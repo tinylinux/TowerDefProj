@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object Partie {
+object OPartie {
 
   /* METHODES */
 

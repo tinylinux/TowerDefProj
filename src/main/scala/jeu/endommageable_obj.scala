@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object Endommageable {
+object OEndommageable {
 
   /* METHODES */
 
@@ -22,7 +22,7 @@ object Endommageable {
   ): Unit = {
     if (e.pv > e.pvMax) { e.pv = e.pvMax }
     if (e.pv < 0) { e.pv = 0 }
-    if (e.pv == 0) { Endommageable.mourir(e) }
+    if (e.pv == 0) { OEndommageable.mourir(e) }
   }
 
   def degats(
@@ -30,7 +30,7 @@ object Endommageable {
     d: Int
   ): Unit = {
     e.pv -= d
-    Endommageable.actuPv(e)
+    OEndommageable.actuPv(e)
   }
 
   def soin(
@@ -38,7 +38,7 @@ object Endommageable {
     s: Int
   ): Unit = {
     e.pv += s
-    Endommageable.actuPv(e)
+    OEndommageable.actuPv(e)
   }
 
   def mourir(

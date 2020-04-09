@@ -29,6 +29,6 @@ abstract class GestionManches {
   /* METHODES */
 
   def chargerM: Unit =
-    GestionManches.chargerM(this)
+    OGestionManches.chargerM(this)
 
 }

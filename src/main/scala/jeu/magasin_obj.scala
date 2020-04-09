@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object Magasin {
+object OMagasin {
 
   /* METHODES */
 
@@ -25,7 +25,7 @@ object Magasin {
     var i = idContrat
     var l = m.contrats
     while (i > 0) { l match {
-      case [] => i = 0
+      case Nil => i = 0
       case e :: l2 => l = l2
     } }
     l.headOption

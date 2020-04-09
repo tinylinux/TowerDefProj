@@ -28,7 +28,7 @@ abstract class Manche {
   /* METHODES */
 
   def tick: Unit =
-    GestionManches.tickM(this)
+    OGestionManches.tickM(this)
   
   def actionTick: Unit
   def condFin: Option[Boolean]

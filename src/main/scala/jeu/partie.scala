@@ -32,15 +32,15 @@ abstract class Partie {
   /* METHODES */
 
   def actuFin: Unit =
-    Partie.actuFin(this)
+    OPartie.actuFin(this)
 
   def acheter(
     idContrat: Int,
     posI: (Int, Int)
   ): Unit =
-    Partie.acheter(this, idContrat, posI)
+    OPartie.acheter(this, idContrat, posI)
 
   def tick: Unit =
-    Partie.tick(this)
+    OPartie.tick(this)
 
 }

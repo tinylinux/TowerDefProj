@@ -35,45 +35,45 @@ abstract class Carte {
   def spawnE(
     pos: (Double, Double)
   ): Unit =
-    Carte.spawnE(this, e, pos)
+    OCarte.spawnE(this, e, pos)
 
   def spawnT(
     posI: (Int, Int)
   ): Unit =
-    Carte.spawnT(this, t, posI)
+    OCarte.spawnT(this, t, posI)
 
   def moveE(
-    e: Ennemi
+    e: Ennemi,
     pos: (Double, Double)
   ): Unit =
-    Carte.moveE(this, e, pos)
+    OCarte.moveE(this, e, pos)
 
   def despawnE(
     e: Ennemi
   ): Unit =
-    Carte.despawnE(this, e)
+    OCarte.despawnE(this, e)
 
   def despawnT(
     t: Tour
   ): Unit =
-    Carte.despawnT(this, t)
+    OCarte.despawnT(this, t)
 
   def tick: Unit =
-    Carte.tick(this)
+    OCarte.tick(this)
 
   def posSurCarte(
     pos: (Double, Double)
   ): Boolean =
-    Carte.posSurCarte(this, pos)
+    OCarte.posSurCarte(this, pos)
 
   def posISurCarte(
     posI: (Int, Int)
   ): Boolean =
-    Carte.posISurCarte(this, posI)
+    OCarte.posISurCarte(this, posI)
 
   def getTourAt(
     posI: (Int, Int)
   ): Option[Tour] =
-    Carte.getTourAt(this, posI)
+    OCarte.getTourAt(this, posI)
 
 }
