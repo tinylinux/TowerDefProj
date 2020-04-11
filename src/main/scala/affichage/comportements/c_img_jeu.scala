@@ -9,7 +9,7 @@
 package affichage.comportements
 
 import affichage.composants._
-import jeu
+import jeu._
 
 
 

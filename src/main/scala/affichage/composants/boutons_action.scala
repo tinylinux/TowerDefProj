@@ -9,12 +9,12 @@
 package affichage.composants
 
 import affichage.comportements._
-import jeu
+import jeu._
 
 import scala.swing._
 
 
-object BAction extends Button
+abstract class BAction extends Button
 
 object BAttaque
     extends BAction {

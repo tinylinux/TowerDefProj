@@ -9,7 +9,7 @@
 package affichage.composants
 
 import affichage.comportements._
-import jeu
+import jeu._
 
 import scala.swing._
 
@@ -28,11 +28,11 @@ object DimJeu {
 
   /* MenuGauche, MenuBas, MenuGrille */
   val wMenuGauche = 100
-  def hMenuGauche = hFenetre
+  def hMenuGauche = hFenetreJeu
   val hMenuBas = 100
-  def wMenuBas = wFenetre-wMenuGauche  
-  def wMenuGrille = wFenetre-wMenuGauche
-  def hMenuGrille = hFenetre-hMenuBas
+  def wMenuBas = wFenetreJeu-wMenuGauche  
+  def wMenuGrille = wFenetreJeu-wMenuGauche
+  def hMenuGrille = hFenetreJeu-hMenuBas
 
 
   /* ZoneBoutons, ZoneActions */
@@ -44,7 +44,7 @@ object DimJeu {
 
   /* Inventaire */
   def wInventaire = wMenuGauche
-  def hInventaire = hFenetre-hZoneBoutons-hZoneActions
+  def hInventaire = hFenetreJeu-hZoneBoutons-hZoneActions
 
 
   /* ZoneVA, ZoneInfos */

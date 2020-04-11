@@ -9,7 +9,7 @@
 package affichage.composants
 
 import affichage.comportements._
-import jeu
+import jeu._
 
 import scala.swing._
 
@@ -24,6 +24,6 @@ object FenetreJeu
   }
 
   resizable = false
-  size = new Dimension(wFenetre,hFenetre+25)
+  size = new Dimension(DimJeu.wFenetreJeu,DimJeu.hFenetreJeu+25)
 
 }

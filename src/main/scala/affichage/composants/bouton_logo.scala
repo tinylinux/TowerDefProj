@@ -9,9 +9,9 @@
 package affichage.composants
 
 import affichage.comportements._
-import jeu
+import jeu._
 
 import scala.swing._
 
 
-object BLogo extends Button
+abstract class BLogo extends Button

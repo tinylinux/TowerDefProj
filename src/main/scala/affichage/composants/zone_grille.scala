@@ -9,7 +9,7 @@
 package affichage.composants
 
 import affichage.comportements._
-import jeu
+import jeu._
 
 import scala.swing._
 

@@ -9,7 +9,7 @@
 package affichage.composants
 
 import affichage.comportements._
-import jeu
+import jeu._
 
 import scala.swing._
 
@@ -42,5 +42,5 @@ object ZoneBoutons
 object ZoneActions
     extends Panel {
   MenuGauche.peer.add(this.peer)
-  this.peer.setBounds(0,DimJeu.hZoneBoutons,DimJeu.wZoneActions,DimJeuDimJeu.hZoneActions)
+  this.peer.setBounds(0,DimJeu.hZoneBoutons,DimJeu.wZoneActions,DimJeu.hZoneActions)
 }
