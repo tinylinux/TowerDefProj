@@ -14,4 +14,11 @@ import jeu
 import scala.swing._
 
 
-object ZoneInfos extends Panel
+object ZoneInfos
+    extends Panel {
+
+  MenuBas.peer.add(this.peer)
+  this.peer.setBounds(DimJeu.wZoneVA,0,DimJeu.wZoneInfos,DimJeu.hZoneInfos)
+
+}
+
