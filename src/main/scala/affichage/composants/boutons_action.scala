@@ -11,10 +11,11 @@ package affichage.composants
 import affichage.comportements._
 import jeu
 
+import scala.swing._
 
 
-object BAction
+object BAction extends Button
 
-object BAttaque
-object BAcheter
-object BDetruire
+object BAttaque extends BAction
+object BAcheter extends BAction
+object BDetruire extends BAction

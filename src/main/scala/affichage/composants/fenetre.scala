@@ -11,8 +11,9 @@ package affichage.composants
 import affichage.comportements._
 import jeu
 
+import scala.swing._
 
 
-object FenetreJeu
+object FenetreJeu extends MainFrame
 
 

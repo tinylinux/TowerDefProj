@@ -11,9 +11,10 @@ package affichage.composants
 import affichage.comportements._
 import jeu
 
+import scala.swing._
 
 
-object BPause
-object BSlow
-object BFast
-object BParam
+object BPause extends BLogo
+object BSlow extends BLogo
+object BFast extends BLogo
+object BParam extends BLogo

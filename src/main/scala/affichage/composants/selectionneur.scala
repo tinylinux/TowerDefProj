@@ -11,6 +11,7 @@ package affichage.composants
 import affichage.comportements._
 import jeu
 
+import scala.swing._
 
 
-abstract class Selectionneur
+abstract class Selectionneur extends Panel
