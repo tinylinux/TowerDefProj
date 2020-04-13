@@ -13,4 +13,39 @@ import jeu._
 
 
 
-object CFinJeu
+object CFinJeu {
+
+  def closeOp: Unit = {
+    TimerJeu.stop()
+    TimerAff.stop()
+
+    System.exit(0)
+  }
+
+
+  def actuFin: Unit = {
+    if (!PartAff.partie.isDefined || PartAff.partie.get.gagne.isDefined) { // aucune partie chargée, ou partie chargée et terminée
+      if (!FenetreJeu.bloque) {
+        CFenetreJeu.bloquer
+        FenetreJeu.bloque = true
+      } }
+    else { // une partie est chargée et non terminée
+      FenetreJeu.bloque = false
+      if (!PartAff.partie.get.gM.mEnCours.isDefined) { // aucune manche n'est chargée
+        if (FenetreJeu.manche) {
+          CFenetreJeu.mancheOff
+          FenetreJeu.manche = false
+        }
+      }
+      else { // une manche est chargée (en cours)
+        if (!FenetreJeu.manche) {
+          CFenetreJeu.mancheOn
+          FenetreJeu.manche = true
+        }
+      }
+    }
+  }
+
+
+
+}

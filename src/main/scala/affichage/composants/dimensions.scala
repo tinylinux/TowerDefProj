@@ -12,6 +12,7 @@ import affichage.comportements._
 import jeu._
 
 import scala.swing._
+import scala.Array
 
 
 object DimJeu {
@@ -73,4 +74,11 @@ object DimJeu {
   val hBAction = 30
 
 
+  /* Images ZoneVA */
+  val lImgZVA = 40
+
+
+  /* Tuiles ZoneGrille */
+  val tabTuileZoneGrille = Array(8,12,16,24,32,48,64,96,128,192,256)
+  val iTuileZoneGrilleInit = 6
 }

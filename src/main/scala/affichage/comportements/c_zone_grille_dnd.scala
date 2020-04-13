@@ -13,4 +13,8 @@ import jeu._
 
 
 
-object CZoneGrilleDND
+object CZoneGrilleDND {
+
+  def react: Reaction = {}
+
+}

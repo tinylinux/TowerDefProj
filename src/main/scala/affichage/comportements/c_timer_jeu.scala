@@ -13,4 +13,18 @@ import jeu._
 
 
 
-object CTimerJeu
+object CTimerJeu {
+
+  def tick: Unit = {
+    if (CPartAff.partie.isDefined
+      && (!CPartAff.partie.get.gagne.isDefined)
+      && CPartAff.partie.get.gM.mEnCours.isDefined) {
+      CPartAff.partie.get.tick
+    }
+    else {
+      TimerJeu.stop()
+    }
+  }
+
+  
+}

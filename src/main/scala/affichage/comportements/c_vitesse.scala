@@ -13,4 +13,10 @@ import jeu._
 
 
 
-object CVitesse
+object CVitesse {
+
+  def slow
+
+  def fast
+
+}

@@ -13,4 +13,14 @@ import jeu._
 
 
 
-object CBAttaque
+object CBAttaque {
+
+  def clic: Unit = {
+    if (!CFenetre.manche && CPartAff.partie.isDefined) {
+      // une partie est chargée, pas de manche en cours dans la fenetre
+      CPartAff.partie.get.gM.chargerManche
+      actuFin
+    }
+  }
+
+}

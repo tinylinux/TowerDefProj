@@ -13,4 +13,11 @@ import jeu._
 
 
 
-object CTimerAff
+object CTimerAff {
+
+  def tick: Unit = {
+    CFinJeu.actuFin
+    fenetre.repaint()
+  }
+
+}

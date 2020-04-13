@@ -13,4 +13,8 @@ import jeu._
 
 
 
-object CBPause
+object CBPause {
+
+  def clic: Unit = ()
+
+}
