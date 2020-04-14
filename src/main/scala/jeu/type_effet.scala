@@ -12,16 +12,14 @@ import tours._
 import ennemis._
 import effets._
 
-import java.awt.image.BufferedImage
+
 
 
 abstract class TypeEffet {
 
   /* ATTRIBUTS */
 
-  var img: BufferedImage
+  var img: String
 
-
-  /* METHODES */
 
 }

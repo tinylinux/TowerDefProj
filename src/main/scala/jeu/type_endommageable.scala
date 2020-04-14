@@ -12,14 +12,13 @@ import tours._
 import ennemis._
 import effets._
 
-import java.awt.image.BufferedImage
+
 
 
 abstract class TypeEndommageable {
 
   /* ATTRIBUTS */
 
-  var imgMag: BufferedImage
-  var imgGrille: BufferedImage
+  var img: String
 
 }

@@ -19,7 +19,7 @@ abstract class Tuile {
 
   /* ATTRIBUTS */
 
-  var img: BufferedImage
+  var img: String
   var accesE: Boolean
   var accesT: Boolean
 
