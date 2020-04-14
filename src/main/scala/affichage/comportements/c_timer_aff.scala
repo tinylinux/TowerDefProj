@@ -17,7 +17,7 @@ object CTimerAff {
 
   def tick: Unit = {
     CFinJeu.actuFin
-    fenetre.repaint()
+    FenetreJeu.repaint()
   }
 
 }

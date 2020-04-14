@@ -41,7 +41,7 @@ object CInventaire {
     /* Offset Max */
     if (CPartAff.partie.isDefined) {
       Inventaire.offsetMax =
-        DimJeu.hInventaire-(CPartAff.partie.mag.contrats.length/2)*Inventaire.tailleCase
+        DimJeu.hInventaire-(CPartAff.partie.get.mag.contrats.length/2)*Inventaire.tailleCase
       if (Inventaire.offsetMax > 0) { Inventaire.offsetMax = 0 }
     }
     else {
@@ -50,24 +50,28 @@ object CInventaire {
 
     /* Offset */
     if (Inventaire.offset._2 < Inventaire.offsetMax) {
-      Inventaire.offset._2 = Inventaire.offsetMax
+      Inventaire.offset = (Inventaire.offset._1, Inventaire.offsetMax)
     }
     if (Inventaire.offset._2 > 0) {
-      Inventaire.offset._2 = 0
+      Inventaire.offset = (Inventaire.offset._1, 0)
     }
   }
 
 
   def react: Reaction = {
-    case MouseWheelMoved(_, _, _, d) {
+    case MouseWheelMoved(_, _, _, d) => {
 // test
 print("MouseWheelMoved " + d.toString)
 
       if (d == 1) { // vers le haut
-        Inventaire.offset += Inventaire.dOffset
+        Inventaire.offset =
+          (Inventaire.offset._1,
+            Inventaire.offset._2+Inventaire.dOffset)
       }
       else { // vers le bas
-        Inventaire.offset -= Inventaire.dOffset
+        Inventaire.offset =
+          (Inventaire.offset._1,
+            Inventaire.offset._2-Inventaire.dOffset)
       }
       updateOffset
     }
@@ -85,10 +89,10 @@ print("MouseWheelMoved " + d.toString)
   ) = {
     updateMax
     updateOffset
-    if (PartAff.partie.isDefined) {
-      var c = PartAff.partie.get.mag.contrats
-      var x = offset._1 // = 0
-      var y = offset._2
+    if (CPartAff.partie.isDefined) {
+      var c = CPartAff.partie.get.mag.contrats
+      var x = Inventaire.offset._1 // = 0
+      var y = Inventaire.offset._2
       def aff(
         l: List[Contrat]
       ): Unit = {
@@ -96,18 +100,18 @@ print("MouseWheelMoved " + d.toString)
           case Nil => ()
           case e :: l2 =>
             g.drawImage(
-              x, y,
               CImgJeu.imgTypeEndom(
-                e.typeNouv.imgMag,
+                e.typeNouv,
                 (Inventaire.tailleCase,
                   Inventaire.tailleCase) ),
+              x, y,
               null)
-            if (x == offset._1) {
-              x += tailleCase
+            if (x == Inventaire.offset._1) {
+              x += Inventaire.tailleCase
             }
             else {
-              x = offset._1
-              y += tailleCase
+              x = Inventaire.offset._1
+              y += Inventaire.tailleCase
             }
             aff(l2)
         } }

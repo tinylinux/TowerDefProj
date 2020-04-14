@@ -14,14 +14,14 @@ import jeu._
 
 object CPartAff {
 
-  var partie: Option[Partie]
+  var partie: Option[Partie] = None
 
 
   def chargerPartie(
     p: Partie
   ): Unit = {
     partie = Some(p)
-    actuFin
+    CFinJeu.actuFin
   }
   
 }

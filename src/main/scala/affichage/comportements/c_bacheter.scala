@@ -16,14 +16,17 @@ import jeu._
 object CBAcheter {
 
   def clic: Unit = {
-    if (CPartAff.partie.isDefined
-      && Inventaire.caseSel.isDefined
-      && ZoneGrille.caseSel.isDefined) {
-      /* partie chargée, contrat et tuile sélectionnées */
-      CPartAff.partie.get.acheter(
-        Inventaire.caseSel.get._2*2 + Inventaire.caseSel._1,
-        ZoneGrille.caseSel.get
-      )
+    if (CPartAff.partie.isDefined) {
+      Inventaire.caseSel match {
+        case Some(a) => {
+          ZoneGrille.caseSel match {
+            case Some(b) => {
+              /* partie chargée, contrat et tuile sélectionnées */
+              CPartAff.partie.get.acheter(a._2*2 + a._1, b)
+            }
+          }
+        }
+      }
     }
   }
 

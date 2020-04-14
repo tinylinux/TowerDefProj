@@ -26,13 +26,13 @@ object ZoneGrille
 
   /* ATTRIBUTS */
 
-  tailleCase = CZoom.tailleCase
-  caseSel = None
-  maxX = 0
-  maxY = 0
-  offset = (0,0)
-  sourisSurSel = true
-  posSouris = new Point(0,0)
+  var tailleCase: Int = CZoom.tailleCase
+  var caseSel: Option[(Int, Int)] = None
+  var maxX: Int = 0
+  var maxY: Int = 0
+  var offset: (Int, Int) = (0,0)
+  var sourisSurSel: Boolean = true
+  var posSouris: Point = new Point(0,0)
 
   /* EVENEMENTS */
 

@@ -11,6 +11,8 @@ package affichage.comportements
 import affichage.composants._
 import jeu._
 
+import java.awt.Graphics2D
+
 
 
 object CZoneGrilleA {
@@ -31,26 +33,27 @@ object CZoneGrilleA {
   def dessineFondTours(
     g: Graphics2D
   ) = {
-    var t = PartAff.partie.get.carte.tuiles
+    var t = CPartAff.partie.get.carte.tuiles
     var x = ZoneGrille.offset._1
     var y = ZoneGrille.offset._2
-    for (i <- t.indexes) {
-      for (j <- t(i).indexes) {
+    for (i <- 0 to t.length - 1) {
+      for (j <- 0 to t(i).length - 1) {
         CPartAff.partie.get.carte.getTourAt((i,j)) match {
           case Some(tour: Tour) => {
             // tour sur l'emplacement
             g.drawImage(
-              x, y,
               CImgJeu.imgTypeEndom(
-                tour.typeE.imgGrille,
+                tour.typeE,
                 (ZoneGrille.tailleCase, ZoneGrille.tailleCase) ),
+              x, y,
               null)
           }
           case None => {
             // pas de tour sur l'emplacement
             g.drawImage(
+              CImgJeu.imgTuile(t(i)(j),
+              (ZoneGrille.tailleCase, ZoneGrille.tailleCase) ),
               x, y,
-              CImgJeu.imgTuile(t(i)(j)),
               null)
           } }
         x += ZoneGrille.tailleCase
@@ -71,13 +74,13 @@ object CZoneGrilleA {
         val x = ((e.pos.get._1-(tE/2))*ZoneGrille.tailleCase).toInt + ZoneGrille.offset._1
         val y = ((e.pos.get._2-(tE/2))*ZoneGrille.tailleCase).toInt + ZoneGrille.offset._2
         g.drawImage(
-          x, y,
           CImgJeu.imgTypeEndom(
-            e.imgGrille,
+            e.typeE,
             (ZoneGrille.tailleCase, ZoneGrille.tailleCase) ),
+          x, y,
           null)
       }
-    }
+    } )
   }
 
 

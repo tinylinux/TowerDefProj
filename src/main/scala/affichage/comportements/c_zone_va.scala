@@ -11,7 +11,7 @@ package affichage.comportements
 import affichage.composants._
 import jeu._
 
-import java.awt.Graphics2D
+import java.awt.{Graphics2D, Font}
 
 
 
@@ -23,7 +23,7 @@ object CZoneVA {
   def paintComp(
     g: Graphics2D
   ) = {
-    if (PartAff.partie.isDefined) {
+    if (CPartAff.partie.isDefined) {
       /* Dessiner les images */
       val i = DimJeu.hZoneVA-2*DimJeu.lImgZVA
       g.drawImage(CImgJeu.img(nomCoeur,
@@ -34,9 +34,9 @@ object CZoneVA {
         i*2/3 + DimJeu.lImgZVA, i/3, null)
 
       /* Ecrire les pv restants, pv max et argent */
-      val pv = PartAff.partie.get.carte.tP.pv
-      val pvMax = PartAff.partie.get.carte.tP.pvMax
-      val argent = PartAff.partie.get.argent
+      val pv = CPartAff.partie.get.carte.tP.pv.toString
+      val pvMax = CPartAff.partie.get.carte.tP.pvMax.toString
+      val argent = CPartAff.partie.get.argent.toString
       val oldFont = g.getFont()
       g.setFont(new Font("Impact", Font.BOLD, 24))
       g.drawString(pv + "/" + pvMax, i*2/3 + DimJeu.lImgZVA, i/3 + DimJeu.lImgZVA)
@@ -44,3 +44,5 @@ object CZoneVA {
       g.setFont(oldFont)
     }
   }
+
+}

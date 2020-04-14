@@ -12,6 +12,7 @@ import affichage.comportements._
 import jeu._
 
 import scala.swing._
+import scala.swing.event._
 
 
 object MenuBas
@@ -43,7 +44,7 @@ object ZoneBoutons
   this.peer.setBounds(0,0,DimJeu.wZoneBoutons,DimJeu.hZoneBoutons)
 
   listenTo(BPause)
-  listenTo(PSlow)
+  listenTo(BSlow)
   listenTo(BFast)
   listenTo(BParam)
 
