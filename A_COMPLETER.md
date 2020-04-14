@@ -1,7 +1,7 @@
 A completer :
 
 * c_inventaire.scala : comportement wheel direction
-* img d'un type endommageable : donné par TypeEndommageable ou ImgJeu ?
+* affichage sur tout l'écran (pause, gagné, perdu, fini)
 
 A faire :
 
@@ -10,3 +10,4 @@ A faire :
 * messages ZoneGrille
 * bouton paramètres BParam
 * affichage barre de vie Ennemis dans ZoneGrille
+* revoir système de cooldown

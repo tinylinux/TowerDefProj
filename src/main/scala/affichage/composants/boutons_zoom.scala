@@ -16,8 +16,8 @@ import scala.swing._
 
 object BMoins
     extends BLogo {
-  nom = "moins.png"
-  l = DimJeu.lBZoom
+  var nom: String = "icones/moins.png"
+  var l: Int = DimJeu.lBZoom
 
   MenuGrille.peer.add(this.peer)
   this.peer.setBounds(
@@ -28,8 +28,8 @@ object BMoins
 
 object BPlus
     extends BLogo {
-  nom = "plus.png"
-  l = DimJeu.lBZoom
+  var nom: String = "icones/plus.jpg"
+  var l: Int = DimJeu.lBZoom
 
   MenuGrille.peer.add(this.peer)
   this.peer.setBounds(
@@ -40,8 +40,8 @@ object BPlus
 
 object BCentre
     extends BLogo {
-  nom = "centre.png"
-  l = DimJeu.lBZoom
+  var nom: String = "icones/centrer.jpg"
+  var l: Int = DimJeu.lBZoom
 
   MenuGrille.peer.add(this.peer)
   this.peer.setBounds(

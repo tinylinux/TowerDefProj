@@ -16,8 +16,8 @@ import scala.swing._
 
 object BPause
     extends BLogo {
-  nom = "pause.png"
-  l = DimJeu.lBJeu
+  var nom: String = "icones/pause.jpg"
+  var l: Int = DimJeu.lBJeu
 
   ZoneBoutons.peer.add(this.peer)
   this.peer.setBounds(
@@ -28,8 +28,8 @@ object BPause
 
 object BSlow
     extends BLogo {
-  nom = "slow.png"
-  l = DimJeu.lBJeu
+  var nom: String = "icones/slow.jpg"
+  var l: Int = DimJeu.lBJeu
 
   ZoneBoutons.peer.add(this.peer)
   this.peer.setBounds(
@@ -40,8 +40,8 @@ object BSlow
 
 object BFast
     extends BLogo {
-  nom = "fast.png"
-  l = DimJeu.lBJeu
+  var nom: String = "icones/fast.jpg"
+  var l: Int = DimJeu.lBJeu
 
   ZoneBoutons.peer.add(this.peer)
   this.peer.setBounds(
@@ -52,8 +52,8 @@ object BFast
 
 object BParam
     extends BLogo {
-  nom = "param.png"
-  l = DimJeu.lBJeu
+  var nom: String = "icones/param.png"
+  var l: Int = DimJeu.lBJeu
 
   ZoneBoutons.peer.add(this.peer)
   this.peer.setBounds(

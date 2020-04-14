@@ -12,6 +12,7 @@ import tours._
 import ennemis._
 import effets._
 
+import scala.math.sqrt
 
 
 object Pos {
@@ -37,4 +38,12 @@ object Pos {
     (a._1 + b._1, a._2 + b._2)
   }
 
+  def dist(
+    a: (Double, Double),
+    b: (Double, Double)
+  ): Double = {
+    val dx = b._1 - a._1
+    val dy = b._2 - a._2
+    sqrt(dx*dx + dy*dy)
+  }
 }

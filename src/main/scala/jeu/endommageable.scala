@@ -24,15 +24,15 @@ abstract class Endommageable {
 
   /* ATTRIBUTS */
 
-  var pv: Int
-  var pvMax: Int
+  var pv: Int // PV (actuels) de l'endommageable
+  var pvMax: Int // PV max
   var pos: Option[(Double, Double)]
-  var vitesse: Double
-  var portee: Double
-  var rayon: Double
-  var deg: Int
-  var soin: Int
-  var cooldown: Int
+  var vitesse: Double // vitesse de déplacement (en distance/tick)
+  var portee: Double // portée des attaques/soin
+  var rayon: Double // rayon (pour les dégâts/soins de zone)
+  var deg: Int // nb de infligés aux autres endommageables
+  var soin: Int // nb de pv soignés aux autres endommageables
+  var cooldown: Int // durée restante avant la prochaine action (en nb de tick)
 
 
   /* METHODES */
@@ -60,7 +60,10 @@ abstract class Endommageable {
   def tick: Unit =
     OEndommageable.tick(this)
 
+  def despawn: Unit
+
+  
   def actTick: Unit
   def actMort: Unit
-  def despawn: Unit
+
 }

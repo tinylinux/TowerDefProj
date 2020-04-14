@@ -1,24 +1,23 @@
 /** TowerDefProj
-  * tour_principale.scala
+  * TYPE_TOUR.scala
   */
 
 
 /* PACKAGES */
 
-package tours
+package ennemis
 import jeu._
 import affichage._
 import strategie._
-import ennemis._
 import effets._
 
 
-object TypeTourPrincipale
+object TYPE_TOUR
     extends TypeEndommageable {
 
   /* ATTRIBUTS */
 
-  var img: String = "tours/tour_princiale.jpg"
+  var img: String = 
 
 
 }

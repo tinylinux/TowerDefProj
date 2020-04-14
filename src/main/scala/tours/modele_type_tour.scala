@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * tour_principale.scala
+  * TYPE_TOUR.scala
   */
 
 
@@ -13,12 +13,12 @@ import ennemis._
 import effets._
 
 
-object TypeTourPrincipale
+object TYPE_TOUR
     extends TypeEndommageable {
 
   /* ATTRIBUTS */
 
-  var img: String = "tours/tour_princiale.jpg"
+  var img: String =
 
 
 }

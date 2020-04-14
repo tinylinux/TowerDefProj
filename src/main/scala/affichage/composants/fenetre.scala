@@ -42,10 +42,5 @@ object FenetreJeu
   override def closeOperation() =
     CFinJeu.closeOp
 
-  override def paintComponent(
-    g: Graphics2D
-  ) =
-    CFenetreJeu.paintComp(g)
-
 
 }

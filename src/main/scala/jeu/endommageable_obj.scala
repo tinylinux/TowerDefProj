@@ -52,7 +52,9 @@ object OEndommageable {
   def tick(
     e: Endommageable
   ): Unit = {
-    if (e.cooldown > 0) { e.cooldown -= 1 }
-    e.actTick
+    if (e.pos.isDefined) { // l'endommageable est bien sur la carte
+      if (e.cooldown > 0) { e.cooldown -= 1 }
+      e.actTick
+    }
   }
 }
