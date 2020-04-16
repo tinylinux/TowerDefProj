@@ -7,8 +7,7 @@
 
 package tours
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
 
 
 class Mortier
@@ -43,7 +42,7 @@ class Mortier
     if (cooldown == 0) {
       SAttaque.attaqueAOEPlusProche(
         this, carte.ennemis, 7
-      )
+      ) }
   }
 
   def actMort: Unit = ()

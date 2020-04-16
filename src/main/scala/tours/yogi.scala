@@ -7,9 +7,7 @@
 
 package tours
 import jeu._
-import affichage.composants._
-import affichage.comportements._
-
+import strategie._
 
 class Yogi
     extends Tour {
@@ -19,7 +17,7 @@ class Yogi
   var carte: Carte = null
   var effets: List[Effet] = Nil
 
-  var typeE: TypeEndommageable =
+  var typeE: TypeEndommageable = TypeYogi
 
 
   /* ATTRIBUTS */
@@ -28,18 +26,25 @@ class Yogi
   var pos: Option[(Double, Double)] = None
   var cooldown: Int = 0
 
-  var pvMax: Int =70
-  var vitesse: Double = 
-  var portee: Double =3
-  var rayon: Double =1
-  var deg: Int =30
-  var soin: Int =10
+  var pvMax: Int = 70
+  var vitesse: Double = 0.0
+  var portee: Double = 3.0
+  var rayon: Double = 1.0
+  var deg: Int = 30
+  var soin: Int = 10
 
 
   /* METHODES */
 
   def actTick: Unit = {
-
+    /* ATTAQUE ET AUTO-SOIN */
+    if (cooldown == 0) {
+      soigner(soin)
+      SAttaque.attaquePlusProche(
+        this, carte.ennemis, 0
+      )
+      cooldown = 12
+    }
   }
 
   def actMort: Unit = ()

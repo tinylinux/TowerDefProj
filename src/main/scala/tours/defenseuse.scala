@@ -7,8 +7,7 @@
 
 package tours
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
 
 
 class Defenseuse
@@ -29,9 +28,9 @@ class Defenseuse
   var cooldown: Int = 0
 
   var pvMax: Int = 40
-  var vitesse: Double = 0
-  var portee: Double = 2
-  var rayon: Double = 0
+  var vitesse: Double = 0.0
+  var portee: Double = 2.0
+  var rayon: Double = 0.0
   var deg: Int = 10
   var soin: Int = 0
 
@@ -39,13 +38,11 @@ class Defenseuse
   /* METHODES */
 
   def actTick: Unit = {
-      def actTick: Unit = {
     /* ATTAQUE DE L'ENNEMI LE PLUS PROCHE */
     if (cooldown == 0) {
       SAttaque.attaquePlusProche(
         this, carte.ennemis, 4
-      )
-    }
+      ) }
   }
 
 

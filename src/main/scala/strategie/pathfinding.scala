@@ -20,7 +20,7 @@ object SPathfinding {
     /** Renvoie l'itinéraire à suivre en partant de chaque case (accessible) pour aller vers la case cible */
   def parcoursEnLargeur(
     maxX: Int, maxY: Int, // dimensions
-    acc: (Int, Int) -> Boolean, // cases accessibles
+    acc: (Int, Int) => Boolean, // cases accessibles
     cible: (Int, Int) // case à atteindre
   ): Array[Array[Option[(Int, Int)]]] = {
     val (xC, yC) = cible
@@ -64,7 +64,7 @@ object SPathfinding {
 
       def filtre(e: (Int, Int)): Boolean = {
         val (x, y) = e
-        0 <= x && x <= maxX && 0 <= y && y <= maxY && (!lues(y)(x)) && cases(y)(x).accesEnnemi
+        0 <= x && x <= maxX && 0 <= y && y <= maxY && (!lues(x)(y)) && acc(x,y)
       }
       posAdj = posAdj.filter(filtre)
 
@@ -84,10 +84,10 @@ object SPathfinding {
 
   def accEnnemi(
     c: Carte
-  ): ((Int, Int) -> Boolean) = {
-    val tabAcc = new Array[Array[Boolean]](carte.maxX)
+  ): ((Int, Int) => Boolean) = {
+    val tabAcc = new Array[Array[Boolean]](c.maxX)
     for (x <- 0 until tabAcc.length-1) {
-      tabAcc(x) = new Array[Boolean](carte.maxY)
+      tabAcc(x) = new Array[Boolean](c.maxY)
       for (y <- 0 until tabAcc(x).length-1) {
         tabAcc(x)(y) = c.tuiles(x)(y).accesE
       }
@@ -95,7 +95,7 @@ object SPathfinding {
     c.tours.foreach(t => {
       if (t.pos.isDefined) {
         val (x, y) = Pos.posToI(t.pos.get)
-        tabAcc(x, y) = false
+        tabAcc(x)(y) = false
       } } )
       (x, y) => tabAcc(x)(y)
   }
@@ -103,10 +103,10 @@ object SPathfinding {
 
   def accEnnemiOsefTours(
     c: Carte
-  ): ((Int, Int) -> Boolean) = {
-    val tabAcc = new Array[Array[Boolean]](carte.maxX)
+  ): ((Int, Int) => Boolean) = {
+    val tabAcc = new Array[Array[Boolean]](c.maxX)
     for (x <- 0 until tabAcc.length-1) {
-      tabAcc(x) = new Array[Boolean](carte.maxY)
+      tabAcc(x) = new Array[Boolean](c.maxY)
       for (y <- 0 until tabAcc(x).length-1) {
         tabAcc(x)(y) = c.tuiles(x)(y).accesE
       }

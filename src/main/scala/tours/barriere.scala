@@ -7,8 +7,8 @@
 
 package tours
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
+
 
 
 class Barriere
@@ -19,7 +19,7 @@ class Barriere
   var carte: Carte = null
   var effets: List[Effet] = Nil
 
-  var typeE: TypeEndommageable =
+  var typeE: TypeEndommageable = TypeBarriere
 
 
   /* ATTRIBUTS */
@@ -28,20 +28,19 @@ class Barriere
   var pos: Option[(Double, Double)] = None
   var cooldown: Int = 0
 
-  var pvMax: Int =150
-  var vitesse: Double = 
-  var portee: Double =0
-  var rayon: Double =0
-  var deg: Int =0
-  var soin: Int =0
+  var pvMax: Int = 150
+  var vitesse: Double = 0.0
+  var portee: Double = 0.0
+  var rayon: Double = 0.0
+  var deg: Int = 0
+  var soin: Int = 0
 
 
   /* METHODES */
 
-  def actTick: Unit = {
+  // Une barrière ne fait rien (comme une vraie barrière !)
 
-  }
-
+  def actTick: Unit = ()
   def actMort: Unit = ()
 
 }

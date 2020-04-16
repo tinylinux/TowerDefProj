@@ -7,8 +7,7 @@
 
 package tours
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
 
 
 class TourPrincipale

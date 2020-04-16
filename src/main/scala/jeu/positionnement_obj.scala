@@ -48,7 +48,7 @@ object Pos {
   def mPos(
     a: (Double, Double),
     m: Double
-  ): (Double, Double) = {
+  ): (Double, Double) =
     (a._1*m, a._2*m)
 
   def dist(

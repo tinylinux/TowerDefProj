@@ -7,8 +7,7 @@
 
 package ennemis
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
 
 
 class Soignant
@@ -29,7 +28,7 @@ class Soignant
   var cooldown: Int = 0
 
   var pvMax: Int = 20
-  var vitesse: Double = 
+  var vitesse: Double = 0.2
   var portee: Double = 2.0
   var rayon: Double = 0.0
   var deg: Int = 0

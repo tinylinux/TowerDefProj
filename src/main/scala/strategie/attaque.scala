@@ -22,12 +22,12 @@ object SAttaque {
   ) = {
     if (e.pos.isDefined) {
       SCible.plusProche(
-        SCible.filterAPortee(l, e.pos.get, portee),
+        SCible.filterAPortee(l, e.pos.get, e.portee),
         e.pos.get
       ) match {
         case None => ()
-        case Some(c) => {
-          c.degats(deg)
+        case Some(c:Endommageable) => {
+          c.degats(e.deg)
           e.cooldown = nC
         }
       }
@@ -64,7 +64,7 @@ object SAttaque {
           l, e.pos.get, e.portee),
         e.deg ) match {
         case None => ()
-        case Some(c) => {
+        case Some(c:Endommageable) => {
           c.degats(e.deg)
           e.cooldown = nC
         } } }
@@ -93,11 +93,11 @@ object SAttaque {
   ) = {
     if (e.pos.isDefined) {
       SCible.plusProche(
-        SCible.filterAPortee(l, e.pos.get, portee),
+        SCible.filterAPortee(l, e.pos.get, e.portee),
         e.pos.get
       ) match {
-n        case None => ()
-        case Some(c) => attaqueAOEPos(e, c.pos.get, l, nC)
+        case None => ()
+        case Some(c:Endommageable) => attaqueAOEPos(e, c.pos.get, l, nC)
       }
     }
   }

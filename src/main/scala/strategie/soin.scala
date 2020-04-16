@@ -22,12 +22,11 @@ object SSoin {
   ) = {
     if (e.pos.isDefined) {
       SCible.plusFaibleAvecDegats(
-        SCible.filterAPortee(l, e.pos.get, portee),
-        e.pos.get
+        SCible.filterAPortee(l, e.pos.get, e.portee)
       ) match {
         case None => ()
-        case Some(c) => {
-          c.soigner(soin)
+        case Some(c:Endommageable) => {
+          c.soigner(e.soin)
           e.cooldown = nC
         }
       }
@@ -42,8 +41,8 @@ object SSoin {
     if (c.pos.isDefined && s.pos.isDefined
       && Pos.dist(s.pos.get, c.pos.get) <= s.portee
       && s.cooldown == 0) {
-      c.soigner(a.soin)
-      a.cooldown = nC
+      c.soigner(s.soin)
+      s.cooldown = nC
     }
   }
 
@@ -52,7 +51,7 @@ object SSoin {
     nC: Int
   ) = {
     if (e.carte.tP.pv != e.carte.tP.pvMax) {
-      soigner(e, e.carte.tP, nC)
+      soin(e, e.carte.tP, nC)
     }
   }
 
@@ -79,11 +78,10 @@ object SSoin {
   ) = {
     if (e.pos.isDefined) {
       SCible.plusFaibleAvecDegats(
-        SCible.filterAPortee(l, e.pos.get, portee),
-        e.pos.get
+        SCible.filterAPortee(l, e.pos.get, e.portee),
       ) match {
-n        case None => ()
-        case Some(c) => soinAOEPos(e, c.pos.get, l, nC)
+        case None => ()
+        case Some(c:Endommageable) => soinAOEPos(e, c.pos.get, l, nC)
       }
     }
   }

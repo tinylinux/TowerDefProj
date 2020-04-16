@@ -14,7 +14,7 @@ object SDeplacement {
   /* STRATEGIES */
 
   def deplacement(
-    e: Endommageable,
+    e: Ennemi,
     pos: (Double, Double)
   ) = {
     if (e.vitesse != 0 && e.pos.isDefined) {
@@ -42,7 +42,7 @@ object SDeplacement {
    *  - la même position que pos sinon
    */
   def deplacementPathfinding(
-    e: Endommageable,
+    e: Ennemi,
     pos: (Double, Double),
     accTours: Boolean
       //cherche à éviter les tours sur le chemin ou pas
@@ -66,7 +66,7 @@ object SDeplacement {
           case None => false
           case Some(c) => {
             deplacement(e, Pos.sPos(
-              Pos.posToI(c), (0.5,0.5) ))
+              Pos.iToPos(c), (0.5,0.5) ))
             true
           }
         }
@@ -79,7 +79,7 @@ object SDeplacement {
 
   /* Renvoie true si l'endommageable s'est déplacé, false sinon */
   def deplacementTourPrincipale(
-    e: Endommageable
+    e: Ennemi
   ): Boolean = {
     if (e.carte.tP.pos.isDefined) {
       deplacementPathfinding(e, e.carte.tP.pos.get, true)
@@ -90,7 +90,7 @@ object SDeplacement {
 
   /* Renvoie true si l'endommageable s'est déplacé, false sinon */
   def deplacementTourPrincipaleOsefTours(
-    e: Endommageable
+    e: Ennemi
   ): Boolean = {
     if (e.carte.tP.pos.isDefined) {
       deplacementPathfinding(e, e.carte.tP.pos.get, false)
@@ -100,16 +100,18 @@ object SDeplacement {
 
 
   /* Déplace e vers l'ennemi le plus faible avec des dégâts */
-  deplacementEnnemiPlusFaibleAvecDegats(
-    e: Endommageable
+  def deplacementEnnemiPlusFaibleAvecDegats(
+    e: Ennemi
   ) = {
     if (e.pos.isDefined && e.vitesse != 0) {
-      SCible.plusFaibleAvecDegats(e) match {
-        None => ()
-        Some(f) => deplacementPathfinding(e, f.pos.get, true)
+      SCible.plusFaibleAvecDegats(
+      e.carte.ennemis.filter(en => en != e)) match {
+        case None => ()
+        case Some(f:Endommageable) => deplacementPathfinding(e, f.pos.get, true)
       } }
   }
 
 
   
 }
+

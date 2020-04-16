@@ -7,8 +7,7 @@
 
 package ennemis
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
 
 
 class Racaillou
@@ -29,7 +28,7 @@ class Racaillou
   var cooldown: Int = 0
 
   var pvMax: Int = 20
-  var vitesse: Double = 
+  var vitesse: Double = 0.08
   var portee: Double = 1.0
   var rayon: Double = 0.0
   var deg: Int = 10

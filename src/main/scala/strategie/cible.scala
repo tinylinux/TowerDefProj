@@ -15,8 +15,10 @@ object SCible {
 
   def optMinBy[A, B](
     l: List[A],
-    f: (A) -> B,
-  ) = {n
+    f: (A) => B,
+  )(
+    implicit cmp: Ordering[B]
+  ) = {
     try { Some(l.minBy(f)) }
     catch { case _ : Throwable => None }
   }
@@ -32,35 +34,50 @@ object SCible {
     l: List[A],
     pos: (Double, Double),
     portee: Double
-  ) = surCarte(l).filter(e =>
+  ) = filterSurCarte(l).filter(e =>
     Pos.dist(e.pos.get, pos) <= portee)
+
+
+  /* Renvoie les éléments de l sur lesquels un effet ayant les
+   * caractéristiques en paramètre est applicable
+   */
+  def filterHasNoEffect(
+    l: List[Endommageable],
+    et: TypeEffet,
+    benef: Boolean,
+    prio: Int
+  ) = filterSurCarte(l).filterNot(
+    (e:Endommageable) => {
+      e.effets.exists(
+        (eff:Effet) => {
+          (eff.typeE == et) && (eff.prio > prio) } ) } )
 
 
   def triProche[A <: Endommageable](
     l: List[A],
     pos: (Double, Double)
-  ) = surCarte(l).sortBy(e =>
-    Pos.dist(e.pos.get, pos))
+  ) = filterSurCarte(l).sortBy((e:Endommageable) => {
+    Pos.dist(e.pos.get, pos) } )
 
 
   def plusProche[A <: Endommageable](
     l: List[A],
     pos: (Double, Double)
   ) = SCible.optMinBy(
-    surCarte(l),
-    e => Pos.dist(e.pos.get, pos))
+    filterSurCarte(l),
+    (e:Endommageable) => { Pos.dist(e.pos.get, pos) } )
 
 
   def plusFaible[A <: Endommageable](
     l: List[A]
-  ) = optMinBy(surCarte(l), e => e.pv)
+  ) = optMinBy(filterSurCarte(l), (e:Endommageable) => e.pv)
 
 
   def plusFaibleAvecDegats[A <: Endommageable](
     l: List[A]
   ) = optMinBy(
-    surCarte(l).filter(e => e.pv != e.pvMax),
-    e => e.pv)
+    filterSurCarte(l).filter(e => e.pv != e.pvMax),
+    (e:Endommageable) => e.pv)
 
   /* Renvoie l'endommageable avec le plus gros ratio atq_cible/nb de coups pour l'éliminer.
    * Permet de sélectionner la cible la plus dangereuse, à éliminer rapidement.
@@ -68,8 +85,8 @@ object SCible {
   def meilleurRatio[A <: Endommageable](
     l: List[A],
     dpc: Int // dégâts par coup
-  ) = optMinBy(surCarte(l),
-    e => ceil((e.pv:Double)/dpc) / e.deg)
+  ) = optMinBy(filterSurCarte(l),
+    (e:Endommageable) => ceil((e.pv:Double)/dpc) / e.deg)
     
 
 

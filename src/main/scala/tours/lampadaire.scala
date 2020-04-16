@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * NOM_TOUR.scala
+  * lampadaire.scala
   */
 
 
@@ -7,11 +7,10 @@
 
 package tours
 import jeu._
-import affichage.composants._
-import affichage.comportements._
+import strategie._
 
 
-class NOM_TOUR
+class Lampadaire
     extends Tour {
 
   /* REFERENCES */
@@ -49,7 +48,7 @@ class NOM_TOUR
     /* Sinon soigne la tour la plus faible accessible */
     if (cooldown == 0) {
       SSoin.soinPlusFaibleAvecDegats(
-        this, 4
+        this, carte.tours, 4
       )
     }
   }
