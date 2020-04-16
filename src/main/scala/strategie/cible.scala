@@ -8,13 +8,15 @@ import jeu._
 import ennemis._
 import tours._
 
+import scala.math.ceil
+
 
 object SCible {
 
   def optMinBy[A, B](
     l: List[A],
     f: (A) -> B,
-  ) = {
+  ) = {n
     try { Some(l.minBy(f)) }
     catch { case _ : Throwable => None }
   }
@@ -44,8 +46,31 @@ object SCible {
   def plusProche[A <: Endommageable](
     l: List[A],
     pos: (Double, Double)
-  ) = surCarte(l).optMinBy(e =>
-    Pos.dist(e.pos.get, pos))
+  ) = SCible.optMinBy(
+    surCarte(l),
+    e => Pos.dist(e.pos.get, pos))
+
+
+  def plusFaible[A <: Endommageable](
+    l: List[A]
+  ) = optMinBy(surCarte(l), e => e.pv)
+
+
+  def plusFaibleAvecDegats[A <: Endommageable](
+    l: List[A]
+  ) = optMinBy(
+    surCarte(l).filter(e => e.pv != e.pvMax),
+    e => e.pv)
+
+  /* Renvoie l'endommageable avec le plus gros ratio atq_cible/nb de coups pour l'éliminer.
+   * Permet de sélectionner la cible la plus dangereuse, à éliminer rapidement.
+   */
+  def meilleurRatio[A <: Endommageable](
+    l: List[A],
+    dpc: Int // dégâts par coup
+  ) = optMinBy(surCarte(l),
+    e => ceil((e.pv:Double)/dpc) / e.deg)
+    
 
 
   /* METHODES SUR ENDOMMAGEABLES */
@@ -57,25 +82,5 @@ object SCible {
   ) = e.pos.isDefined && Pos.dist(e.pos.get, pos) <= portee
 
 
-  /* STRATEGIES */
-
-  def attaquePlusProche(
-    e: Endommageable,
-    l: List[Endommageable],
-    nC: Int // nouveau cooldown après attaque
-  ) = {
-    if (e.pos.isDefined) {
-      SCible.plusProche(
-        SCible.filterAPortee(l, e.pos.get, portee),
-        e.pos.get
-      ) match {
-        case None => ()
-        case Some(c) => {
-          c.degats(deg)
-          e.cooldown = nC
-        }
-      }
-    }
-  }
 
 }

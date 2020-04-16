@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * Fourmi.scala
+  * racaillou.scala
   */
 
 
@@ -11,7 +11,7 @@ import affichage.composants._
 import affichage.comportements._
 
 
-class Fourmi
+class Racaillou
     extends Ennemi {
 
   /* REFERENCES */
@@ -19,7 +19,7 @@ class Fourmi
   var carte: Carte = null
   var effets: List[Effet] = Nil
 
-  var typeE: TypeEndommageable = TypeFourmi
+  var typeE: TypeEndommageable = TypeRacaillou
 
 
   /* ATTRIBUTS */
@@ -28,11 +28,11 @@ class Fourmi
   var pos: Option[(Double, Double)] = None
   var cooldown: Int = 0
 
-  var pvMax: Int = 5
-  var vitesse: Double = 0.3
+  var pvMax: Int = 20
+  var vitesse: Double = 
   var portee: Double = 1.0
   var rayon: Double = 0.0
-  var deg: Int = 2
+  var deg: Int = 10
   var soin: Int = 0
 
 
@@ -40,23 +40,12 @@ class Fourmi
 
   def actTick: Unit = {
     /* DEPLACEMENT */
-    /* D'abord en contournant les tours */
-    if (!SDeplacement.deplacementTourPrincipale(this)) {
-      /* Si ça a échoué, en passant par les chemins avec tours
-       * (il faudra les détruire)
-       */
-      SDeplacement.deplacementTourPrincipaleOsefTours(this)
-    }
+    /* Prend le chemin le plus court, et détruit les tours */
+    SDeplacement.deplacementTourPrincipaleOsefTours(this)
 
 
     /* ATTAQUE */
-    /* ATTAQUE DE LA TOUR PRINCIPALE (SI À PORTÉE) */
-    if (cooldown == 0) {
-      SAttaque.attaqueTourPrincipale(
-        this, 3
-      )
-    }
-    /* SINON, ATTAQUE DE LA TOUR LA PLUS PROCHE */
+    /* ATTAQUE DE LA TOUR LA PLUS PROCHE */
     if (cooldown == 0) {
       SAttaque.attaquePlusProche(
         this, carte.tours, 5

@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * attaque.scala
+  * soin.scala
   */
 
 
@@ -9,71 +9,57 @@ import ennemis._
 import tours._
 
 
-object SAttaque {
+object SSoin {
 
   /* STRATEGIES */
 
-  /* ATTAQUES INDIVIDUELLES */
+  /* SOINS INDIVIDUELS */
 
-  def attaquePlusProche(
+  def soinPlusFaibleAvecDegats(
     e: Endommageable,
     l: List[Endommageable],
     nC: Int // nouveau cooldown après attaque
   ) = {
     if (e.pos.isDefined) {
-      SCible.plusProche(
+      SCible.plusFaibleAvecDegats(
         SCible.filterAPortee(l, e.pos.get, portee),
         e.pos.get
       ) match {
         case None => ()
         case Some(c) => {
-          c.degats(deg)
+          c.soigner(soin)
           e.cooldown = nC
         }
       }
     }
   }
 
-  def attaque(
-    a: Endommageable,
+  def soin(
+    s: Endommageable,
     c: Endommageable,
     nC: Int
   ) = {
-    if (c.pos.isDefined && a.pos.isDefined
-      && Pos.dist(a.pos.get, c.pos.get) <= a.portee
-      && a.cooldown == 0) {
-      c.degats(a.deg)
+    if (c.pos.isDefined && s.pos.isDefined
+      && Pos.dist(s.pos.get, c.pos.get) <= s.portee
+      && s.cooldown == 0) {
+      c.soigner(a.soin)
       a.cooldown = nC
     }
   }
 
-  def attaqueTourPrincipale(
+  def soinTourPrincipaleAvecDegats(
     e: Endommageable,
-    nC: Int
-  ) = attaque(e, e.carte.tP, nC)
-
-
-  def attaqueMeilleurRatio(
-    e: Endommageable,
-    l: List[Endommageable],
     nC: Int
   ) = {
-    if (e.pos.isDefined) {
-      SCible.meilleurRatio(
-        SCible.filterAPortee(
-          l, e.pos.get, e.portee),
-        e.deg ) match {
-        case None => ()
-        case Some(c) => {
-          c.degats(e.deg)
-          e.cooldown = nC
-        } } }
+    if (e.carte.tP.pv != e.carte.tP.pvMax) {
+      soigner(e, e.carte.tP, nC)
+    }
   }
 
 
   /* AOE */
 
-  def attaqueAOEPos(
+  def soinAOEPos(
     e: Endommageable,
     pos: (Double, Double),
     l: List[Endommageable],
@@ -81,23 +67,23 @@ object SAttaque {
   ) = {
     if (SCible.aPortee(e, pos, e.portee)) {
       l.filter(t => SCible.aPortee(t, pos, e.rayon)).
-        foreach(_.degats(e.deg))
+        foreach(_.soigner(e.soin))
       e.cooldown = nC
     }
   }
 
-  def attaqueAOEPlusProche(
+  def soinAOEPlusFaibleAvecDegats(
     e: Endommageable,
     l: List[Endommageable],
-    nC: Int // nouveau cooldown après attaque
+    nC: Int
   ) = {
     if (e.pos.isDefined) {
-      SCible.plusProche(
+      SCible.plusFaibleAvecDegats(
         SCible.filterAPortee(l, e.pos.get, portee),
         e.pos.get
       ) match {
 n        case None => ()
-        case Some(c) => attaqueAOEPos(e, c.pos.get, l, nC)
+        case Some(c) => soinAOEPos(e, c.pos.get, l, nC)
       }
     }
   }

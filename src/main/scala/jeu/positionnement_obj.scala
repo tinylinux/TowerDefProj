@@ -38,6 +38,19 @@ object Pos {
     (a._1 + b._1, a._2 + b._2)
   }
 
+  def vect(
+    a: (Double, Double),
+    b: (Double, Double)
+  ): (Double, Double) = {
+    (b._1 - a._1, b._2 - a._2)
+  }
+
+  def mPos(
+    a: (Double, Double),
+    m: Double
+  ): (Double, Double) = {
+    (a._1*m, a._2*m)
+
   def dist(
     a: (Double, Double),
     b: (Double, Double)

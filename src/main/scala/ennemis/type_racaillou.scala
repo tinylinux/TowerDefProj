@@ -1,5 +1,5 @@
 /** TowerDefProj
-  * TYPE_TOUR.scala
+  * type_racaillou.scala
   */
 
 
@@ -12,12 +12,12 @@ import strategie._
 import effets._
 
 
-object TYPE_TOUR
+object TypeRacaillou
     extends TypeEndommageable {
 
   /* ATTRIBUTS */
 
-  var img: String = 
+  var img: String = "ennemis/racaillou.png"
 
 
 }

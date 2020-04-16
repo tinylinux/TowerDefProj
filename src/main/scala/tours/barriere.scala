@@ -1,18 +1,18 @@
 /** TowerDefProj
-  * NOM_ENNEMI.scala
+  * barriere.scala
   */
 
 
 /* PACKAGES */
 
-package ennemis
+package tours
 import jeu._
 import affichage.composants._
 import affichage.comportements._
 
 
-class NOM_ENNEMI
-    extends Ennemi {
+class Barriere
+    extends Tour {
 
   /* REFERENCES */
 
@@ -28,12 +28,12 @@ class NOM_ENNEMI
   var pos: Option[(Double, Double)] = None
   var cooldown: Int = 0
 
-  var pvMax: Int = 
+  var pvMax: Int =150
   var vitesse: Double = 
-  var portee: Double =
-  var rayon: Double =
-  var deg: Int =
-  var soin: Int =
+  var portee: Double =0
+  var rayon: Double =0
+  var deg: Int =0
+  var soin: Int =0
 
 
   /* METHODES */

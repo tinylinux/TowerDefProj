@@ -1,24 +1,23 @@
 /** TowerDefProj
-  * TYPE_TOUR.scala
+  * type_kamikaze.scala
   */
 
 
 /* PACKAGES */
 
-package tours
+package ennemis
 import jeu._
 import affichage._
 import strategie._
-import ennemis._
 import effets._
 
 
-object TYPE_TOUR
+object TypeKamikaze
     extends TypeEndommageable {
 
   /* ATTRIBUTS */
 
-  var img: String =
+  var img: String = "ennemis/kamikaze.jpg"
 
 
 }

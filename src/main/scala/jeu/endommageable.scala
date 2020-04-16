@@ -42,7 +42,7 @@ abstract class Endommageable {
   ): Unit =
     OEndommageable.degats(this, d)
 
-  def soin(
+  def soigner(
     s: Int
   ): Unit =
     OEndommageable.soin(this, s)

@@ -1,18 +1,18 @@
 /** TowerDefProj
-  * NOM_TOUR.scala
+  * johnson.scala
   */
 
 
 /* PACKAGES */
 
-package tours
+package ennemis
 import jeu._
 import affichage.composants._
 import affichage.comportements._
 
 
-class NOM_TOUR
-    extends Tour {
+class Johnson
+    extends Ennemi {
 
   /* REFERENCES */
 
@@ -28,12 +28,12 @@ class NOM_TOUR
   var pos: Option[(Double, Double)] = None
   var cooldown: Int = 0
 
-  var pvMax: Int =
+  var pvMax: Int = 100
   var vitesse: Double = 
-  var portee: Double =
-  var rayon: Double =
-  var deg: Int =
-  var soin: Int =
+  var portee: Double =1
+  var rayon: Double =0
+  var deg: Int =30
+  var soin: Int =20
 
 
   /* METHODES */
