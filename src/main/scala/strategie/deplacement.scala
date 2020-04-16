@@ -35,23 +35,54 @@ object SDeplacement {
   }
 
 
+
+  /* Renvoie true si l'endommageable s'est déplacé, false sinon
+   * Déplace e vers :
+   *  - la case de pos s'ils sont sur des cases différentes
+   *  - la même position que pos sinon
+   */
+  def deplacementPathfinding(
+    e: Endommageable,
+    pos: (Double, Double),
+    accTours: Boolean
+      //cherche à éviter les tours sur le chemin ou pas
+  ): Boolean = {
+    if (e.pos.isDefined && e.vitesse != 0) {
+      if (Pos.posToI(e.pos.get) == Pos.posToI(pos)) {
+        // e et pos sont sur la même case
+        deplacement(e, pos)
+        true
+      }
+      else {
+        val (xIE, yIE) = Pos.posToI(e.pos.get)
+        val posI = Pos.posToI(pos)
+        val acc = {
+          if (accTours) SPathfinding.accEnnemi(e.carte)
+          else SPathfinding.accEnnemiOsefTours(e.carte)
+        }
+        SPathfinding.parcoursEnLargeur(
+          e.carte.maxX, e.carte.maxY, acc,
+          Pos.posToI(pos))(xIE)(yIE) match {
+          case None => false
+          case Some(c) => {
+            deplacement(e, Pos.sPos(
+              Pos.posToI(c), (0.5,0.5) ))
+            true
+          }
+        }
+      }
+    }
+    else { false }
+  }
+
+
+
   /* Renvoie true si l'endommageable s'est déplacé, false sinon */
   def deplacementTourPrincipale(
     e: Endommageable
   ): Boolean = {
-    if (e.pos.isDefined && e.vitesse != 0 && e.carte.tP.pos.isDefined) {
-      val (xIE, yIE) = Pos.posToI(e.pos.get)
-      SPathfinding.parcoursEnLargeur(
-        e.carte.maxX, e.carte.maxY,
-        SPathfinding.accEnnemi(e.carte),
-        Pos.posToI(e.carte.tP.pos.get))(xIE)(yIE) match {
-        case None => false
-        case Some(c) => {
-          deplacement(e, Pos.sPos(
-            Pos.posToI(c), (0.5,0.5) ))
-          true
-        }
-      }
+    if (e.carte.tP.pos.isDefined) {
+      deplacementPathfinding(e, e.carte.tP.pos.get, true)
     }
     else { false }
   }
@@ -61,22 +92,24 @@ object SDeplacement {
   def deplacementTourPrincipaleOsefTours(
     e: Endommageable
   ): Boolean = {
-    if (e.pos.isDefined && e.vitesse != 0 && e.carte.tP.pos.isDefined) {
-      val (xIE, yIE) = Pos.posToI(e.pos.get)
-      SPathfinding.parcoursEnLargeur(
-        e.carte.maxX, e.carte.maxY,
-        SPathfinding.accEnnemiOsefTours(e.carte),
-        Pos.posToI(e.carte.tP.pos.get))(xIE)(yIE) match {
-        case None => false
-        case Some(c) => {
-          deplacement(e, Pos.sPos(
-            Pos.posToI(c), (0.5,0.5) ))
-          true
-        }
-      }
+    if (e.carte.tP.pos.isDefined) {
+      deplacementPathfinding(e, e.carte.tP.pos.get, false)
     }
     else { false }
   }
+
+
+  /* Déplace e vers l'ennemi le plus faible avec des dégâts */
+  deplacementEnnemiPlusFaibleAvecDegats(
+    e: Endommageable
+  ) = {
+    if (e.pos.isDefined && e.vitesse != 0) {
+      SCible.plusFaibleAvecDegats(e) match {
+        None => ()
+        Some(f) => deplacementPathfinding(e, f.pos.get, true)
+      } }
+  }
+
 
   
 }

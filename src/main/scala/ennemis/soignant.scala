@@ -19,7 +19,7 @@ class Soignant
   var carte: Carte = null
   var effets: List[Effet] = Nil
 
-  var typeE: TypeEndommageable =
+  var typeE: TypeEndommageable = TypeSoignant
 
 
   /* ATTRIBUTS */
@@ -30,16 +30,31 @@ class Soignant
 
   var pvMax: Int = 20
   var vitesse: Double = 
-  var portee: Double =2
-  var rayon: Double =0
-  var deg: Int =0
-  var soin: Int =3
+  var portee: Double = 2.0
+  var rayon: Double = 0.0
+  var deg: Int = 0
+  var soin: Int = 3
 
 
   /* METHODES */
 
   def actTick: Unit = {
+    /* DEPLACEMENT */
+    /* Se déplace vers l'ennemi le plus faible n'ayant pas
+     * tous ses pv
+     */
+    SDeplacement.deplacementEnnemiPlusFaibleAvecDegats(this)
 
+
+    /* SOIN */
+    /* SOIN DE L'ENNEMI À SOIGNER LE PLUS FAIBLE AVEC DEGATS
+     * (à portée)
+     */
+    if (cooldown == 0) {
+      SSoin.soinPlusFaibleAvecDegats(
+        this, carte.ennemis, 3
+      )
+    }
   }
 
   def actMort: Unit = ()
