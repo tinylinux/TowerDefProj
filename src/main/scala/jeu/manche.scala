@@ -22,7 +22,7 @@ abstract class Manche {
 
   /* ATTRIBUTS */
 
-  var nbTick: Int
+  var nbTick: Int = 0
 
 
   /* METHODES */

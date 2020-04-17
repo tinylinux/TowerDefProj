@@ -42,5 +42,6 @@ object FenetreJeu
   override def closeOperation() =
     CFinJeu.closeOp
 
+  peer.setVisible(true)
 
 }

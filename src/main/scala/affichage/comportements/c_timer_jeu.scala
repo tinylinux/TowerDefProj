@@ -16,6 +16,7 @@ import jeu._
 object CTimerJeu {
 
   def tick: Unit = {
+print("T")
     if (CPartAff.partie.isDefined
       && (!CPartAff.partie.get.gagne.isDefined)
       && CPartAff.partie.get.gM.mEnCours.isDefined) {

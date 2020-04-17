@@ -17,7 +17,6 @@ abstract class Partie {
 
   /* REFERENCES */
 
-  // TODO affichage
   var gM: GestionManches
   var mag: Magasin
   var carte: Carte
@@ -26,7 +25,7 @@ abstract class Partie {
   /* ATTRIBUTS */
 
   var argent: Int
-  var gagne: Some[Boolean]
+  var gagne: Option[Boolean]
 
 
   /* METHODES */

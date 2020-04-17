@@ -25,4 +25,5 @@ object ZoneVA
     g: Graphics2D
   ) =
     CZoneVA.paintComp(g)
+
 }
