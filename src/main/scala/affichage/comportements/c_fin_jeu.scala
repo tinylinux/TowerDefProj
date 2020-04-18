@@ -24,7 +24,7 @@ object CFinJeu {
 
 
   def actuFin: Unit = {
-    if (!CPartAff.partie.isDefined || CPartAff.partie.get.gagne.isDefined) { // aucune partie chargée, ou partie chargée et terminée
+    if ((!CPartAff.partie.isDefined) || CPartAff.partie.get.gagne.isDefined) { // aucune partie chargée, ou partie chargée et terminée
       if (!FenetreJeu.bloque) {
         CFenetreJeu.bloquer
         FenetreJeu.bloque = true

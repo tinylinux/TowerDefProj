@@ -17,8 +17,8 @@ import java.awt.{Graphics2D, Font}
 
 object CZoneVA {
 
-  val nomCoeur = "coeur.png"
-  val nomDollar = "dollar.jpg"
+  val nomCoeur = "icones/coeur.jpg"
+  val nomDollar = "icones/dollar.jpg"
 
   def paintComp(
     g: Graphics2D
@@ -31,11 +31,15 @@ object CZoneVA {
         i/3, i/3, null)
       g.drawImage(CImgJeu.img(nomDollar,
         (DimJeu.lImgZVA, DimJeu.lImgZVA)),
-        i*2/3 + DimJeu.lImgZVA, i/3, null)
+        i/3, i*2/3 + DimJeu.lImgZVA, null)
 
       /* Ecrire les pv restants, pv max et argent */
-      val pv = CPartAff.partie.get.carte.tP.pv.toString
-      val pvMax = CPartAff.partie.get.carte.tP.pvMax.toString
+      val tP = CPartAff.partie.get.carte.tP
+      val (pv, pvMax) =
+        if (tP != null)
+          (tP.pv.toString, tP.pvMax.toString)
+        else
+          ("-", "-")
       val argent = CPartAff.partie.get.argent.toString
       val oldFont = g.getFont()
       g.setFont(new Font("Impact", Font.BOLD, 24))

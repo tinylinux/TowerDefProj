@@ -12,13 +12,18 @@ import affichage.comportements._
 import jeu._
 
 import scala.swing._
+import java.awt.Graphics2D
 
 
 object ZoneInfos
     extends Panel {
-  this.peer.setLayout(null)
-  MenuBas.peer.add(this.peer)
-  this.peer.setBounds(DimJeu.wZoneVA,0,DimJeu.wZoneInfos,DimJeu.hZoneInfos)
+
+  var c: Option[Contrat] = None
+  var t: Option[Tour] = None
+
+  override def paintComponent(
+    g: Graphics2D
+  ) = CZoneInfos.paintComp(g)
 
 }
 

@@ -21,6 +21,7 @@ object CPartAff {
     p: Partie
   ): Unit = {
     partie = Some(p)
+    TimerAff.start()
     CFinJeu.actuFin
   }
   

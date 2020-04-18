@@ -23,16 +23,17 @@ class Johnson
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 100
-  var vitesse: Double = 0.1
+  var vitesse: Double = 0.03
   var portee: Double = 1.0
   var rayon: Double = 0.0
   var deg: Int = 30
   var soin: Int = 20
+  var cooldownAct: Int = 12
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */
@@ -52,7 +53,7 @@ class Johnson
       )
       // attaque la tour la plus proche
 
-      cooldown = 12
+      cooldown = cooldownAct
     }
   }
 

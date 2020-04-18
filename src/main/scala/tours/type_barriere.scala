@@ -18,7 +18,10 @@ object TypeBarriere
 
   /* ATTRIBUTS */
 
-  var img: String ="tours/barriere.jpg"
+  var img: String = "tours/barriere.jpg"
+
+  var nom: String = "BARRIERE"
+  var desc: String = "Elle est très intimidante, personne n'ose l'escalader."
 
 
 }

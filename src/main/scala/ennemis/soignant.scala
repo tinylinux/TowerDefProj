@@ -23,16 +23,17 @@ class Soignant
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 20
-  var vitesse: Double = 0.2
+  var vitesse: Double = 0.08
   var portee: Double = 2.0
   var rayon: Double = 0.0
   var deg: Int = 0
   var soin: Int = 3
+  var cooldownAct: Int = 3
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */
@@ -51,7 +52,7 @@ class Soignant
      */
     if (cooldown == 0) {
       SSoin.soinPlusFaibleAvecDegats(
-        this, carte.ennemis, 3
+        this, carte.ennemis, cooldownAct
       )
     }
   }

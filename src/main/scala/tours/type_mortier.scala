@@ -20,5 +20,8 @@ object TypeMortier
 
   var img: String = "tours/mortier.jpg"
 
+  var nom: String = "MORTIER"
+  var desc: String = "Ses obus font des dégâts importants aux ennemis à proximité de l'impact."
+
 
 }

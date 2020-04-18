@@ -23,16 +23,17 @@ class Sniper
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 60
   var vitesse: Double = 0
   var portee: Double = 8
   var rayon: Double = 0
   var deg: Int = 10
   var soin: Int = 0
+  var cooldownAct: Int = 7
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */
@@ -40,7 +41,7 @@ class Sniper
   def actTick: Unit = {
     if (cooldown == 0) {
       SAttaque.attaqueMeilleurRatio(
-        this, carte.ennemis, 7
+        this, carte.ennemis, cooldownAct
       )
     }
   }

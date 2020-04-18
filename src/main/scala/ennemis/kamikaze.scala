@@ -23,16 +23,17 @@ class Kamikaze
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 20
-  var vitesse: Double = 0.4
+  var vitesse: Double = 0.2
   var portee: Double = 1.0
   var rayon: Double = 3.0
   var deg: Int = 30
   var soin: Int = 0
+  var cooldownAct: Int = 0
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */

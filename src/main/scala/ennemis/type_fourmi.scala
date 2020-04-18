@@ -19,5 +19,8 @@ object TypeFourmi
 
   var img: String = "ennemis/fourmi.jpg"
 
+  var nom: String = "FOURMI"
+  var desc: String = "C'est juste une fourmi."
+
 
 }

@@ -17,16 +17,9 @@ import scala.swing._
 object ZoneGrille
     extends Selectionneur {
 
-  /* SOUS COMPOSANT */
-
-  this.peer.setLayout(null)
-  MenuGrille.peer.add(this.peer)
-  this.peer.setBounds(0,0,DimJeu.wZoneGrille,DimJeu.hZoneGrille)
-
-
   /* ATTRIBUTS */
 
-  var tailleCase: Int = CZoom.tailleCase
+  var tailleCase: Int = DimJeu.tabTuileZoneGrille(CZoom.i)
   var caseSel: Option[(Int, Int)] = None
   var maxX: Int = 0
   var maxY: Int = 0
@@ -39,6 +32,7 @@ object ZoneGrille
   listenTo(mouse.wheel)
 
   reactions += { CZoneGrilleDND.react }
+  reactions += { CZoomCtrl.react }
 
   override def paintComponent(
     g: Graphics2D

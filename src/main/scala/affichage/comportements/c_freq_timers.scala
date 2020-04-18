@@ -20,7 +20,7 @@ import scala.Array
 
 object CFreqTimer {
   /* FPS (en Hz) */
-  var tabFpsJeu = Array(1,2,4,8,16,32,64,128,256)
+  var tabFpsJeu = Array(1,2,4,8,16,32,64)
   var iJeu = 3
   var fpsAff = 30
 

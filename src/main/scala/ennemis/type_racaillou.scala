@@ -19,5 +19,8 @@ object TypeRacaillou
 
   var img: String = "ennemis/racaillou.png"
 
+  var nom: String = "RACAILLOU"
+  var desc: String = "Malgré sa taille et sa vitesse c'est un pokémon redoutable !"
+
 
 }

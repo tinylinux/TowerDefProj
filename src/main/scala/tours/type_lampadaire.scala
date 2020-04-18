@@ -20,5 +20,8 @@ object TypeLampadaire
 
   var img: String = "tours/lampadaire.jpg"
 
+  var nom: String = "LAMPADAIRE"
+  var desc: String = "Depuis qu'il s'est fait aspirer par Dumbledore, il n'est plus tout à fait le même."
+
 
 }

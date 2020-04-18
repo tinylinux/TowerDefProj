@@ -19,5 +19,8 @@ object TypeJohnson
 
   var img: String = "ennemis/johnson.jpg"
 
+  var nom: String = "JOHNSON"
+  var desc: String = "Il a survécu au COVID-19 !!"
+
 
 }

@@ -82,7 +82,7 @@ object CSelectionneur {
       val xCS = s.offset._1 + s.caseSel.get._1*s.tailleCase
       val yCS = s.offset._2 + s.caseSel.get._2*s.tailleCase
 
-      g.setColor(Color.green)
+      g.setColor(Color.blue)
       g.setStroke(new BasicStroke(6f))
 
       g.draw(new Rectangle(

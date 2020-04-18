@@ -29,19 +29,16 @@ object FenetreJeu
 
   title = "TowerDefProj"
 
-  contents = new Panel {
-    peer.setLayout(null)
-  }
-
+  Placement.placerComposants
+  
   resizable = false
   size = new Dimension(DimJeu.wFenetreJeu,DimJeu.hFenetreJeu+25)
 
+  peer.setVisible(true)
 
   /* METHODES */
 
   override def closeOperation() =
     CFinJeu.closeOp
-
-  peer.setVisible(true)
 
 }

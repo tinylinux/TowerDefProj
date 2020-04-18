@@ -24,8 +24,8 @@ abstract class Endommageable {
 
   /* ATTRIBUTS */
 
-  var pv: Int // PV (actuels) de l'endommageable
   var pvMax: Int // PV max
+  var pv: Int // PV (actuels) de l'endommageable
   var pos: Option[(Double, Double)]
   var vitesse: Double // vitesse de déplacement (en distance/tick)
   var portee: Double // portée des attaques/soin
@@ -33,6 +33,7 @@ abstract class Endommageable {
   var deg: Int // nb de infligés aux autres endommageables
   var soin: Int // nb de pv soignés aux autres endommageables
   var cooldown: Int // durée restante avant la prochaine action (en nb de tick)
+  var cooldownAct: Int // durée du cooldown juste après chaque action
 
 
   /* METHODES */

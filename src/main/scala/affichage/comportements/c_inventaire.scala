@@ -60,15 +60,12 @@ object CInventaire {
 
   def react: Reaction = {
     case MouseWheelMoved(_, _, _, d) => {
-// test
-print("MouseWheelMoved " + d.toString)
-
-      if (d == 1) { // vers le haut
+      if (d == 1) { // d==1 : vers le haut
         Inventaire.offset =
           (Inventaire.offset._1,
             Inventaire.offset._2+Inventaire.dOffset)
       }
-      else { // vers le bas
+      else { // d==-1 : vers le bas
         Inventaire.offset =
           (Inventaire.offset._1,
             Inventaire.offset._2-Inventaire.dOffset)
@@ -76,6 +73,26 @@ print("MouseWheelMoved " + d.toString)
       updateOffset
     }
 
+
+    case MouseMoved(_, p, _) =>
+      infosContrat(p)
+
+    case MouseDragged(_, p, _) =>
+      infosContrat(p)
+
+  }
+
+
+  def infosContrat(
+    p: Point
+  ) = {
+    if (CPartAff.partie.isDefined) {
+      val (x,y) = CSelectionneur.pointToCase(Inventaire, p)
+      CPartAff.partie.get.mag.getContrat(2*x+y) match {
+        case Some(c:Contrat) => CZoneInfos.infosContrat(c)
+        case _ => ()
+      }
+    }
   }
 
 
@@ -117,6 +134,7 @@ print("MouseWheelMoved " + d.toString)
         } }
       aff(c)
     }
+    CSelectionneur.paintComp(Inventaire, g)
   }
 
 

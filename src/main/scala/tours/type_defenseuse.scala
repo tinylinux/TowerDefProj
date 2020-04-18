@@ -20,5 +20,8 @@ object TypeDefenseuse
 
   var img: String = "tours/defenseuse.jpg"
 
+  var nom: String = "DEFENSEUSE"
+  var desc: String = "Elle travaille dur pour préparer la Coupe de France de football féminin."
+
 
 }

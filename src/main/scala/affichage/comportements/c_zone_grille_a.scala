@@ -11,15 +11,29 @@ package affichage.comportements
 import affichage.composants._
 import jeu._
 
-import java.awt.Graphics2D
+import java.awt.{Graphics2D, Color, Rectangle}
 
 
 
 object CZoneGrilleA {
 
+
+  def updateMax = {
+    val (mX, mY) = {
+      CPartAff.partie match {
+        case Some(p) => (p.carte.maxX, p.carte.maxY)
+        case None => (0, 0)
+      }
+    }
+    ZoneGrille.maxX = mX
+    ZoneGrille.maxY = mY
+  }
+
+
   def paintComp(
     g: Graphics2D
   ) = {
+    updateMax
     if (CPartAff.partie.isDefined) { // partie chargée
       /* FOND ET TOURS */
       dessineFondTours(g)
@@ -27,12 +41,15 @@ object CZoneGrilleA {
       /* ENNEMIS */
       dessineEnnemis(g)
     }
+
+    CSelectionneur.paintComp(ZoneGrille, g)
   }
 
 
   def dessineFondTours(
     g: Graphics2D
   ) = {
+    val tC = ZoneGrille.tailleCase
     var t = CPartAff.partie.get.carte.tuiles
     var x = ZoneGrille.offset._1
     var y = ZoneGrille.offset._2
@@ -44,22 +61,24 @@ object CZoneGrilleA {
             g.drawImage(
               CImgJeu.imgTypeEndom(
                 tour.typeE,
-                (ZoneGrille.tailleCase, ZoneGrille.tailleCase) ),
+                (tC, tC) ),
               x, y,
               null)
+            dessineBarreVie(g, x, y+tC.toInt, tC.toInt, (tour.pv:Double)/(tour.pvMax:Double))
+            dessineBarreCooldown(g, x, y+tC.toInt, tC.toInt, (tour.cooldown:Double)/(tour.cooldownAct:Double))
           }
           case None => {
             // pas de tour sur l'emplacement
             g.drawImage(
               CImgJeu.imgTuile(t(i)(j),
-              (ZoneGrille.tailleCase, ZoneGrille.tailleCase) ),
+              (tC, tC) ),
               x, y,
               null)
           } }
-        x += ZoneGrille.tailleCase
+        y += tC
       }
-      x = ZoneGrille.offset._1
-      y += ZoneGrille.tailleCase
+      y = ZoneGrille.offset._2
+      x += tC
     }
   }
 
@@ -67,19 +86,78 @@ object CZoneGrilleA {
   def dessineEnnemis(
     g: Graphics2D
   ) = {
-    val tE: Double = 1/2 // rapport entre la taille d'un ennemi et une case
+    val tE: Double = 0.8 // rapport entre la taille d'un ennemi et une case
+    val o: (Int, Int) = ZoneGrille.offset
+    val tC: Int = ZoneGrille.tailleCase
     CPartAff.partie.get.carte.ennemis.foreach(e => {
       if (e.pos.isDefined) {
         // image de l'ennemi
-        val x = ((e.pos.get._1-(tE/2))*ZoneGrille.tailleCase).toInt + ZoneGrille.offset._1
-        val y = ((e.pos.get._2-(tE/2))*ZoneGrille.tailleCase).toInt + ZoneGrille.offset._2
+        val x = ((e.pos.get._1-(tE/2))*tC).toInt + o._1
+        val y = ((e.pos.get._2-(tE/2))*tC).toInt + o._2
         g.drawImage(
           CImgJeu.imgTypeEndom(
             e.typeE,
-            (ZoneGrille.tailleCase, ZoneGrille.tailleCase) ),
+            ((tE*tC).toInt, (tE*tC).toInt) ),
           x, y,
           null)
+        dessineBarreVie(g, x, y+(tE*tC).toInt, (tE*tC).toInt, (e.pv:Double)/(e.pvMax:Double))
+        dessineBarreCooldown(g, x, y+(tE*tC).toInt, (tE*tC).toInt, (e.cooldown:Double)/(e.cooldownAct:Double))
+        dessineEffets(g, x, y, (tE*tC).toInt, e.effets)
       }
+    } )
+  }
+
+
+  def dessineBarreVie(
+    g: Graphics2D,
+    x: Int, // coordonnées du coin en bas à gauche de l'endommageable
+    y: Int,
+    l: Int, // longueur de la barre de vie (en pixels)
+    ratio: Double // ratio pv/pvMax
+  ) = {
+    val oldColor = g.getColor()
+    val lim = (ratio*l).toInt
+    val h = l/8+1
+    g.setColor(Color.green)
+    g.fill(new Rectangle(x,y-h,lim,h))
+    g.setColor(Color.red)
+    g.fill(new Rectangle(x+lim,y-h,l-lim,h))
+    g.setColor(oldColor)
+  }
+
+
+  def dessineBarreCooldown(
+    g: Graphics2D,
+    x: Int, // coordonnées du coin en bas à gauche de l'endommageable
+    y: Int,
+    l: Int, // longueur de la barre de cooldown (en pixels)
+    ratio: Double // ratio cooldown/cooldownAct
+  ) = {
+    val oldColor = g.getColor()
+    val lim = (ratio*l).toInt
+    val h = l/8+1
+    g.setColor(Color.blue)
+    g.fill(new Rectangle(x,y-h*2,lim,h))
+    g.setColor(oldColor)
+  }
+
+
+  def dessineEffets(
+    g: Graphics2D,
+    x: Int, // coordonnées du coin en haut à gauche de l'endommageable
+    y: Int,
+    l: Int, // longueur de l'image de l'endommageable (en pixels)
+    le: List[Effet] // liste des effets à afficher
+  ) = {
+    val dx = l/2
+    var xE = x
+    le.foreach(eff => {
+      g.drawImage(
+        CImgJeu.imgTypeEffet(
+          eff.typeE,
+          (dx,dx) ),
+        xE, y, null)
+      xE += dx
     } )
   }
 

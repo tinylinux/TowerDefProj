@@ -78,4 +78,9 @@ abstract class Carte {
   ): Option[Tour] =
     OCarte.getTourAt(this, posI)
 
+  def posIAccesE(
+    pos: (Int, Int)
+  ): Boolean =
+    OCarte.posIAccesE(this, pos)
+
 }

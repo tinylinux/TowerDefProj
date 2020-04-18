@@ -24,6 +24,7 @@ object OEffet {
     if (!e.effets.exists(
       x => (x.typeE == eff.typeE && x.prio > eff.prio)
     ) ) { // aucun effet appliqué n'est prioritaire sur eff
+      e.effets.filter(_.typeE == eff.typeE).foreach(_.fin)
       e.effets = e.effets.filter(_.typeE != eff.typeE)
       e.effets = eff :: e.effets
       eff.cible = e

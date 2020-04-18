@@ -23,16 +23,17 @@ class Mortier
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 40
   var vitesse: Double = 0.0
   var portee: Double = 2.0
   var rayon: Double = 1.0
   var deg: Int = 5
   var soin: Int = 0
+  var cooldownAct: Int = 7
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */
@@ -41,7 +42,7 @@ class Mortier
     /* AOE sur l'ennemi le plus proche */
     if (cooldown == 0) {
       SAttaque.attaqueAOEPlusProche(
-        this, carte.ennemis, 7
+        this, carte.ennemis, cooldownAct
       ) }
   }
 

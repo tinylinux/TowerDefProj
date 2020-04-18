@@ -27,7 +27,7 @@ object SDeplacement {
         // e se déplace le plus possible vers pos en un tick
         val depl = Pos.mPos(
           Pos.vect(posE, pos),
-          Pos.dist(posE, pos)*e.vitesse
+          e.vitesse/Pos.dist(posE, pos)
         ) // vecteur de déplacement
         e.carte.moveE(e, Pos.sPos(posE, depl))
       }

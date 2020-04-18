@@ -24,8 +24,10 @@ object CBAcheter {
               /* partie chargée, contrat et tuile sélectionnées */
               CPartAff.partie.get.acheter(a._2*2 + a._1, b)
             }
+            case None => ()
           }
         }
+        case None => ()
       }
     }
   }

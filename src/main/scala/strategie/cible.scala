@@ -50,7 +50,12 @@ object SCible {
     (e:Endommageable) => {
       e.effets.exists(
         (eff:Effet) => {
-          (eff.typeE == et) && (eff.prio > prio) } ) } )
+          (eff.typeE == et) && (
+            (eff.prio > prio) || (
+              (eff.prio == prio) && (eff.benef == benef)
+            )
+          )
+        } ) } )
 
 
   def triProche[A <: Endommageable](

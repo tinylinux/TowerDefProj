@@ -20,5 +20,8 @@ object TypeSniper
 
   var img: String = "tours/sniper.JPG"
 
+  var nom: String = "SNIPER"
+  var desc: String = "Il prend son temps pour viser parce qu'il aime le travail bien fait."
+
 
 }

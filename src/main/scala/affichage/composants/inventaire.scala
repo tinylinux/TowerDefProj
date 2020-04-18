@@ -18,12 +18,6 @@ import java.awt.Point
 object Inventaire
     extends Selectionneur {
 
-  /* SOUS COMPOSANT */
-
-  MenuGauche.peer.add(this.peer)
-  this.peer.setBounds(0,DimJeu.hZoneBoutons+DimJeu.hZoneActions,DimJeu.wInventaire,DimJeu.hInventaire)
-
-
   /* ATTRIBUTS */
 
   var tailleCase: Int = DimJeu.wInventaire/2

@@ -35,6 +35,7 @@ object OPartie {
       if (p.gM.mEnCours.isDefined) { // une manche est chargée
         if (p.gM.mEnCours.get.condFin.isDefined) { // cette manche est terminée
           if (p.gM.mEnCours.get.condFin.get) { // cette manche est gagnée
+            p.gM.mEnCours.get.actionFin // on effectue la dernière action
             p.gM.mEnCours = None // on la retire
             if (p.gM.m.isEmpty) { // c'était la dernière manche
               p.gagne = Some(true) // la partie est gagnée

@@ -78,6 +78,12 @@ object DimJeu {
   val lImgZVA = 40
 
 
+  /* Contenu ZoneInfos */
+  val lImgZI = 80
+  val xImg1 = 110
+  val xImg2 = 300
+
+
   /* Tuiles ZoneGrille */
   val tabTuileZoneGrille = Array(8,12,16,24,32,48,64,96,128,192,256)
   val iTuileZoneGrilleInit = 6

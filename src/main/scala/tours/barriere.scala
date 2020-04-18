@@ -24,16 +24,17 @@ class Barriere
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 150
   var vitesse: Double = 0.0
   var portee: Double = 0.0
   var rayon: Double = 0.0
   var deg: Int = 0
   var soin: Int = 0
+  var cooldownAct: Int = 0
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */

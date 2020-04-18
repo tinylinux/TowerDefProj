@@ -21,6 +21,7 @@ abstract class BLogo
   var nom: String // nom du fichier
   var l: Int // largeur du bouton
 
-  this.peer.setIcon(CImgJeu.imgBLogo(nom, l))
+  def initIcon =
+    this.peer.setIcon(CImgJeu.imgBLogo(nom, l))
 }
   

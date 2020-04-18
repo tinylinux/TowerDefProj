@@ -38,6 +38,7 @@ object CFenetreJeu {
 
 
   def mancheOn = {
+println("MANCHE ON")
     /* Boutons Jeu */
     BPause.enabled = true
     BSlow.enabled = true
@@ -50,11 +51,12 @@ object CFenetreJeu {
     BDetruire.enabled = false
 
     /* TimerJeu */
-    TimerJeu.stop()
+    TimerJeu.start()
   }
 
 
   def mancheOff = {
+println("MANCHE OFF")  
     /* Boutons Jeu */
     BPause.enabled = true
     BSlow.enabled = true
@@ -67,7 +69,7 @@ object CFenetreJeu {
     BDetruire.enabled = true
 
     /* TimerJeu */
-    TimerJeu.start()
+    TimerJeu.stop()
   }
 
 

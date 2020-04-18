@@ -23,7 +23,37 @@ object OCarte {
     pos: (Double, Double)
   ): Unit = {
     if (e.pos.isDefined) {
-      e.pos = Some(pos)
+      if (posIAccesE(c, Pos.posToI(pos)))
+        // la position à atteindre est accessible à un ennemi
+        e.pos = Some(pos)
+      else {
+        /* la position à atteindre n'est pas accessible
+         * l'ennemi est amené au bord de sa case courante,
+         * proche de la position à atteindre
+         */
+        val eps = 0.01
+        val cE = Pos.posToI(e.pos.get)
+        val cD = Pos.posToI(pos)
+        var (x,y) = e.pos.get
+
+        // calcul x
+        if (cE._1 == cD._1)
+          x = pos._1
+        else if (cE._1 < cD._1)
+          x = 1.0 - eps
+        else
+          x = eps
+
+        // calcul y
+        if (cE._2 == cD._2)
+          y = pos._2
+        else if (cE._2 < cD._2)
+          y = 1.0 - eps
+        else
+          y = eps
+
+        e.pos = Some((x,y))
+      }
     }
   }
 
@@ -127,4 +157,12 @@ object OCarte {
   ): Option[Tour] =
     c.tours.find(x => x.pos.isDefined
       && Pos.posToI(x.pos.get) == posI)
+
+  def posIAccesE(
+    c: Carte,
+    posI: (Int, Int)
+  ): Boolean =
+    c.tuiles(posI._1)(posI._2).accesE && c.tours.forall(t =>
+      (!t.pos.isDefined) || Pos.posToI(t.pos.get) != posI)
+
 }

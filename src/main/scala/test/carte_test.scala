@@ -24,26 +24,49 @@ object CarteTest
   var ennemis: List[Ennemi] = Nil
 
   /* Tuiles */
-  var maxX: Int = 8
-  var maxY: Int = 5
+  var maxX: Int = 13
+  var maxY: Int = 8
   var tuiles: Array[Array[Tuile]] =
+
     Array(
-      Array(Mur(), Mur(), Mur(), Mur(), Mur()),
-      Array(Mur(), Spawn(), Sol(), Sol(), Mur()),
-      Array(Mur(), Mur(), Mur(), Sol(), Mur()),
-      Array(Mur(), Sol(), Sol(), Sol(), Mur()),
-      Array(Mur(), Sol(), Mur(), Sol(), Mur()),
-      Array(Mur(), Sol(), Mur(), Sol(), Mur()),
-      Array(Mur(), Sol(), Sol(), Sol(), Mur()),
-      Array(Mur(), Mur(), Mur(), Mur(), Mur())
+      Array(Mur(),Mur(),Mur(),Mur(),Spawn(),Mur(),Mur(),Mur()),
+      Array(Sol(),Sol(),Sol(),Sol(),Sol(),Sol(),Sol(),Mur()),
+      Array(Sol(),Mur(),Mur(),Sol(),Mur(),Mur(),Sol(),Mur()),
+      Array(Sol(),Sol(),Sol(),Sol(),Sol(),Sol(),Sol(),Mur()),
+      Array(Mur(),Sol(),Sol(),Mur(),Mur(),Mur(),Sol(),Mur()),
+      Array(Mur(),Sol(),Sol(),Sol(),Sol(),Mur(),Sol(),Spawn()),
+      Array(Sol(),Sol(),Mur(),Mur(),Sol(),Sol(),Sol(),Mur()),
+      Array(Mur(),Sol(),Sol(),Sol(),Sol(),Mur(),Sol(),Mur()),
+      Array(Mur(),Sol(),Mur(),Mur(),Sol(),Mur(),Sol(),Mur()),
+      Array(Mur(),Sol(),Sol(),Sol(),Sol(),Mur(),Sol(),Spawn()),
+      Array(Mur(),Sol(),Mur(),Mur(),Sol(),Mur(),Sol(),Mur()),
+      Array(Mur(),Sol(),Sol(),Sol(),Sol(),Sol(),Sol(),Mur()),
+      Array(Mur(),Mur(),Spawn(),Mur(),Mur(),Mur(),Mur(),Mur()),
     )
 
+
+  /*    Array(
+      Array(XXXXKXXX
+      Array(OOOOOOOX
+      Array(OXXOXXOX
+      Array(OOOOOOOX
+      Array(XOOXXXOX
+      Array(XOOOOXOK
+      Array(OOXXOOOX
+      Array(XOOOOXOX
+      Array(XOXXOXOX
+      Array(XOOOOXOK
+      Array(XOXXOXOX
+      Array(XOOOOOOX
+      Array(XXKXXXXX
+    )
+ */
 
 
   /* Spawn tour principale */
   tP = new TourPrincipale
   if (tP != null)
-    spawnT(tP, (6,1))
+    spawnT(tP, (6,0))
 
 
 }

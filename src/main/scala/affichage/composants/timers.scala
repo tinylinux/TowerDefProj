@@ -25,7 +25,6 @@ object TimerJeu
           e: ActionEvent) =
           CTimerJeu.tick
       } ) {
-  this.stop()
 }
 
   
@@ -35,4 +34,5 @@ object TimerAff
         override def actionPerformed(
           e: ActionEvent) =
           CTimerAff.tick
-      } )
+      } ) {
+}

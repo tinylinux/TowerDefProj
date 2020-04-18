@@ -32,6 +32,7 @@ class Yogi
   var rayon: Double = 1.0
   var deg: Int = 30
   var soin: Int = 10
+  var cooldownAct: Int = 12
 
 
   /* METHODES */
@@ -43,7 +44,7 @@ class Yogi
       SAttaque.attaquePlusProche(
         this, carte.ennemis, 0
       )
-      cooldown = 12
+      cooldown = cooldownAct
     }
   }
 

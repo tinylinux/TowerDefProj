@@ -19,5 +19,8 @@ object TypeKamikaze
 
   var img: String = "ennemis/kamikaze.jpg"
 
+  var nom: String = "KAMIKAZE"
+  var desc: String = "Il transporte des explosifs (peut être juste pour les offrir comme cadeau)"
+
 
 }

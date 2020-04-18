@@ -21,4 +21,7 @@ abstract class TypeEndommageable {
 
   var img: String
 
+  var nom: String
+  var desc: String
+
 }

@@ -18,7 +18,10 @@ object TypeTourPrincipale
 
   /* ATTRIBUTS */
 
-  var img: String = "tours/tour_princiale.jpg"
+  var img: String = "tours/tour_principale.jpg"
+
+  var nom: String = "TOUR PRINCIPALE"
+  var desc: String = "Personne n'a jamais su pourquoi les ennemis voulaient la détruire."
 
 
 }

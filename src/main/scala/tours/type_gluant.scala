@@ -18,7 +18,10 @@ object TypeGluant
 
   /* ATTRIBUTS */
 
-  var img: String ="tours/gluant.jpg"
+  var img: String = "tours/gluant.jpg"
+
+  var nom: String = "GLUANT"
+  var desc: String = "Beurk."
 
 
 }

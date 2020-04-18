@@ -16,33 +16,28 @@ import scala.swing.event._
 
 
 object MenuBas
-    extends Panel {
-  this.peer.setLayout(null)
-  FenetreJeu.peer.add(this.peer)
-  this.peer.setBounds(DimJeu.wMenuGauche,DimJeu.hMenuGrille,DimJeu.wMenuBas,DimJeu.hMenuBas)
-}
+    extends Panel
 
 object MenuGauche
-    extends Panel {
-  this.peer.setLayout(null)
-  FenetreJeu.peer.add(this.peer)
-  this.peer.setBounds(0,0,DimJeu.wMenuGauche,DimJeu.hMenuGauche)
-}
+    extends Panel
 
 object MenuGrille
     extends Panel {
-  this.peer.setLayout(null)
-  FenetreJeu.peer.add(this.peer)
-  this.peer.setBounds(DimJeu.wMenuGauche,0,DimJeu.wMenuGrille,DimJeu.hMenuGrille)
+  listenTo(BMoins)
+  listenTo(BPlus)
+  listenTo(BCentre)
+
+  reactions += {
+    case ButtonClicked(BMoins) => CZoom.moins
+    case ButtonClicked(BPlus) => CZoom.plus
+    case ButtonClicked(BCentre) => CZoom.centrer
+  }
 }
+
 
 
 object ZoneBoutons
     extends Panel {
-  this.peer.setLayout(null)
-  MenuGauche.peer.add(this.peer)
-  this.peer.setBounds(0,0,DimJeu.wZoneBoutons,DimJeu.hZoneBoutons)
-
   listenTo(BPause)
   listenTo(BSlow)
   listenTo(BFast)
@@ -58,10 +53,6 @@ object ZoneBoutons
 
 object ZoneActions
     extends Panel {
-  this.peer.setLayout(null)
-  MenuGauche.peer.add(this.peer)
-  this.peer.setBounds(0,DimJeu.hZoneBoutons,DimJeu.wZoneActions,DimJeu.hZoneActions)
-
   listenTo(BAttaque)
   listenTo(BAcheter)
   listenTo(BDetruire)

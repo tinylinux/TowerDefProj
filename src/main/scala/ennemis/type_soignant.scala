@@ -19,5 +19,8 @@ object TypeSoignant
 
   var img: String = "ennemis/soignant.jpg"
 
+  var nom: String = "SOIGNANT"
+  var desc: String = "Il travaille sans relâche pour soigner les personnes vulnérables."
+
 
 }

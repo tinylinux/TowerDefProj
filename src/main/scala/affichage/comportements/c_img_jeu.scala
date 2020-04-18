@@ -53,7 +53,7 @@ object CImgJeu {
         val kv = (nom, image)
         imgChargees = imgChargees + kv
       } catch {
-        case _ : Throwable => ()
+        case _ : Throwable => println("Erreur chargement image \"" + nom + "\"")
       }
     }
   }

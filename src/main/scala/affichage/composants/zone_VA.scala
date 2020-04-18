@@ -17,9 +17,6 @@ import java.awt.Graphics2D
 
 object ZoneVA
     extends Panel {
-  this.peer.setLayout(null)
-  MenuBas.peer.add(this.peer)
-  this.peer.setBounds(0,0,DimJeu.wZoneVA,DimJeu.hZoneVA)
 
   override def paintComponent(
     g: Graphics2D

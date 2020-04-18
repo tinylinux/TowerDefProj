@@ -22,17 +22,21 @@ object Manche1
   def actionTick = {
     nbTick match {
       case 1 =>
-        gM.partie.carte.spawnE(new Fourmi, (1.5, 1.5))
+        OManche.spawnSomewhere(this, new Fourmi, (0,4))
       case 10 =>
-        gM.partie.carte.spawnE(new Fourmi, (1.2, 1.3))
-        gM.partie.carte.spawnE(new Racaillou, (1.3, 1.9))
+        OManche.spawnSomewhere(this, new Fourmi, (0,4))
+        OManche.spawnSomewhere(this, new Racaillou, (0,4))
       case 15 =>
-        gM.partie.carte.spawnE(new Fourmi, (1.2, 1.6))
+        OManche.spawnSomewhere(this, new Fourmi, (0,4))
+      case _ => ()
     }
   }
 
   def condFin: Option[Boolean] =
-    OManche.condFinClassique(this)
+    OManche.condFinClassique(this, 15)
+
+  def actionFin: Unit =
+    gM.partie.argent += 50
 }
 
 

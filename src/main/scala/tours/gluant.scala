@@ -24,24 +24,25 @@ class Gluant
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 30
   var vitesse: Double = 0.0
   var portee: Double = 2.0
   var rayon: Double = 0.0
   var deg: Int = 0
   var soin: Int = 0
+  var cooldownAct: Int = 7
 
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
+  
   /* METHODES */
 
   def actTick: Unit = {
     if (cooldown == 0) {
       SEffet.effetPlusProche(
-        this, new Ralenti, carte.ennemis, 7
+        this, new Ralenti, carte.ennemis, cooldownAct
       ) }
   }
 

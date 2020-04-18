@@ -31,6 +31,7 @@ abstract class Manche {
     OGestionManches.tickM(this)
   
   def actionTick: Unit
+  def actionFin: Unit
   def condFin: Option[Boolean]
 
 }

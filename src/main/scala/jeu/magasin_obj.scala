@@ -20,16 +20,10 @@ object OMagasin {
   // vérifie que le contrat existe
   def getContrat(
     m: Magasin,
-    idContrat: Int
-  ): Option[Contrat] = {
-    var i = idContrat
-    var l = m.contrats
-    while (i > 0) { l match {
-      case Nil => i = 0
-      case e :: l2 => l = l2
-    } }
-    l.headOption
-  }
+    i: Int // indice du contrat
+  ): Option[Contrat] =
+    try Some(m.contrats(i))
+    catch { case _ : Throwable => None }
 
 
   // vérifie que le contrat existe

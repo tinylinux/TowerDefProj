@@ -18,7 +18,10 @@ object TypeYogi
 
   /* ATTRIBUTS */
 
-  var img: String ="tours/yogi.jpg"
+  var img: String = "tours/yogi.jpg"
+
+  var nom: String = "YOGI"
+  var desc: String = "Lorsqu'il entre en transe, il envoie des attaques dévastatrices à ses ennemis tout en se soignant."
 
 
 }
