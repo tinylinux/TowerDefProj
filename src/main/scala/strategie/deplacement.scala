@@ -81,7 +81,7 @@ object SDeplacement {
   def deplacementTourPrincipale(
     e: Ennemi
   ): Boolean = {
-    if (e.carte.tP.pos.isDefined) {
+    if (e.carte.tP != null && e.carte.tP.pos.isDefined) {
       deplacementPathfinding(e, e.carte.tP.pos.get, true)
     }
     else { false }
@@ -92,7 +92,7 @@ object SDeplacement {
   def deplacementTourPrincipaleOsefTours(
     e: Ennemi
   ): Boolean = {
-    if (e.carte.tP.pos.isDefined) {
+    if (e.carte.tP != null && e.carte.tP.pos.isDefined) {
       deplacementPathfinding(e, e.carte.tP.pos.get, false)
     }
     else { false }
@@ -102,13 +102,14 @@ object SDeplacement {
   /* Déplace e vers l'ennemi le plus faible avec des dégâts */
   def deplacementEnnemiPlusFaibleAvecDegats(
     e: Ennemi
-  ) = {
+  ): Boolean = {
     if (e.pos.isDefined && e.vitesse != 0) {
       SCible.plusFaibleAvecDegats(
       e.carte.ennemis.filter(en => en != e)) match {
-        case None => ()
+        case None => false
         case Some(f:Endommageable) => deplacementPathfinding(e, f.pos.get, true)
       } }
+    else false
   }
 
 

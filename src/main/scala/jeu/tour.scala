@@ -19,6 +19,7 @@ abstract class Tour
   /* METHODES */
 
   def despawn: Unit =
-    carte.despawnT(this)
+    if (carte != null)
+      carte.despawnT(this)
 
 }

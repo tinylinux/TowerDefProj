@@ -31,7 +31,7 @@ object OCarte {
          * l'ennemi est amené au bord de sa case courante,
          * proche de la position à atteindre
          */
-        val eps = 0.01
+        val eps = 0.1
         val cE = Pos.posToI(e.pos.get)
         val cD = Pos.posToI(pos)
         var (x,y) = e.pos.get
@@ -40,17 +40,17 @@ object OCarte {
         if (cE._1 == cD._1)
           x = pos._1
         else if (cE._1 < cD._1)
-          x = 1.0 - eps
+          x = (cE._1:Double) + 1.0 - eps
         else
-          x = eps
+          x = (cE._1:Double) + eps
 
         // calcul y
         if (cE._2 == cD._2)
           y = pos._2
         else if (cE._2 < cD._2)
-          y = 1.0 - eps
+          y = (cE._2:Double) + 1.0 - eps
         else
-          y = eps
+          y = (cE._2:Double) + eps
 
         e.pos = Some((x,y))
       }

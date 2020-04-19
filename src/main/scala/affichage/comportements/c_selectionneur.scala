@@ -28,6 +28,15 @@ object CSelectionneur {
   }
 
 
+  def posToScreen(
+    s: Selectionneur,
+    pos: (Double, Double)
+  ): (Int, Int) = { (
+    s.offset._1 + (pos._1*s.tailleCase).toInt,
+    s.offset._2 + (pos._2*s.tailleCase).toInt
+  ) }
+
+
   def inBounds(
     s: Selectionneur,
     c: (Int, Int)

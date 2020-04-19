@@ -26,7 +26,7 @@ object PartieTest
 
   /* ATTRIBUTS */
 
-  var argent: Int = 10000
+  var argent: Int = 150
   var gagne: Option[Boolean] = None
 
 }

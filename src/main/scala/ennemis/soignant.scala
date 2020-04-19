@@ -43,7 +43,8 @@ class Soignant
     /* Se déplace vers l'ennemi le plus faible n'ayant pas
      * tous ses pv
      */
-    SDeplacement.deplacementEnnemiPlusFaibleAvecDegats(this)
+    if (!SDeplacement.deplacementEnnemiPlusFaibleAvecDegats(this))
+      SDeplacement.deplacementTourPrincipaleOsefTours(this)
 
 
     /* SOIN */

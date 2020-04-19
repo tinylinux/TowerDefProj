@@ -29,7 +29,7 @@ class Defenseuse
   var rayon: Double = 0.0
   var deg: Int = 10
   var soin: Int = 0
-  var cooldownAct: Int = 4
+  var cooldownAct: Int = 8
 
   var pv: Int = pvMax
   var pos: Option[(Double, Double)] = None

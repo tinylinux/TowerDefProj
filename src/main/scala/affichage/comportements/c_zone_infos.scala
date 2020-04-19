@@ -41,8 +41,8 @@ object CZoneInfos {
       // affichage d'un contrat
       val c = ZoneInfos.c.get
       c.typeAnc match {
-        case Some(tA) => afficherUpgrade(g, c)
-          // le contrat est une amélioration de tour
+        case Some(_) => afficherUpgrade(g, c)
+        // le contrat est une amélioration de tour
         case None => afficherSpawn(g, c)
           // le contrat est un achat de tour
       }
@@ -50,9 +50,27 @@ object CZoneInfos {
     else if (ZoneInfos.t.isDefined) {
       // affichage d'une tour
       val t = ZoneInfos.t.get
-
+      afficherTour(g, t)
     }
     g.setFont(oldFont)
+  }
+
+
+  def afficherTour(
+    g: Graphics2D,
+    t: Tour
+  ) = {
+    val i = DimJeu.hZoneInfos - DimJeu.lImgZI
+    g.drawImage(CImgJeu.img(t.typeE.img,
+      (DimJeu.lImgZI, DimJeu.lImgZI)),
+      i/2, i/2, null)
+    g.drawString(t.typeE.nom, DimJeu.xTxt1, 30)
+    g.drawString("PV:" + t.pv.toString + "/" + t.pvMax.toString, DimJeu.xTxt1, 60)
+    g.drawString("COOLDOWN:" + t.cooldown.toString + "/" + t.cooldownAct.toString, DimJeu.xTxt1, 90)
+    g.drawString("DEGATS:" + t.deg.toString, DimJeu.xTxt2, 30)
+    g.drawString("SOIN:" + t.soin.toString, DimJeu.xTxt2, 60)
+    g.drawString("PORTEE:" + t.portee.toString, DimJeu.xTxt3, 30)
+    g.drawString("RAYON:" + t.rayon.toString, DimJeu.xTxt3, 60)
   }
 
 

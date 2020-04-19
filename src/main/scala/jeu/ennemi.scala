@@ -19,6 +19,7 @@ abstract class Ennemi
   /* METHODES */
 
   def despawn: Unit =
-    carte.despawnE(this)
+    if (carte != null)
+      carte.despawnE(this)
 
 }

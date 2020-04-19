@@ -25,7 +25,7 @@ class Mortier
 
   var pvMax: Int = 40
   var vitesse: Double = 0.0
-  var portee: Double = 2.0
+  var portee: Double = 3.0
   var rayon: Double = 1.0
   var deg: Int = 5
   var soin: Int = 0

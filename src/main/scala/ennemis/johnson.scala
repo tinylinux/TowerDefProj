@@ -23,13 +23,13 @@ class Johnson
 
   /* ATTRIBUTS */
 
-  var pvMax: Int = 100
-  var vitesse: Double = 0.03
-  var portee: Double = 1.0
+  var pvMax: Int = 300
+  var vitesse: Double = 0.04
+  var portee: Double = 2.5
   var rayon: Double = 0.0
   var deg: Int = 30
   var soin: Int = 20
-  var cooldownAct: Int = 12
+  var cooldownAct: Int = 25
 
   var pv: Int = pvMax
   var pos: Option[(Double, Double)] = None

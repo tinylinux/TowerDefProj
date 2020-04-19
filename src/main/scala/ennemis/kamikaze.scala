@@ -25,9 +25,9 @@ class Kamikaze
 
   var pvMax: Int = 20
   var vitesse: Double = 0.2
-  var portee: Double = 1.0
-  var rayon: Double = 3.0
-  var deg: Int = 30
+  var portee: Double = 0.8
+  var rayon: Double = 2.0
+  var deg: Int = 20
   var soin: Int = 0
   var cooldownAct: Int = 0
 
@@ -48,10 +48,17 @@ class Kamikaze
       OEndommageable.mourir(this)
   }
 
-  def actMort: Unit =
-    SAttaque.attaqueAOEPos(
-      this, pos.get, carte.tours, 0)
-  // Explosion qui attaque tous les ennemis aux alentours (à portée)
+  var explose = false // le kamikaze a déjà explosé
 
+  def actMort: Unit = {
+    if (!explose) {
+      explose = true
+      SAttaque.attaqueAOEPos(
+        this, pos.get, carte.tours, 0)
+      SAttaque.attaqueAOEPos(
+        this, pos.get, carte.ennemis.filter(_ != this), 0)
+      // Explosion qui attaque tous les ennemis aux alentours (à portée)
+    }
+  }
 
 }

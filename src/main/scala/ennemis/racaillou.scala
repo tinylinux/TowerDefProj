@@ -24,8 +24,8 @@ class Racaillou
   /* ATTRIBUTS */
 
   var pvMax: Int = 20
-  var vitesse: Double = 0.025
-  var portee: Double = 1.0
+  var vitesse: Double = 0.035
+  var portee: Double = 1.1
   var rayon: Double = 0.0
   var deg: Int = 10
   var soin: Int = 0

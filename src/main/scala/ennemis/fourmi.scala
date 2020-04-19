@@ -25,11 +25,11 @@ class Fourmi
 
   var pvMax: Int = 5
   var vitesse: Double = 0.1
-  var portee: Double = 1.0
+  var portee: Double = 1.2
   var rayon: Double = 0.0
   var deg: Int = 2
   var soin: Int = 0
-  var cooldownAct: Int = 5
+  var cooldownAct: Int = 6
 
   var pv: Int = pvMax
   var pos: Option[(Double, Double)] = None

@@ -11,11 +11,35 @@ package affichage.comportements
 import affichage.composants._
 import jeu._
 
-import java.awt.{Graphics2D, Color, Rectangle}
+import java.awt.{Graphics2D, Color, Rectangle, Point}
+import scala.swing.Reactions._
+import scala.swing.event._
 
 
 
 object CZoneGrilleA {
+
+
+  def react: Reaction = {
+    case MouseMoved(_, p, _) =>
+      infosTour(p)
+    case MouseDragged(_, p, _) =>
+      infosTour(p)
+  }
+
+
+  def infosTour(
+    p: Point
+  ) = {
+    if (CPartAff.partie.isDefined) {
+      val c = CSelectionneur.pointToCase(ZoneGrille, p)
+      CPartAff.partie.get.carte.tours.find(t =>
+        t.pos.isDefined && Pos.posToI(t.pos.get) == c) match {
+        case Some(t:Tour) => CZoneInfos.infosTour(t)
+        case _ => ()
+      }
+    }
+  }
 
 
   def updateMax = {
@@ -37,12 +61,26 @@ object CZoneGrilleA {
     if (CPartAff.partie.isDefined) { // partie chargée
       /* FOND ET TOURS */
       dessineFondTours(g)
-
       /* ENNEMIS */
       dessineEnnemis(g)
+      /* Portée de la tour survolée */
+      chercheTourPortee(g)
     }
-
     CSelectionneur.paintComp(ZoneGrille, g)
+  }
+
+
+  def chercheTourPortee(
+    g: Graphics2D
+  ) = {
+    if (CPartAff.partie.isDefined) {
+      val c = CSelectionneur.pointToCase(ZoneGrille, ZoneGrille.posSouris)
+      CPartAff.partie.get.carte.tours.find(t =>
+        t.pos.isDefined && Pos.posToI(t.pos.get) == c) match {
+        case Some(t:Tour) => dessinePortee(g, t.pos.get, t.portee)
+        case _ => ()
+      }
+    }
   }
 
 
@@ -105,6 +143,20 @@ object CZoneGrilleA {
         dessineEffets(g, x, y, (tE*tC).toInt, e.effets)
       }
     } )
+  }
+
+
+  def dessinePortee(
+    g: Graphics2D,
+    pos: (Double, Double),
+    portee: Double
+  ) = {
+    val oldColor = g.getColor()
+    g.setColor(Color.red)
+    val centre = CSelectionneur.posToScreen(ZoneGrille, pos)
+    val rayon = (portee*ZoneGrille.tailleCase).toInt
+    g.drawOval(centre._1-rayon, centre._2-rayon, rayon*2, rayon*2)
+    g.setColor(oldColor)
   }
 
 

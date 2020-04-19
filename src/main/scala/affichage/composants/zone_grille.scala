@@ -33,6 +33,7 @@ object ZoneGrille
 
   reactions += { CZoneGrilleDND.react }
   reactions += { CZoomCtrl.react }
+  reactions += { CZoneGrilleA.react }
 
   override def paintComponent(
     g: Graphics2D

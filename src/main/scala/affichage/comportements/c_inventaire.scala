@@ -88,7 +88,7 @@ object CInventaire {
   ) = {
     if (CPartAff.partie.isDefined) {
       val (x,y) = CSelectionneur.pointToCase(Inventaire, p)
-      CPartAff.partie.get.mag.getContrat(2*x+y) match {
+      CPartAff.partie.get.mag.getContrat(2*y+x) match {
         case Some(c:Contrat) => CZoneInfos.infosContrat(c)
         case _ => ()
       }

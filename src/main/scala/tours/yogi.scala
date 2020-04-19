@@ -22,10 +22,6 @@ class Yogi
 
   /* ATTRIBUTS */
 
-  var pv: Int = pvMax
-  var pos: Option[(Double, Double)] = None
-  var cooldown: Int = 0
-
   var pvMax: Int = 70
   var vitesse: Double = 0.0
   var portee: Double = 3.0
@@ -33,6 +29,10 @@ class Yogi
   var deg: Int = 30
   var soin: Int = 10
   var cooldownAct: Int = 12
+
+  var pv: Int = pvMax
+  var pos: Option[(Double, Double)] = None
+  var cooldown: Int = 0
 
 
   /* METHODES */
