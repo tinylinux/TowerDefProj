@@ -1,13 +1,5 @@
-A completer :
+# Parties du jeu non implémentées :
 
-* c_inventaire.scala : comportement wheel direction
-* affichage sur tout l'écran (pause, gagné, perdu, fini)
-
-A faire :
-
-* drag n drop, zoom et centre pour ZoneGrille
-* ZoneInfos
+* affichage sur tout l'écran d'un message (pause, gagné, perdu, fini)
+* comportement boutons pause, paramètres
 * messages ZoneGrille
-* bouton paramètres BParam
-* affichage barre de vie Ennemis dans ZoneGrille
-* revoir système de cooldown
