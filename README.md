@@ -10,7 +10,7 @@ Projet Programmation 2 : Tower Defense
 
 * [partie1.pdf](https://github.com/tinylinux/TowerDefProj/blob/master/consignes/partie1.pdf)
 * [partie2.pdf](https://github.com/tinylinux/TowerDefProj/blob/master/consignes/partie2.pdf)
-
+* [partie3.pdf](https://github.com/tinylinux/TowerDefProj/blob/master/consignes/partie3.pdf)
 
 ## Présentation du jeu
 
