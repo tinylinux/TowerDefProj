@@ -1,0 +1,40 @@
+
+CARTE {
+  maxX: 13
+  maxY: 8
+  
+  TUILES {
+  XOOOXXOXXXXXX
+  XOXOOOOOOOOOX
+  XOXOOOXOXOXOS
+  XOOOXOXOXOXOX
+  SOXOXOOOOOOOX
+  XOXOXXOXXXXOX
+  XOOOOOOOOOOOX
+  XXXXXSXXXSXXX
+  }
+}
+
+TOUR PRINCIPALE {
+  tour: TourPrincipale
+  x: 6
+  y: 0
+}
+
+TOUR {
+  tour: Sniper
+  x: 4
+  y: 3
+}
+
+
+MANCHE {
+  SPAWN {
+    ennemi: Fourmi
+    x:0  y:4
+    tick: 5
+  }
+  FIN {
+    timeout: 10
+  }
+}
