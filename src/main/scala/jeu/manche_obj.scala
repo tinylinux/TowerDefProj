@@ -45,20 +45,6 @@ object OManche {
     case TypeSoignant => new Soignant
   } }
 
-  def spawnSomewhere(
-    m: Manche,
-    enn: Ennemi,
-    p: (Int,Int)
-  ) = {
-    m.gM.partie.carte.spawnE(
-      enn, Pos.sPos(
-        Pos.iToPos(p),
-        (Random.nextDouble(), Random.nextDouble())
-      )
-    )
-  }
-
-
 
   def spawnEnn(
     m: Manche,

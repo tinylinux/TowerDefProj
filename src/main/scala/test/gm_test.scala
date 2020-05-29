@@ -87,54 +87,48 @@ object Manche2
 
   var gM: GestionManches = GMTest
 
-  override def actionTick = {
-    nbTick match {
-      case 1 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case 6 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-        OManche.spawnSomewhere(this, new Racaillou, (9,7))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-      case 10 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-        OManche.spawnSomewhere(this, new Racaillou, (12,2))
-        OManche.spawnSomewhere(this, new Racaillou, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-      case 15 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Racaillou, (12,2))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case 40 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case _ => ()
-    }
-  }
-
-  /*
-  def condFin: Option[Boolean] =
-    OManche.condFinClassique(this, 40)
-   */
+  val s1 = (0,4)
+  val s2 = (5,7)
+  val s3 = (9,7)
+  val s4 = (12,2)
 
   var fin = 40
-  var sTick:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = List(
+    (TypeFourmi, Posmt_Int(s1), 1),
+    (TypeFourmi, Posmt_Int(s2), 1),
+    (TypeRacaillou, Posmt_Int(s1), 1),
+    (TypeFourmi, Posmt_Int(s4), 1),
+    (TypeFourmi, Posmt_Int(s3), 1),
+    (TypeFourmi, Posmt_Int(s3), 1),
+
+    (TypeFourmi, Posmt_Int(s1), 6),
+    (TypeFourmi, Posmt_Int(s2), 6),
+    (TypeFourmi, Posmt_Int(s4), 6),
+    (TypeFourmi, Posmt_Int(s3), 6),
+    (TypeRacaillou, Posmt_Int(s2), 6),
+    (TypeRacaillou, Posmt_Int(s4), 6),
+
+    (TypeFourmi, Posmt_Int(s2), 10),
+    (TypeRacaillou, Posmt_Int(s1), 10),
+    (TypeRacaillou, Posmt_Int(s4), 10),
+    (TypeRacaillou, Posmt_Int(s2), 10),
+    (TypeFourmi, Posmt_Int(s4), 10),
+
+    (TypeFourmi, Posmt_Int(s1), 15),
+    (TypeFourmi, Posmt_Int(s2), 15),
+    (TypeFourmi, Posmt_Int(s3), 15),
+    (TypeRacaillou, Posmt_Int(s4), 15),
+    (TypeRacaillou, Posmt_Int(s1), 15),
+
+    (TypeFourmi, Posmt_Int(s1), 40),
+    (TypeFourmi, Posmt_Int(s1), 40),
+    (TypeFourmi, Posmt_Int(s2), 40),
+    (TypeFourmi, Posmt_Int(s2), 40),
+    (TypeFourmi, Posmt_Int(s3), 40),
+    (TypeFourmi, Posmt_Int(s3), 40),
+    (TypeFourmi, Posmt_Int(s4), 40)
+  )
+
   var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
   var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
 
@@ -143,7 +137,7 @@ object Manche2
 }
 
 
-
+/*
 object Manche3
     extends Manche {
 
@@ -190,11 +184,6 @@ object Manche3
   var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
   var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
 
-  /*
-  def condFin: Option[Boolean] =
-    OManche.condFinClassique(this, 40)
-   */
-
   def actionFin: Unit =
     gM.partie.argent += 250
 }
@@ -218,13 +207,10 @@ object Manche4
   var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
   var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
 
-  /*
-  def condFin: Option[Boolean] =
-    OManche.condFinClassique(this, 1)
-   */
-
   def actionFin: Unit = ()
 }
+
+ */
 
 
 object GMTest
@@ -233,7 +219,7 @@ object GMTest
   /* REFERENCES */
 
   var partie: Partie = PartieTest
-  var m: List[Manche] = List(Manche1, Manche2, Manche3, Manche4)
+  var m: List[Manche] = List(Manche1, Manche2) /* , Manche3, Manche4) */
 
 
   /* ATTRIBUTS */

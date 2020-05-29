@@ -22,10 +22,10 @@ object CFenetreJeu {
   /* bloquer, debloquer, mancheOn et mancheOff effectuent l'activation/désactivation du timer et des boutons dans les différentes situations */
   def bloquer: Unit = {
     /* Boutons Jeu */
-    BPause.enabled = false
+    BCharger.enabled = false
     BSlow.enabled = false
     BFast.enabled = false
-    BParam.enabled = false
+    BSauvegarder.enabled = false
 
     /* Boutons Actions */
     BAttaque.enabled = false
@@ -40,10 +40,10 @@ object CFenetreJeu {
   def mancheOn = {
 println("MANCHE ON")
     /* Boutons Jeu */
-    BPause.enabled = true
+    BCharger.enabled = true
     BSlow.enabled = true
     BFast.enabled = true
-    BParam.enabled = true
+    BSauvegarder.enabled = true
 
     /* Boutons Actions */
     BAttaque.enabled = false
@@ -58,10 +58,10 @@ println("MANCHE ON")
   def mancheOff = {
 println("MANCHE OFF")  
     /* Boutons Jeu */
-    BPause.enabled = true
+    BCharger.enabled = true
     BSlow.enabled = true
     BFast.enabled = true
-    BParam.enabled = true
+    BSauvegarder.enabled = true
 
     /* Boutons Actions */
     BAttaque.enabled = true

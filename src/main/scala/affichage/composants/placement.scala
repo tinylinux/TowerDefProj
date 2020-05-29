@@ -48,10 +48,10 @@ object Placement {
 
     /* ZoneBoutons */
 
-    ZoneBoutons.peer.add(BPause.peer)
+    ZoneBoutons.peer.add(BCharger.peer)
     ZoneBoutons.peer.add(BSlow.peer)
     ZoneBoutons.peer.add(BFast.peer)
-    ZoneBoutons.peer.add(BParam.peer)
+    ZoneBoutons.peer.add(BSauvegarder.peer)
 
 
     /* MenuGauche */
@@ -89,19 +89,19 @@ object Placement {
 
     /* ZoneBoutons */
 
-    BPause.peer.setBounds(
+    BSlow.peer.setBounds(
       (DimJeu.wZoneBoutons-4*DimJeu.lBJeu)/5,
       (DimJeu.hZoneBoutons-DimJeu.lBJeu)/2,
       DimJeu.lBJeu,DimJeu.lBJeu)
-    BSlow.peer.setBounds(
+    BFast.peer.setBounds(
       (DimJeu.wZoneBoutons-4*DimJeu.lBJeu)*2/5 + DimJeu.lBJeu,
       (DimJeu.hZoneBoutons-DimJeu.lBJeu)/2,
       DimJeu.lBJeu,DimJeu.lBJeu)
-    BFast.peer.setBounds(
+    BCharger.peer.setBounds(
       (DimJeu.wZoneBoutons-4*DimJeu.lBJeu)*3/5 + DimJeu.lBJeu*2,
       (DimJeu.hZoneBoutons-DimJeu.lBJeu)/2,
       DimJeu.lBJeu,DimJeu.lBJeu)
-    BParam.peer.setBounds(
+    BSauvegarder.peer.setBounds(
       (DimJeu.wZoneBoutons-4*DimJeu.lBJeu)*4/5 + DimJeu.lBJeu*3,
       (DimJeu.hZoneBoutons-DimJeu.lBJeu)/2,
       DimJeu.lBJeu,DimJeu.lBJeu)

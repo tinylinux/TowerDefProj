@@ -13,7 +13,7 @@ import jeu._
 
 
 
-object CBParam {
+object CBSauvegarder {
 
   def clic: Unit = ()
 

@@ -10,7 +10,6 @@ import scala.util.parsing.combinator._
 
 
 
-
 object Verif {
 
   case object ErreurFormat extends Exception

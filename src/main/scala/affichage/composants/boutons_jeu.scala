@@ -14,9 +14,9 @@ import jeu._
 import scala.swing._
 
 
-object BPause
+object BCharger
     extends BLogo {
-  var nom: String = "icones/pause.jpg"
+  var nom: String = "icones/charger.jpg"
   var l: Int = DimJeu.lBJeu
   initIcon
 }
@@ -35,9 +35,9 @@ object BFast
   initIcon
 }
 
-object BParam
+object BSauvegarder
     extends BLogo {
-  var nom: String = "icones/param.jpg"
+  var nom: String = "icones/sauvegarder.jpg"
   var l: Int = DimJeu.lBJeu
   initIcon
 }

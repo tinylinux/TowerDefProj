@@ -38,16 +38,16 @@ object MenuGrille
 
 object ZoneBoutons
     extends Panel {
-  listenTo(BPause)
+  listenTo(BCharger)
   listenTo(BSlow)
   listenTo(BFast)
-  listenTo(BParam)
+  listenTo(BSauvegarder)
 
   reactions += {
-    case ButtonClicked(BPause) => CBPause.clic
+    case ButtonClicked(BCharger) => CBCharger.clic
     case ButtonClicked(BSlow) => CFreqTimer.freqSlow
     case ButtonClicked(BFast) => CFreqTimer.freqFast
-    case ButtonClicked(BParam) => CBParam.clic
+    case ButtonClicked(BSauvegarder) => CBSauvegarder.clic
   }
 }
 
