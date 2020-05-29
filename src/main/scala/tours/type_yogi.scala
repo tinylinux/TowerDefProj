@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeYogi
+case object TypeYogi
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

@@ -12,7 +12,7 @@ import strategie._
 import effets._
 
 
-object TypeJohnson
+case object TypeJohnson
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

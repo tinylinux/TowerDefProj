@@ -12,7 +12,7 @@ import strategie._
 import effets._
 
 
-object TypeKamikaze
+case object TypeKamikaze
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

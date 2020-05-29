@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeTourPrincipale
+case object TypeTourPrincipale
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

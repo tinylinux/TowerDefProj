@@ -19,6 +19,7 @@ object Manche1
 
   var gM: GestionManches = GMTest
 
+/*
   def actionTick = {
     nbTick match {
       case 1 =>
@@ -45,9 +46,36 @@ object Manche1
       case _ => ()
     }
   }
+ */
 
-  def condFin: Option[Boolean] =
-    OManche.condFinClassique(this, 15)
+  val s1 = (0,4)
+  val s2 = (5,7)
+  val s3 = (9,7)
+  val s4 = (12,2)
+
+  var fin = 15
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = List(
+    (TypeFourmi, Posmt_Int(s1), 1),
+    (TypeFourmi, Posmt_Int(s2), 1),
+    (TypeFourmi, Posmt_Int(s2), 1),
+    (TypeFourmi, Posmt_Int(s3), 1),
+    (TypeFourmi, Posmt_Int(s4), 1),
+    (TypeFourmi, Posmt_Int(s1), 6),
+    (TypeFourmi, Posmt_Int(s1), 6),
+    (TypeFourmi, Posmt_Int(s2), 6),
+    (TypeFourmi, Posmt_Int(s3), 6),
+    (TypeFourmi, Posmt_Int(s4), 6),
+    (TypeFourmi, Posmt_Int(s1), 10),
+    (TypeFourmi, Posmt_Int(s2), 10),
+    (TypeFourmi, Posmt_Int(s3), 10),
+    (TypeFourmi, Posmt_Int(s4), 10),
+    (TypeFourmi, Posmt_Int(s1), 15),
+    (TypeFourmi, Posmt_Int(s3), 15),
+    (TypeFourmi, Posmt_Int(s4), 15)
+  )
+  var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
+
 
   def actionFin: Unit =
     gM.partie.argent += 100
@@ -59,7 +87,7 @@ object Manche2
 
   var gM: GestionManches = GMTest
 
-  def actionTick = {
+  override def actionTick = {
     nbTick match {
       case 1 =>
         OManche.spawnSomewhere(this, new Fourmi, (0,4))
@@ -100,8 +128,15 @@ object Manche2
     }
   }
 
+  /*
   def condFin: Option[Boolean] =
     OManche.condFinClassique(this, 40)
+   */
+
+  var fin = 40
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
 
   def actionFin: Unit =
     gM.partie.argent += 150
@@ -114,7 +149,7 @@ object Manche3
 
   var gM: GestionManches = GMTest
 
-  def actionTick = {
+  override def actionTick = {
     nbTick match {
       case 1 =>
         OManche.spawnSomewhere(this, new Kamikaze, (5,7))
@@ -150,8 +185,15 @@ object Manche3
     }
   }
 
+  var fin = 40
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
+
+  /*
   def condFin: Option[Boolean] =
-    OManche.condFinClassique(this, 15)
+    OManche.condFinClassique(this, 40)
+   */
 
   def actionFin: Unit =
     gM.partie.argent += 250
@@ -163,7 +205,7 @@ object Manche4
 
   var gM: GestionManches = GMTest
 
-  def actionTick = {
+  override def actionTick = {
     nbTick match {
       case 1 =>
         OManche.spawnSomewhere(this, new Johnson, (5,7))
@@ -171,8 +213,15 @@ object Manche4
     }
   }
 
+  var fin = 1
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
+
+  /*
   def condFin: Option[Boolean] =
     OManche.condFinClassique(this, 1)
+   */
 
   def actionFin: Unit = ()
 }

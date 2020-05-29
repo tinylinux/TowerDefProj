@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeSniper
+case object TypeSniper
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

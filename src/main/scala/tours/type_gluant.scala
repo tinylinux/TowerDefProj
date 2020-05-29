@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeGluant
+case object TypeGluant
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

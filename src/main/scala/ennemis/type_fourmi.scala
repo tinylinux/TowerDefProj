@@ -12,7 +12,7 @@ import strategie._
 import effets._
 
 
-object TypeFourmi
+case object TypeFourmi
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

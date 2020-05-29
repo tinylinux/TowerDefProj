@@ -12,7 +12,7 @@ import strategie._
 import effets._
 
 
-object TypeSoignant
+case object TypeSoignant
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

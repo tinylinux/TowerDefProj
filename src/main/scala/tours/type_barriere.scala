@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeBarriere
+case object TypeBarriere
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

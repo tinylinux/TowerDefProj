@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeMortier
+case object TypeMortier
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

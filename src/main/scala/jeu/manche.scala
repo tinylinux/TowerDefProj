@@ -24,14 +24,22 @@ abstract class Manche {
 
   var nbTick: Int = 0
 
+  var fin: Int
+  var sTick: List[(TypeEndommageable, Posmt, Int)]
+  var sPer: List[(TypeEndommageable, Posmt, Int)]
+  var sAleat: List[(TypeEndommageable, Posmt, Double)]
+
 
   /* METHODES */
 
   def tick: Unit =
     OGestionManches.tickM(this)
   
-  def actionTick: Unit
+  def actionTick: Unit =
+    OManche.actionTickClassique(this)
+
   def actionFin: Unit
-  def condFin: Option[Boolean]
+  def condFin: Option[Boolean] =
+    OManche.condFinClassique(this)
 
 }

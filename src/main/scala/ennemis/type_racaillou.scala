@@ -12,7 +12,7 @@ import strategie._
 import effets._
 
 
-object TypeRacaillou
+case object TypeRacaillou
     extends TypeEndommageable {
 
   /* ATTRIBUTS */

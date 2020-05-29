@@ -13,7 +13,7 @@ import ennemis._
 import effets._
 
 
-object TypeLampadaire
+case object TypeLampadaire
     extends TypeEndommageable {
 
   /* ATTRIBUTS */
