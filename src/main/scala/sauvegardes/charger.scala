@@ -102,6 +102,7 @@ object Charger {
         a match {
           case DCarte_MaxX(v) => ca.maxX = v
           case DCarte_MaxY(v) => ca.maxY = v
+          case DCarte_Argent(v) => ca.partie.argent = v
           case DCarte_Tuiles(t) => {
             var lt = t
             if (lt.isEmpty)

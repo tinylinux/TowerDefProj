@@ -27,6 +27,7 @@ object Verif {
   }
 
   def verifCarte(c: List[DCarte]) = {
+    var argent: Option[Int] = None
     /* x, y indiqués dans le fichier */
     var x:Option[Int] = None
     var y:Option[Int] = None
@@ -43,6 +44,9 @@ object Verif {
           case DCarte_MaxY(v) =>
             if (y.isDefined) throw ErreurFormat
             else y = Some(v)
+          case DCarte_Argent(v) =>
+            if (argent.isDefined) throw ErreurFormat
+            else argent = Some(v)
           case DCarte_Tuiles(t) =>
             if (dimT.isDefined) throw ErreurFormat
             else {
@@ -70,7 +74,7 @@ object Verif {
       } }
     }
 
-    if (!x.isDefined || !y.isDefined || !dimT.isDefined)
+    if (!x.isDefined || !y.isDefined || !dimT.isDefined || !argent.isDefined)
       throw ErreurFormat
     if (dimT.get._1 != x.get || dimT.get._2 != y.get)
       throw ErreurFormat

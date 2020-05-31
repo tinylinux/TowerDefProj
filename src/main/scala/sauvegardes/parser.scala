@@ -19,6 +19,7 @@ import scala.util.parsing.combinator._
 trait DCarte
 case class DCarte_MaxX(v: Int) extends DCarte
 case class DCarte_MaxY(v: Int) extends DCarte
+case class DCarte_Argent(v: Int) extends DCarte
 case class DCarte_Tuiles(d: List[String]) extends DCarte
 
 trait DTour
@@ -83,12 +84,15 @@ object ParserJeu extends RegexParsers {
     def rMaxY = "maxY" ~ ":" ~ int ~ dCarte ^^ {
       case _ ~ _ ~ v ~ d => DCarte_MaxY(v) :: d
     }
+    def rArgent = "argent" ~ ":" ~ int ~ dCarte ^^ {
+      case _ ~ _ ~ v ~ d => DCarte_Argent(v) :: d
+    }
     def rTuiles = bTuile ~ dCarte ^^ {
       case b ~ d => DCarte_Tuiles(b) :: d
     }
     def rEps = "" ^^ { _ => Nil }
 
-    rMaxX | rMaxY | rTuiles | rEps
+    rMaxX | rMaxY | rArgent | rTuiles | rEps
   }
 
   def bTuile: Parser[List[String]] = {

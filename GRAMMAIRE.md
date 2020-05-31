@@ -23,6 +23,7 @@ Un fichier exemple est donné : `src/main/resources/saves/partie.tdp`.
 Le bloc `CARTE` contient les champs suivants :
 
 * `maxX` et `maxY` correspondant aux dimensions de la carte
+* `argent` correspondant à l'argent possédé par le joueur
 * le bloc `TUILES`
 
 Le bloc `TUILES` contient différentes chaines de caractères séparés par des blancs.

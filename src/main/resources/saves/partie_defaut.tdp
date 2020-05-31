@@ -1,6 +1,7 @@
 CARTE {
   maxX: 13
   maxY: 8
+  argent: 150
   TUILES {
     XOOOXXOXXXXXX
     XOXOOOOOOOOOX
@@ -354,6 +355,6 @@ MANCHE {
 }
 
 AFFICHAGE {
-  offset: (142,62)
-  zoom: 4
+  offset: (0,0)
+  zoom: 5
 }

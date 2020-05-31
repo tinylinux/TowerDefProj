@@ -58,6 +58,9 @@ object Enregistrer {
     sb.append("  maxY: ")
     sb.append(c.maxY.toString())
     sb.append("\n")
+    sb.append("  argent: ")
+    sb.append(c.partie.argent.toString())
+    sb.append("\n")
     sb.append("  TUILES {\n")
     for (j <- 0 until c.maxY) {
       sb.append("    ")
