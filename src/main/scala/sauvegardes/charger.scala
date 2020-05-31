@@ -39,6 +39,7 @@ object Charger {
           chargerGestionManches(gma, m)
           chargerTours(ca, t)
           chargerAffichage(a)
+          recopierContrats(ma)
 
           CPartAff.chargerPartie(pa)
         }
@@ -345,5 +346,28 @@ object Charger {
       }
     }
   }
+
+
+  def recopierContrats(
+    ma: Magasin
+  ) = {
+    val mb = CPartAff.partie.get.mag
+    mb.contrats.foreach( {
+      cb => {
+        var ca = new Contrat {
+          var mag: Magasin = ma
+          var typeNouv: TypeEndommageable = cb.typeNouv
+          var typeAnc: Option[TypeEndommageable] = cb.typeAnc
+          var prix: Int = cb.prix
+          def action(
+            posI: (Int, Int)
+          ): Unit = cb.action(posI)
+        }
+        ma.contrats = ca :: ma.contrats
+      }
+    } )
+    ma.contrats = ma.contrats.reverse
+  }
+
 
 }

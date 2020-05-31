@@ -354,6 +354,6 @@ MANCHE {
 }
 
 AFFICHAGE {
-  offset: (0,0)
-  zoom: 5
+  offset: (142,62)
+  zoom: 4
 }

@@ -57,6 +57,7 @@ object CZoneGrilleA {
   def paintComp(
     g: Graphics2D
   ) = {
+    CZoom.updateTC
     updateMax
     if (CPartAff.partie.isDefined) { // partie chargée
       /* FOND ET TOURS */
