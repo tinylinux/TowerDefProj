@@ -1,28 +1,26 @@
 
 CARTE {
-  maxX: 13
-  maxY: 8
+  maxX: 9
+  maxY: 5
+  argent: 10000
   
   TUILES {
-  XOOOXXOXXXXXX
-  XOXOOOOOOOOOX
-  XOXOOOXOXOXOS
-  XOOOXOXOXOXOX
-  SOXOXOOOOOOOX
-  XOXOXXOXXXXOX
-  XOOOOOOOOOOOX
-  XXXXXSXXXSXXX
+  XOOOXXOXX
+  XOXOOOOOX
+  XOXOOOXOX
+  XOOOXOXOS
+  XXSXXSXXX
   }
 }
 
 TOUR PRINCIPALE {
   tour: TourPrincipale
-  x: 6
+  x: 1
   y: 0
 }
 
 TOUR {
-  tour: Sniper
+  tour: Defenseuse
   x: 4
   y: 3
 }
@@ -31,10 +29,10 @@ TOUR {
 MANCHE {
   SPAWN {
     ennemi: Fourmi
-    x:0  y:4
-    tick: 5
+    x:2  y:4
+    aleat: 0.1
   }
   FIN {
-    timeout: 10
+    timeout: 100
   }
 }

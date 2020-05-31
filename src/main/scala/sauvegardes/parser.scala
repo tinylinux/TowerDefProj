@@ -63,7 +63,7 @@ object ParserJeu extends RegexParsers {
 
   val str: Parser[String] = "[a-zA-Z_]+".r
   val int: Parser[Int] = "[0-9]+".r ^^ { _.toInt }
-  val double: Parser[Double] = """[0-9]+"."[0-9]+""".r ^^ { _.toDouble }
+  val double: Parser[Double] = """\d+\.\d+""".r ^^ { _.toDouble }
 
   def tdp: Parser[DJeu] = {
     phrase(bCarte ~ bTp ~ tours ~ manches ~ affichage) ^^ {
@@ -223,7 +223,7 @@ object ParserJeu extends RegexParsers {
     def rPer = "per" ~ ":" ~ int ~ dSpawn ^^ {
       case _ ~ _ ~ v ~ d => DSpawn_Per(v) :: d
     }
-    def rAleat = "aleat" ~ ":" ~ int ~ dSpawn ^^ {
+    def rAleat = "aleat" ~ ":" ~ double ~ dSpawn ^^ {
       case _ ~ _ ~ v ~ d => DSpawn_Aleat(v) :: d
     }
     def rEps = "" ^^ { _ => Nil }

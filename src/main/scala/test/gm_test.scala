@@ -19,35 +19,6 @@ object Manche1
 
   var gM: GestionManches = GMTest
 
-/*
-  def actionTick = {
-    nbTick match {
-      case 1 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case 6 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case 10 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-      case 15 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case _ => ()
-    }
-  }
- */
-
   val s1 = (0,4)
   val s2 = (5,7)
   val s3 = (9,7)
@@ -137,51 +108,51 @@ object Manche2
 }
 
 
-/*
+
 object Manche3
     extends Manche {
 
   var gM: GestionManches = GMTest
 
-  override def actionTick = {
-    nbTick match {
-      case 1 =>
-        OManche.spawnSomewhere(this, new Kamikaze, (5,7))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (12,2))
-        OManche.spawnSomewhere(this, new Kamikaze, (9,7))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-      case 6 =>
-        OManche.spawnSomewhere(this, new Kamikaze, (5,7))
-        OManche.spawnSomewhere(this, new Kamikaze, (9,7))
-        OManche.spawnSomewhere(this, new Racaillou, (9,7))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-      case 10 =>
-        OManche.spawnSomewhere(this, new Kamikaze, (0,4))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Soignant, (0,4))
-        OManche.spawnSomewhere(this, new Racaillou, (12,2))
-        OManche.spawnSomewhere(this, new Racaillou, (5,7))
-        OManche.spawnSomewhere(this, new Kamikaze, (12,2))
-      case 15 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Soignant, (12,2))
-        OManche.spawnSomewhere(this, new Racaillou, (0,4))
-        OManche.spawnSomewhere(this, new Kamikaze, (9,7))
-      case 40 =>
-        OManche.spawnSomewhere(this, new Fourmi, (0,4))
-        OManche.spawnSomewhere(this, new Kamikaze, (5,7))
-        OManche.spawnSomewhere(this, new Fourmi, (5,7))
-        OManche.spawnSomewhere(this, new Kamikaze, (12,2))
-        OManche.spawnSomewhere(this, new Fourmi, (9,7))
-        OManche.spawnSomewhere(this, new Kamikaze, (9,7))
-      case _ => ()
-    }
-  }
+  val s1 = (0,4)
+  val s2 = (5,7)
+  val s3 = (9,7)
+  val s4 = (12,2)
 
   var fin = 40
-  var sTick:List[(TypeEndommageable, Posmt, Int)] = Nil
-  var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = List(
+    (TypeFourmi, Posmt_Int(s1), 1),
+    (TypeRacaillou, Posmt_Int(s1), 1),
+    (TypeKamikaze, Posmt_Int(s4), 1),
+    (TypeKamikaze, Posmt_Int(s3), 1),
+    (TypeFourmi, Posmt_Int(s3), 1),
+
+    (TypeKamikaze, Posmt_Int(s2), 6),
+    (TypeFourmi, Posmt_Int(s4), 6),
+    (TypeFourmi, Posmt_Int(s3), 6),
+    (TypeRacaillou, Posmt_Int(s2), 6),
+    (TypeRacaillou, Posmt_Int(s4), 6),
+
+    (TypeFourmi, Posmt_Int(s2), 10),
+    (TypeRacaillou, Posmt_Int(s1), 10),
+    (TypeKamikaze, Posmt_Int(s4), 10),
+    (TypeRacaillou, Posmt_Int(s2), 10),
+    (TypeFourmi, Posmt_Int(s4), 10),
+
+    (TypeFourmi, Posmt_Int(s1), 15),
+    (TypeKamikaze, Posmt_Int(s3), 15),
+    (TypeRacaillou, Posmt_Int(s4), 15),
+    (TypeRacaillou, Posmt_Int(s1), 15),
+
+    (TypeKamikaze, Posmt_Int(s1), 40),
+    (TypeFourmi, Posmt_Int(s2), 40),
+    (TypeRacaillou, Posmt_Int(s2), 40),
+    (TypeFourmi, Posmt_Int(s4), 40)
+  )
+
+  var sPer:List[(TypeEndommageable, Posmt, Int)] = List(
+    (TypeFourmi, Posmt_Int(s1), 8)
+  )
   var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
 
   def actionFin: Unit =
@@ -189,28 +160,27 @@ object Manche3
 }
 
 
+
 object Manche4
     extends Manche {
 
   var gM: GestionManches = GMTest
 
-  override def actionTick = {
-    nbTick match {
-      case 1 =>
-        OManche.spawnSomewhere(this, new Johnson, (5,7))
-      case _ => ()
-    }
-  }
+  val s1 = (0,4)
+  val s2 = (5,7)
+  val s3 = (9,7)
+  val s4 = (12,2)
 
   var fin = 1
-  var sTick:List[(TypeEndommageable, Posmt, Int)] = Nil
+  var sTick:List[(TypeEndommageable, Posmt, Int)] = List(
+    (TypeJohnson, Posmt_Int(s2), 1)
+  )
   var sPer:List[(TypeEndommageable, Posmt, Int)] = Nil
   var sAleat:List[(TypeEndommageable, Posmt, Double)] = Nil
 
   def actionFin: Unit = ()
 }
 
- */
 
 
 object GMTest
