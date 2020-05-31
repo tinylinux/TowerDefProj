@@ -212,7 +212,7 @@ object Charger {
       } }
     }
     var posmt = {
-      if (dPos) Posmt_Int(posI)
+      if (!dPos) Posmt_Int(posI)
       else Posmt_Double(pos)
     }
     var typeEnn = { enn match {

@@ -1,0 +1,359 @@
+CARTE {
+  maxX: 13
+  maxY: 8
+  TUILES {
+    XOOOXXOXXXXXX
+    XOXOOOOOOOOOX
+    XOXOOOXOXOXOS
+    XOOOXOXOXOXOX
+    SOXOXOOOOOOOX
+    XOXOXXOXXXXOX
+    XOOOOOOOOOOOX
+    XXXXXSXXXSXXX
+  }
+}
+
+TOUR PRINCIPALE {
+  tour: TourPrincipale
+  x: 6
+  y: 0
+}
+
+MANCHE {
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 15
+  }
+
+  FIN {
+    timeout: 15
+  }
+}
+
+MANCHE {
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 0
+    y: 4
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 1
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 5
+    y: 7
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 12
+    y: 2
+    tick: 6
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 0
+    y: 4
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 12
+    y: 2
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 5
+    y: 7
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 10
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 12
+    y: 2
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Racaillou
+    x: 0
+    y: 4
+    tick: 15
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 40
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 0
+    y: 4
+    tick: 40
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 40
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 5
+    y: 7
+    tick: 40
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 40
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 9
+    y: 7
+    tick: 40
+  }
+
+  SPAWN {
+    ennemi: Fourmi
+    x: 12
+    y: 2
+    tick: 40
+  }
+
+  FIN {
+    timeout: 40
+  }
+}
+
+AFFICHAGE {
+  offset: (0,0)
+  zoom: 5
+}

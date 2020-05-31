@@ -11,7 +11,6 @@ package affichage.comportements
 import affichage.composants._
 import jeu._
 import sauvegardes._
-import scala.io.Source
 
 
 object CBCharger {
