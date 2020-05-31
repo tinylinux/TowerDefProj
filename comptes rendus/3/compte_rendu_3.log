@@ -1,0 +1,210 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.20)  31 MAY 2020 19:17
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**compte_rendu_3.tex
+(./compte_rendu_3.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-05-15>
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count175
+\float@exts=\toks18
+\float@box=\box45
+\@float@everytoks=\toks19
+\@floatcapt=\box46
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/05/13 3.44 The Babel package
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/05/13 3.44 Babel common definitions
+\babel@savecnt=\count176
+\U@D=\dimen137
+\l@babelnohyphens=\language47
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count177
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel-french/frenchb.ldf
+Language: frenchb 2020/04/18 v3.5h French support from the babel system
+
+
+Package babel-french Warning: Option `frenchb' for Babel is *deprecated*,
+(babel-french)                it might be removed sooner or later. Please
+(babel-french)                use `french' instead; reported on input line 35.
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2020/04/18 v3.5h French support from the babel system
+Package babel Info: \l@acadian = using hyphenrules for french
+(babel)             (\language15) on input line 91.
+Package babel Info: \l@canadien = using hyphenrules for french
+(babel)             (\language15) on input line 92.
+\FB@nonchar=\count178
+Package babel Info: Making : an active character on input line 421.
+Package babel Info: Making ; an active character on input line 422.
+Package babel Info: Making ! an active character on input line 423.
+Package babel Info: Making ? an active character on input line 424.
+\FBguill@level=\count179
+\FBold@everypar=\toks20
+\FB@Mht=\dimen138
+\mc@charclass=\count180
+\mc@charfam=\count181
+\mc@charslot=\count182
+\std@mcc=\count183
+\dec@mcc=\count184
+\c@FBcaption@count=\count185
+\listindentFB=\dimen139
+\descindentFB=\dimen140
+\labelindentFB=\dimen141
+\labelwidthFB=\dimen142
+\leftmarginFB=\dimen143
+\parindentFFN=\dimen144
+\FBfnindent=\dimen145
+)))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count186
+\l__pdf_internal_box=\box47
+)
+(./compte_rendu_3.aux)
+\openout1 = `compte_rendu_3.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+
+(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count187
+\scratchdimen=\dimen146
+\scratchbox=\box48
+\nofMPsegments=\count188
+\nofMParguments=\count189
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count190
+\MPscratchDim=\dimen147
+\MPnumerator=\count191
+\makeMPintoPDFobject=\count192
+\everyMPtoPDFconversion=\toks22
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Info: Redefining \degres on input line 14.
+LaTeX Info: Redefining \dots on input line 14.
+LaTeX Info: Redefining \up on input line 14.
+
+
+Package french.ldf Warning: OT1 encoding should not be used for French.
+(french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
+(french.ldf)                of your document; reported on input line 14.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 16.
+
+Overfull \hbox (26.44504pt too wide) in paragraph at lines 28--31
+[]\OT1/cmr/m/n/10 La par-tie du d^^Seveloppement pr^^Sesent^^See dans ce do-cu-
+ment concerne l'impl^^Sementation
+ []
+
+[1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (12.77841pt too wide) in paragraph at lines 69--70
+\OT1/cmr/m/n/10 du-rant la manche (type d'en-nemi, em-pla-ce-ment), sui-vant pl
+u-sieurs m^^Sethodes
+ []
+
+[2] [3] (./compte_rendu_3.aux) ) 
+Here is how much of TeX's memory you used:
+ 2692 strings out of 481590
+ 39911 string characters out of 5921287
+ 293498 words of memory out of 5000000
+ 18556 multiletter control sequences out of 15000+600000
+ 536593 words of font info for 38 fonts, out of 8000000 for 9000
+ 430 hyphenation exceptions out of 8191
+ 32i,6n,35p,341b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb>
+Output written on compte_rendu_3.pdf (3 pages, 72931 bytes).
+PDF statistics:
+ 34 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
